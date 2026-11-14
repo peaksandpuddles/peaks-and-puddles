@@ -33,38 +33,129 @@ const homePath = getRelativeLocaleUrl(locale, "");
     data-home-path={homePath}
     class="app-layout my-1"
   >
-    <section id="hero" class="border-border border-b pt-8 pb-6">
-      <h1 class="my-4 inline-block text-4xl font-bold sm:my-8 sm:text-5xl">
-        Welcome to Peaks + Puddles
-      </h1>{" "}
-      <a
-        target="_blank"
-        href={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}rss.xml`}
-        class="inline-block"
-        aria-label="RSS Feed"
-        title="RSS Feed"
-      >
-        <IconRss
-          width={20}
-          height={20}
-          class="stroke-accent scale-125 stroke-3 rtl:-rotate-90"
-        />
-        <span class="sr-only">RSS Feed</span>
-      </a>
+    <!-- Hero Image Carousel with 15px Rounded Corners -->
+    <section class="relative mx-auto mt-4 mb-8 w-full overflow-hidden rounded-[15px] shadow-md">
+      <!-- Slides Container -->
+      <div id="hero-carousel" class="flex transition-transform duration-500 ease-out">
+        
+        <!-- Slide 1 -->
+        <div class="relative min-w-full">
+          <img
+            src="/assets/hero-1.jpg"
+            alt="Kids forest school waterproof kit in Scottish woodland"
+            class="h-72 w-full object-cover sm:h-96"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-6 text-white sm:p-8">
+            <h2 class="text-xl font-bold sm:text-3xl">Forest Nursery Kit That Actually Works</h2>
+            <p class="mt-1 mb-4 max-w-lg text-sm text-gray-200 sm:text-base">
+              Alpine layering logic meets real-world Scottish mud. Tested waterproofs, merino layers, and warm boots.
+            </p>
+            <a
+              href="/tags/kit-lists"
+              class="inline-block rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 shadow transition hover:bg-gray-100"
+            >
+              Explore Kit Lists →
+            </a>
+          </div>
+        </div>
 
-      <p>
-        Adventure Gear + Muddy Trails
-      </p>
-      <p class="mt-2">
-        Read the blog posts or check{" "}
-        <LinkButton
-          class="hover:text-accent underline decoration-dashed underline-offset-4"
-          href="https://github.com/satnaing/astro-paper#readme"
+        <!-- Slide 2 -->
+        <div class="relative min-w-full">
+          <img
+            src="/assets/hero-2.jpg"
+            alt="Trusted UK and Nordic kids outdoor clothing retailers"
+            class="h-72 w-full object-cover sm:h-96"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-6 text-white sm:p-8">
+            <h2 class="text-xl font-bold sm:text-3xl">Where to Buy Technical Kids' Gear</h2>
+            <p class="mt-1 mb-4 max-w-lg text-sm text-gray-200 sm:text-base">
+              Our vetted directory of UK forest school stockists, Nordic brands, and pre-loved marketplaces.
+            </p>
+            <a
+              href="/where-to-shop"
+              class="inline-block rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 shadow transition hover:bg-gray-100"
+            >
+              Where to Shop →
+            </a>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="relative min-w-full">
+          <img
+            src="/assets/hero-3.jpg"
+            alt="Family micro-adventures and muddy woodland walks"
+            class="h-72 w-full object-cover sm:h-96"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent"></div>
+          <div class="absolute bottom-0 left-0 p-6 text-white sm:p-8">
+            <h2 class="text-xl font-bold sm:text-3xl">All-Weather Family Adventures</h2>
+            <p class="mt-1 mb-4 max-w-lg text-sm text-gray-200 sm:text-base">
+              Practical guides to muddy trails, winter micro-adventures, and getting outdoors with young kids.
+            </p>
+            <a
+              href="/tags/adventures"
+              class="inline-block rounded-lg bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 shadow transition hover:bg-gray-100"
+            >
+              Read Adventure Guides →
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Left / Right Arrows -->
+      <button
+        id="carousel-prev"
+        aria-label="Previous slide"
+        class="absolute top-1/2 left-3 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white backdrop-blur-sm transition hover:bg-black/70"
+      >
+        &#10094;
+      </button>
+      <button
+        id="carousel-next"
+        aria-label="Next slide"
+        class="absolute top-1/2 right-3 -translate-y-1/2 rounded-full bg-black/40 p-2 text-white backdrop-blur-sm transition hover:bg-black/70"
+      >
+        &#10095;
+      </button>
+
+      <!-- Dots Indicator -->
+      <div id="carousel-dots" class="absolute right-6 bottom-6 flex gap-2">
+        <button data-index="0" aria-label="Slide 1" class="h-2.5 w-2.5 rounded-full bg-white transition"></button>
+        <button data-index="1" aria-label="Slide 2" class="h-2.5 w-2.5 rounded-full bg-white/40 transition"></button>
+        <button data-index="2" aria-label="Slide 3" class="h-2.5 w-2.5 rounded-full bg-white/40 transition"></button>
+      </div>
+    </section>
+
+    <!-- Hero Introduction & RSS -->
+    <section id="hero" class="border-border border-b pt-4 pb-6">
+      <div class="flex items-center justify-between">
+        <h1 class="my-4 text-3xl font-bold sm:text-4xl">
+          Welcome to Peaks + Puddles
+        </h1>
+        <a
+          target="_blank"
+          href={`${import.meta.env.BASE_URL.replace(/\/?$/, "/")}rss.xml`}
+          class="inline-block"
+          aria-label="RSS Feed"
+          title="RSS Feed"
         >
-          README
-        </LinkButton>{" "}
-        for more info.
+          <IconRss
+            width={20}
+            height={20}
+            class="stroke-accent scale-125 stroke-3 rtl:-rotate-90"
+          />
+          <span class="sr-only">RSS Feed</span>
+        </a>
+      </div>
+
+      <p class="text-lg italic">
+        Adventure Gear + Muddy Trails in Scotland &amp; Beyond
       </p>
+      
       {
         socials.length > 0 && (
           <div class="mt-4 flex max-sm:flex-col sm:items-center">
@@ -130,6 +221,49 @@ const homePath = getRelativeLocaleUrl(locale, "");
     const baseRoot = import.meta.env.BASE_URL.replace(/\/?$/, "/");
     if (indexLayout?.layout) {
       sessionStorage.setItem("backUrl", indexLayout.homePath ?? baseRoot);
+    }
+
+    // Carousel Controller
+    const track = document.getElementById("hero-carousel");
+    const prevBtn = document.getElementById("carousel-prev");
+    const nextBtn = document.getElementById("carousel-next");
+    const dots = document.querySelectorAll("#carousel-dots button");
+
+    if (track && prevBtn && nextBtn) {
+      let index = 0;
+      const totalSlides = dots.length;
+
+      function updateCarousel() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("bg-white", i === index);
+          dot.classList.toggle("bg-white/40", i !== index);
+        });
+      }
+
+      prevBtn.addEventListener("click", () => {
+        index = (index - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      });
+
+      nextBtn.addEventListener("click", () => {
+        index = (index + 1) % totalSlides;
+        updateCarousel();
+      });
+
+      dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+          index = Number(dot.getAttribute("data-index"));
+          updateCarousel();
+        });
+      });
+
+      const timer = setInterval(() => {
+        index = (index + 1) % totalSlides;
+        updateCarousel();
+      }, 6000);
+
+      document.addEventListener("astro:before-swap", () => clearInterval(timer), { once: true });
     }
   });
 </script>
