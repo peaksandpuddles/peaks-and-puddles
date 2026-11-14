@@ -1,23 +1,23 @@
+import { getAstroPaperConfig } from "./types/config";
+
+const config = getAstroPaperConfig();
+
 export const SITE = {
-  website: "https://peaksandpuddles.co.uk/",
-  author: "Peaks and Puddles",
-  profile: "https://peaksandpuddles.co.uk/about",
-  desc: "Alpine layering logic, Nordic outdoor philosophy, and real-world Scottish mud—practical gear, forest nursery kit lists, and family adventure guides.",
-  title: "Peaks and Puddles",
-  ogImage: "astropaper-og.jpg",
-  lightAndDarkMode: true,
-  postPerIndex: 6,
-  postPerPage: 8,
+  website: config.site.url,
+  author: config.site.author,
+  profile: config.site.profile,
+  desc: config.site.description,
+  title: config.site.title,
+  ogImage: config.site.ogImage,
+  lightAndDarkMode: config.features.lightAndDarkMode,
+  postPerIndex: config.posts.perIndex,
+  postPerPage: config.posts.perPage,
   scheduledPostMargin: 15 * 60 * 1000,
-  showArchives: false,
-  showBackButton: true,
-  editPost: {
-    enabled: false,
-    text: "Suggest Changes",
-    url: "",
-  },
-  dynamicOgImage: true,
-  dir: "ltr",
-  lang: "en-GB",
-  timezone: "Europe/London",
+  showArchives: config.features.showArchives,
+  showBackButton: config.features.showBackButton,
+  editPost: config.features.editPost,
+  dynamicOgImage: config.features.dynamicOgImage,
+  dir: config.site.dir,
+  lang: config.site.lang,
+  timezone: config.site.timezone,
 } as const;
