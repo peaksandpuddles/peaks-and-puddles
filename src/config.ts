@@ -1,6 +1,6 @@
-import { getAstroPaperConfig } from "./types/config";
+import config from "../astro-paper.config";
 
-const config = getAstroPaperConfig();
+export { config };
 
 export const SITE = {
   website: config.site.url,
