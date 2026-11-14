@@ -13,22 +13,18 @@
 /* Light theme values */
 :root,
 [data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
-  --accent-foreground: #ffffff;
-  --muted: #e6e6e6;
-  --muted-foreground: #6b7280;
-  --border: #ece9e9;
+  --background: #faf9f5; /* Warm parchment off-white */
+  --foreground: #1b2620; /* Deep pine charcoal */
+  --accent: #1b4332;     /* Deep woodland forest green */
+  --muted: #e9ece6;      /* Soft moss tint */
+  --border: #d1d8ce;     /* Subtle sage border */
 }
 
 /* Dark theme values */
 [data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --accent-foreground: #ffffff;
-  --muted: #343f60;
-  --muted-foreground: #afb9ca;
-  --border: #ab4b08;
+  --background: #121a16; /* Deep night forest */
+  --foreground: #f1f5f2; /* Crisp snow white */
+  --accent: #f59e0b;     /* Warm lantern amber */
+  --muted: #1e2b24;      /* Dark pine card surface */
+  --border: #2d3e35;     /* Forest slate border */
 }
