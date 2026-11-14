@@ -42,7 +42,9 @@ html[data-theme="light"] {
   --background: #faf9f5; /* Warm parchment off-white */
   --foreground: #1b2620; /* Deep pine charcoal */
   --accent: #1b4332;     /* Deep woodland forest green */
+  --accent-foreground: #f3f3f3;
   --muted: #e9ece6;      /* Soft moss tint */
+  --muted-foreground: #54515b;
   --border: #d1d8ce;     /* Subtle sage border */
 }
 
@@ -50,6 +52,8 @@ html[data-theme="dark"] {
   --background: #121a16; /* Deep night forest */
   --foreground: #f1f5f2; /* Crisp snow white */
   --accent: #f59e0b;     /* Warm lantern amber */
+  --accent-foreground: #1a1a1a;
   --muted: #1e2b24;      /* Dark pine card surface */
+  --muted-foreground: #ddbfa7;
   --border: #2d3e35;     /* Forest slate border */
 }
