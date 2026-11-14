@@ -1,148 +1,42 @@
-import type { Site, SocialObjects } from "./types";
+/**
+ * Internal resolved configuration used throughout the codebase.
+ *
+ * Prefer editing `astro-paper.config.ts` instead of this file. This module exists to
+ * apply defaults and expose a fully-resolved config shape (`ResolvedAstroPaperConfig`).
+ */
+import userConfig from "@/astro-paper.config";
+import type { ResolvedAstroPaperConfig } from "./types/config";
+import { PUBLIC_GOOGLE_SITE_VERIFICATION } from "astro:env/client";
 
-export const SITE: Site = {
-  website: "https://astropaper.pages.dev/", // replace this with your deployed domain later if needed
-  author: "Sat Naing",
-  profile: "https://satna.ing/",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  title: "AstroPaper",
-  ogImage: "astropaper-og.jpg",
-  lightAndDarkMode: true,
-  postPerIndex: 4,
-  postPerPage: 4,
-  scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
-  showArchives: true,
-  showBackButton: true,
-  editPost: {
-    enabled: true,
-    text: "Suggest Changes",
-    url: "https://github.com/satnaing/astro-paper/edit/main/src/content/blog/",
+const DEFAULT_OG_IMAGE = "default-og.jpg";
+
+const config: ResolvedAstroPaperConfig = {
+  site: {
+    ...userConfig.site,
+    ogImage: userConfig.site.ogImage ?? DEFAULT_OG_IMAGE,
+    lang: userConfig.site.lang ?? "en",
+    timezone: userConfig.site.timezone ?? "UTC",
+    dir: userConfig.site.dir ?? "ltr",
+    googleVerification:
+      userConfig.site.googleVerification || PUBLIC_GOOGLE_SITE_VERIFICATION,
   },
-  dynamicOgImage: true,
-  dir: "ltr",
-  lang: "en",
-  timezone: "Asia/Bangkok",
+  posts: {
+    perPage: userConfig.posts?.perPage ?? 4,
+    perIndex: userConfig.posts?.perIndex ?? 4,
+    // Deprecated and unused. Not read from userConfig, so builds don't warn about it.
+    scheduledPostMargin: 15 * 60 * 1000,
+  },
+  features: {
+    lightAndDarkMode: userConfig.features?.lightAndDarkMode ?? true,
+    dynamicOgImage: userConfig.features?.dynamicOgImage ?? true,
+    showArchives: userConfig.features?.showArchives ?? true,
+    showBackButton: userConfig.features?.showBackButton ?? true,
+    editPost: userConfig.features?.editPost ?? { enabled: false },
+    search: userConfig.features?.search ?? "pagefind",
+    toc: userConfig.features?.toc ?? true,
+  },
+  socials: userConfig.socials ?? [],
+  shareLinks: userConfig.shareLinks ?? [],
 };
 
-export const LOCALE = {
-  lang: "en", // html lang code. Set this to 'en' for English, 'fr' for French, etc.
-  langTag: ["en-EN"], // BCP 47 Language Tags. Set this to [] to use the environment default
-} as const;
-
-export const LOGO_IMAGE = {
-  enable: false,
-  svg: false,
-  width: 40,
-  height: 40,
-};
-
-export const SOCIALS: SocialObjects = [
-  {
-    name: "Github",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Github`,
-    active: true,
-  },
-  {
-    name: "Facebook",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Facebook`,
-    active: true,
-  },
-  {
-    name: "Instagram",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Instagram`,
-    active: true,
-  },
-  {
-    name: "LinkedIn",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on LinkedIn`,
-    active: true,
-  },
-  {
-    name: "Mail",
-    href: "mailto:yourmail@gmail.com",
-    linkTitle: `Send an email to ${SITE.title}`,
-    active: true,
-  },
-  {
-    name: "Twitter",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Twitter`,
-    active: false,
-  },
-  {
-    name: "Twitch",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Twitch`,
-    active: false,
-  },
-  {
-    name: "YouTube",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on YouTube`,
-    active: false,
-  },
-  {
-    name: "WhatsApp",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on WhatsApp`,
-    active: false,
-  },
-  {
-    name: "Snapchat",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Snapchat`,
-    active: false,
-  },
-  {
-    name: "CodePen",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on CodePen`,
-    active: false,
-  },
-  {
-    name: "Discord",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Discord`,
-    active: false,
-  },
-  {
-    name: "GitLab",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on GitLab`,
-    active: false,
-  },
-  {
-    name: "Reddit",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Reddit`,
-    active: false,
-  },
-  {
-    name: "Skype",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Skype`,
-    active: false,
-  },
-  {
-    name: "Steam",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Steam`,
-    active: false,
-  },
-  {
-    name: "Telegram",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Telegram`,
-    active: false,
-  },
-  {
-    name: "Mastodon",
-    href: "https://github.com/satnaing/astro-paper",
-    linkTitle: ` ${SITE.title} on Mastodon`,
-    active: false,
-  },
-];
+export default config;
