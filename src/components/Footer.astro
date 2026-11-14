@@ -1,15 +1,12 @@
 ---
 import type { HTMLAttributes } from "astro/types";
 import Socials from "./Socials.astro";
-import { useTranslations } from "@/i18n";
 
 type Props = {
   noMarginTop?: boolean;
 } & HTMLAttributes<"footer">;
 
 const { noMarginTop = false, class: className, ...attrs } = Astro.props;
-
-const t = useTranslations(Astro.currentLocale);
 const currentYear = new Date().getFullYear();
 ---
 
@@ -18,13 +15,35 @@ const currentYear = new Date().getFullYear();
   {...attrs}
 >
   <div
-    class="border-border flex flex-col items-center justify-between border-t py-6 sm:flex-row-reverse sm:py-4"
+    class="border-t border-[var(--border)] flex flex-col items-center justify-between gap-4 py-6 sm:flex-row-reverse sm:py-5"
   >
     <Socials />
-    <div class="my-2 flex flex-col items-center whitespace-nowrap sm:flex-row">
-      <span>{t.footer.copyright} &#169; {currentYear}</span>
-      <span class="hidden sm:inline">&nbsp;|&nbsp;</span>
-      <span>{t.footer.allRightsReserved}</span>
-    </div>
+
+    <nav
+      aria-label="Footer navigation"
+      class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm"
+    >
+      <a href="/about" class="underline-offset-4 hover:underline">
+        About
+      </a>
+      <a href="/affiliate-disclosure" class="underline-offset-4 hover:underline">
+        Affiliate Disclosure
+      </a>
+      <a href="/privacy-policy" class="underline-offset-4 hover:underline">
+        Privacy Policy
+      </a>
+      <a href="/contact" class="underline-offset-4 hover:underline">
+        Contact
+      </a>
+    </nav>
+  </div>
+
+  <div class="pb-6 text-center text-xs opacity-75 sm:text-left">
+    <p>
+      Copyright &#169; {currentYear} Peaks and Puddles. All rights reserved.
+    </p>
+    <p class="mt-1">
+      As an Amazon Associate I earn from qualifying purchases.
+    </p>
   </div>
 </footer>

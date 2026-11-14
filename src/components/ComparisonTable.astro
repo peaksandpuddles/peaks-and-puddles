@@ -1,0 +1,52 @@
+---
+interface Row {
+  name: string;
+  bestFor: string;
+  waterproofRating: string;
+  breathability: string;
+  affiliateUrl: string;
+  ctaLabel?: string;
+}
+
+interface Props {
+  caption?: string;
+  rows: Row[];
+}
+
+const { caption = "Head-to-Head Gear Comparison", rows = [] } = Astro.props;
+---
+
+<div class="my-6 overflow-x-auto rounded-xl border border-[var(--border)]">
+  <table class="w-full text-left text-sm border-collapse">
+    <caption class="sr-only">{caption}</caption>
+    <thead class="bg-[var(--muted)] text-xs uppercase tracking-wider">
+      <tr>
+        <th class="p-3.5 font-semibold">Gear Pick</th>
+        <th class="p-3.5 font-semibold">Best For</th>
+        <th class="p-3.5 font-semibold">Waterproofness</th>
+        <th class="p-3.5 font-semibold">Breathability / Lining</th>
+        <th class="p-3.5 font-semibold text-right">Stockists</th>
+      </tr>
+    </thead>
+    <tbody class="divide-y divide-[var(--border)] bg-[var(--background)]">
+      {rows.map(row => (
+        <tr class="hover:bg-[var(--muted)]/30">
+          <td class="p-3.5 font-semibold">{row.name}</td>
+          <td class="p-3.5">{row.bestFor}</td>
+          <td class="p-3.5">{row.waterproofRating}</td>
+          <td class="p-3.5">{row.breathability}</td>
+          <td class="p-3.5 text-right whitespace-nowrap">
+            <a
+              href={row.affiliateUrl}
+              target="_blank"
+              rel="sponsored nofollow noopener"
+              class="inline-block rounded-md bg-[#1b4332] px-3 py-1.5 text-xs font-semibold text-white no-underline hover:bg-[#2d6a4f] dark:bg-amber-500 dark:text-slate-950"
+            >
+              {row.ctaLabel || "Check Stock"}
+            </a>
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

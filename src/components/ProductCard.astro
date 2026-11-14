@@ -1,0 +1,90 @@
+---
+interface Props {
+  title: string;
+  badge?: string;
+  ratingSpec?: string;
+  summary: string;
+  pros?: string[];
+  cons?: string[];
+  ctaText?: string;
+  affiliateUrl: string;
+  secondaryCtaText?: string;
+  secondaryAffiliateUrl?: string;
+}
+
+const {
+  title,
+  badge,
+  ratingSpec,
+  summary,
+  pros = [],
+  cons = [],
+  ctaText = "Check Latest Price & Sizes",
+  affiliateUrl,
+  secondaryCtaText,
+  secondaryAffiliateUrl,
+} = Astro.props;
+---
+
+<div class="my-6 rounded-xl border border-[var(--border)] bg-[var(--muted)]/40 p-5 shadow-sm">
+  <div class="flex flex-wrap items-start justify-between gap-2">
+    <div>
+      {badge && (
+        <span class="mb-1.5 inline-block rounded-full bg-amber-600/15 px-2.5 py-0.5 text-xs font-semibold tracking-wide text-amber-800 dark:text-amber-300">
+          {badge}
+        </span>
+      )}
+      <h3 class="mt-0 mb-1 text-xl font-bold text-[var(--foreground)]">{title}</h3>
+    </div>
+    {ratingSpec && (
+      <span class="rounded-md border border-[var(--border)] bg-[var(--background)] px-2.5 py-1 text-xs font-medium">
+        {ratingSpec}
+      </span>
+    )}
+  </div>
+
+  <p class="mt-2 text-sm leading-relaxed opacity-90">{summary}</p>
+
+  {(pros.length > 0 || cons.length > 0) && (
+    <div class="mt-4 grid gap-3 sm:grid-cols-2 text-sm">
+      {pros.length > 0 && (
+        <div class="rounded-lg bg-[var(--background)] p-3 border border-[var(--border)]">
+          <p class="font-semibold text-emerald-800 dark:text-emerald-400 mb-1">Why We Rate It</p>
+          <ul class="list-disc pl-4 space-y-1 text-xs">
+            {pros.map(pro => <li>{pro}</li>)}
+          </ul>
+        </div>
+      )}
+      {cons.length > 0 && (
+        <div class="rounded-lg bg-[var(--background)] p-3 border border-[var(--border)]">
+          <p class="font-semibold text-amber-800 dark:text-amber-400 mb-1">Worth Knowing</p>
+          <ul class="list-disc pl-4 space-y-1 text-xs">
+            {cons.map(con => <li>{con}</li>)}
+          </ul>
+        </div>
+      )}
+    </div>
+  )}
+
+  <div class="mt-5 flex flex-wrap items-center gap-3">
+    <a
+      href={affiliateUrl}
+      target="_blank"
+      rel="sponsored nofollow noopener"
+      class="inline-flex items-center justify-center rounded-lg bg-[#1b4332] px-5 py-2.5 text-sm font-semibold text-white no-underline transition hover:bg-[#2d6a4f] dark:bg-amber-500 dark:text-slate-950 dark:hover:bg-amber-400"
+    >
+      {ctaText} →
+    </a>
+
+    {secondaryCtaText && secondaryAffiliateUrl && (
+      <a
+        href={secondaryAffiliateUrl}
+        target="_blank"
+        rel="sponsored nofollow noopener"
+        class="inline-flex items-center justify-center rounded-lg border border-[var(--border)] bg-[var(--background)] px-4 py-2.5 text-sm font-medium no-underline transition hover:border-[var(--accent)]"
+      >
+        {secondaryCtaText}
+      </a>
+    )}
+  </div>
+</div>
