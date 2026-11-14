@@ -23,7 +23,6 @@ export default defineAstroPaperConfig({
     showBackButton: true,
     editPost: {
       enabled: false,
-      url: "",
     },
     search: "pagefind",
     toc: true,
