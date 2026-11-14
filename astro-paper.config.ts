@@ -3,9 +3,9 @@ import { defineAstroPaperConfig } from "./src/types/config";
 export default defineAstroPaperConfig({
   site: {
     url: "https://peaksandpuddles.co.uk/",
-    title: "Peaks and Puddles",
-    description: "Alpine layering logic, Nordic outdoor philosophy, and real-world Scottish mud—practical gear, forest nursery kit lists, and family adventure guides.",
-    author: "Peaks and Puddles",
+    title: "Peaks + Puddles",
+    description: "Alpine layering logic, Nordic outdoor philosophy, and real-world Scottish mud—practical gear, forest nursery kit lists and family adventure guides.",
+    author: "Peaks + Puddles",
     profile: "https://peaksandpuddles.co.uk/about",
     ogImage: "default-og.jpg",
     lang: "en",
@@ -28,11 +28,13 @@ export default defineAstroPaperConfig({
     toc: true,
   },
   socials: [
+    { name: "instagram", url: "https://www.instagram.com/peaks.and.puddles" },
     { name: "mail", url: "mailto:hello@peaksandpuddles.co.uk" },
   ],
   shareLinks: [
     { name: "facebook", url: "https://www.facebook.com/sharer.php?u=" },
-    { name: "instagram", url: "https://instagram.com/peaks.and.puddles" },
-    { name: "mail", url: "mailto:hello@peaksandpuddles.co.uk" },
+    { name: "whatsapp", url: "https://wa.me/?text=" },
+    { name: "pinterest", url: "https://pinterest.com/pin/create/button/?url=" },
+    { name: "mail", url: "mailto:?subject=See%20this%20post&body=" },
   ],
 });
