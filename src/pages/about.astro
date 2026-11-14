@@ -1,36 +1,62 @@
 ---
-import { getEntry, render } from "astro:content";
-import Layout from "@/layouts/Layout.astro";
-import Header from "@/components/Header.astro";
-import Breadcrumb from "@/components/Breadcrumb.astro";
-import Main from "@/components/Main.astro";
-import Footer from "@/components/Footer.astro";
-import config from "@/config";
-
-const about = await getEntry("pages", "about");
-
-if (!about) {
-  throw new Error(
-    "Missing content entry: `about.md` or `about.mdx` in `src/content/pages/`"
-  );
-}
-
-const { Content } = await render(about);
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<Layout
-  title={`${about.data.title} | ${config.site.title}`}
-  description={about.data.description}
-  ogImage={about.data.ogImage}
-  canonicalURL={about.data.canonicalURL}
->
+<Layout title="About Peaks and Puddles" description="Alpine layering logic, Nordic outdoor philosophy, and real-world Scottish mud—practical gear, activities, and family adventure guides from a snowboarder mum.">
   <Header />
+  <main id="main-content" class="mx-auto w-full max-w-3xl px-4 pb-12 pt-8">
+    <article class="prose max-w-none">
+      <h1>About Peaks and Puddles</h1>
 
-  <Breadcrumb />
+      <h2>From Swiss Peaks to Scottish Puddles</h2>
+      <p>
+        If you have ever stood in a freezing, sideways-rain Scottish car park at 8:30 AM trying to wrestle a wriggling 4-year-old into a stiff waterproof suit, you already know why <strong>Peaks and Puddles</strong> exists.
+      </p>
+      <p>
+        Growing up in Switzerland—with deep family ties to Finland—being outdoors in sub-zero temperatures wasn't a special occasion; it was just everyday life. Between years of snowboarding in the Alps and absorbing the Nordic approach to all-weather childhood (where there is no such thing as bad weather, only the wrong layers), I learned early on how technical clothing actually works. You learn quickly that cotton holds moisture and makes you freeze the second you stop moving, that cheap "waterproof" shells turn into saunas after twenty minutes of climbing, and that a 5,000mm hydrostatic head rating performs very differently depending on whether you are standing up or kneeling in wet slush.
+      </p>
+      <p>
+        Then I became a mum in Scotland, and my 4-year-old started <strong>forest nursery</strong>.
+      </p>
+      <p>
+        Suddenly, I was reading UK nursery kit lists asking for <em>"breathable, taped-seam waterproofs, merino base layers, and insulated boots"</em>—and realizing how hard it was to find straightforward, practical advice that bridged genuine mountain-grade layering with everyday British woodland mud.
+      </p>
 
-  <Main pageTitle={about.data.title} class="app-prose">
-    <Content />
-  </Main>
+      <h2>What Peaks and Puddles Is All About</h2>
+      <p>
+        <strong>Peaks and Puddles</strong> started as a place to share honest, technical gear advice for parents navigating forest school, muddy dog walks, and winter adventures—and it is growing into a wider hub for getting outside with young kids.
+      </p>
+      <ul>
+        <li><strong>Gear That Survives Real Weather:</strong> From merino base layers and bib-and-brace dungarees to insulated wellies and mittens that actually stay on, we translate technical outdoor specs into plain English.</li>
+        <li><strong>No-Nonsense Trade-Offs:</strong> Expensive isn't always better for fast-growing kids. If a £25 wipe-clean pair of dungarees beats a £90 technical shell for daily nursery mud, I will tell you straight.</li>
+        <li><strong>Family Adventures, Activities & Holidays:</strong> Because the right kit is only half the story, you will also find practical guides to kid-friendly outdoor activities, seasonal micro-adventures, and active family holidays—plus our own curated <strong>Peaks and Puddles</strong> outdoor merch down the line.</li>
+      </ul>
 
+      <h2>How We Illustrate & Protect Our Family's Privacy</h2>
+      <p>
+        All gear insights and outdoor tips on this site come from hands-on family life in Scotland, years of mountain sports, and close fabric-spec comparisons. To protect my child's privacy online, I never publish identifying photos of my son—alongside licensed editorial stock imagery used for illustration, any real-world gear shots you see here are strictly neck-down outfit checks, muddy boots by the back door, and flat-lays of the kit itself.
+      </p>
+
+      <h2>Transparency, Partnerships & Affiliate Disclosure</h2>
+      <p>
+        <strong>Peaks and Puddles</strong> is an independent, mum-run platform built to keep families warm, dry, and outdoors. To support the site and keep our guides free to read, we fund our work in a few transparent ways:
+      </p>
+      <ul>
+        <li><strong>Affiliate Links:</strong> Some links on our pages are affiliate links. If you click through to a retailer and buy something, we may earn a small commission at no extra cost to you. <em>As an Amazon Associate I earn from qualifying purchases.</em> We also partner with vetted outdoor and family retailers via networks such as Awin.</li>
+        <li><strong>Selected Brand Partnerships:</strong> We occasionally work with carefully vetted, genuinely good outdoor brands on sponsored placements or featured gear spotlights. Every partner brand is held to the same real-world weather standards we use for our own family, and any paid placement is always clearly labelled.</li>
+      </ul>
+
+      <h2>Get in Touch</h2>
+      <p>
+        Have a question about sizing winter layers, want to share a favourite muddy Scottish trail, or interested in a brand partnership? Drop me an email anytime at <a href="mailto:hello@peaksandpuddles.co.uk">hello@peaksandpuddles.co.uk</a>.
+      </p>
+      <p>
+        See you out in the mud,<br />
+        <strong>Founder & Mum, Peaks and Puddles</strong>
+      </p>
+    </article>
+  </main>
   <Footer />
 </Layout>
