@@ -8,7 +8,7 @@ export default defineAstroPaperConfig({
     author: "Peaks and Puddles",
     profile: "https://peaksandpuddles.co.uk/about",
     ogImage: "default-og.jpg",
-    lang: "en-GB",
+    lang: "en",
     timezone: "Europe/London",
     dir: "ltr",
   },
