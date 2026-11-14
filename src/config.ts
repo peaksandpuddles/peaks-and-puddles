@@ -1,6 +1,7 @@
 import config from "../astro-paper.config";
 
-export { config };
+export { config, config as CONFIG, config as ASTRO_PAPER_CONFIG };
+export default config;
 
 export const SITE = {
   website: config.site.url,
