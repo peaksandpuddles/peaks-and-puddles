@@ -1,12 +1,12 @@
 ---
 interface USPItem {
   text: string;
-  href?: string; // Optional: Makes that specific USP clickable
+  href?: string;
 }
 
 interface Props {
   items: USPItem[];
-  ticker?: boolean; // Set to true for continuous scrolling, false for static
+  ticker?: boolean;
 }
 
 const { items, ticker = false } = Astro.props;
@@ -14,9 +14,9 @@ const { items, ticker = false } = Astro.props;
 
 <div class="bg-accent text-accent-foreground relative z-50 overflow-hidden py-2 text-xs font-medium sm:text-sm">
   {ticker ? (
-    /* Ticking / Scrolling Mode */
-    <div class="flex w-full overflow-hidden whitespace-nowrap">
-      <div class="animate-marquee flex min-w-full shrink-0 items-center justify-around gap-8">
+    /* Added 'group' here so hovering anywhere pauses both tracks together */
+    <div class="group flex w-full overflow-hidden whitespace-nowrap">
+      <div class="animate-marquee group-hover:[animation-play-state:paused] flex min-w-full shrink-0 items-center justify-around gap-8">
         {items.map((item) => (
           <span class="inline-flex items-center gap-2">
             {item.href ? (
@@ -29,8 +29,8 @@ const { items, ticker = false } = Astro.props;
           </span>
         ))}
       </div>
-      <!-- Duplicate for seamless infinite loop effect -->
-      <div aria-hidden="true" class="animate-marquee flex min-w-full shrink-0 items-center justify-around gap-8">
+      <!-- Duplicate track for seamless infinite loop -->
+      <div aria-hidden="true" class="animate-marquee group-hover:[animation-play-state:paused] flex min-w-full shrink-0 items-center justify-around gap-8">
         {items.map((item) => (
           <span class="inline-flex items-center gap-2">
             {item.href ? (
@@ -68,9 +68,6 @@ const { items, ticker = false } = Astro.props;
     100% { transform: translateX(-100%); }
   }
   .animate-marquee {
-    animation: marquee 25s linear infinite;
-  }
-  .animate-marquee:hover {
-    animation-play-state: paused; /* Pauses on hover so users can easily click links */
+    animation: marquee 28s linear infinite;
   }
 </style>
