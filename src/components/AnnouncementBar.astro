@@ -1,0 +1,76 @@
+---
+interface USPItem {
+  text: string;
+  href?: string; // Optional: Makes that specific USP clickable
+}
+
+interface Props {
+  items: USPItem[];
+  ticker?: boolean; // Set to true for continuous scrolling, false for static
+}
+
+const { items, ticker = false } = Astro.props;
+---
+
+<div class="bg-accent text-accent-foreground relative z-50 overflow-hidden py-2 text-xs font-medium sm:text-sm">
+  {ticker ? (
+    /* Ticking / Scrolling Mode */
+    <div class="flex w-full overflow-hidden whitespace-nowrap">
+      <div class="animate-marquee flex min-w-full shrink-0 items-center justify-around gap-8">
+        {items.map((item) => (
+          <span class="inline-flex items-center gap-2">
+            {item.href ? (
+              <a href={item.href} class="hover:underline flex items-center gap-1 transition-opacity hover:opacity-80">
+                {item.text} →
+              </a>
+            ) : (
+              <span>{item.text}</span>
+            )}
+          </span>
+        ))}
+      </div>
+      <!-- Duplicate for seamless infinite loop effect -->
+      <div aria-hidden="true" class="animate-marquee flex min-w-full shrink-0 items-center justify-around gap-8">
+        {items.map((item) => (
+          <span class="inline-flex items-center gap-2">
+            {item.href ? (
+              <a href={item.href} class="hover:underline flex items-center gap-1 transition-opacity hover:opacity-80">
+                {item.text} →
+              </a>
+            ) : (
+              <span>{item.text}</span>
+            )}
+          </span>
+        ))}
+      </div>
+    </div>
+  ) : (
+    /* Static Centered Mode */
+    <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-6 px-4 text-center">
+      {items.map((item) => (
+        <span class="inline-flex items-center gap-1">
+          {item.href ? (
+            <a href={item.href} class="hover:underline font-semibold transition-opacity hover:opacity-80">
+              {item.text} →
+            </a>
+          ) : (
+            <span>{item.text}</span>
+          )}
+        </span>
+      ))}
+    </div>
+  )}
+</div>
+
+<style>
+  @keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
+  }
+  .animate-marquee {
+    animation: marquee 25s linear infinite;
+  }
+  .animate-marquee:hover {
+    animation-play-state: paused; /* Pauses on hover so users can easily click links */
+  }
+</style>

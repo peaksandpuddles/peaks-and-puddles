@@ -3,6 +3,7 @@ import { Font } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 import { resolveDefaultOgImagePath } from "@/utils/resolveDefaultOgImagePath";
 import { getAssetPath } from "@/utils/withBase";
+import AnnouncementBar from "@/components/AnnouncementBar.astro"; // <-- 1. Import it here
 import config from "@/config";
 import "@/styles/global.css";
 
@@ -113,29 +114,41 @@ const rssHref = getAssetPath("rss.xml");
     <ClientRouter />
 
     {import.meta.env.PUBLIC_GTM_ID && (
-  <script is:inline define:vars={{ gtmId: import.meta.env.PUBLIC_GTM_ID }}>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer',gtmId);
-  </script>
-)}
+      <script is:inline define:vars={{ gtmId: import.meta.env.PUBLIC_GTM_ID }}>
+        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        })(window,document,'script','dataLayer',gtmId);
+      </script>
+    )}
   </head>
   <body
     class="bg-background font-app text-foreground selection:bg-accent/75 selection:text-accent-foreground flex min-h-svh flex-col"
   >
-  {import.meta.env.PUBLIC_GTM_ID && (
-  <noscript>
-    <iframe
-      src={`https://www.googletagmanager.com/ns.html?id=${import.meta.env.PUBLIC_GTM_ID}`}
-      height="0"
-      width="0"
-      style="display:none;visibility:hidden"
-    ></iframe>
-  </noscript>
-)}
+    {import.meta.env.PUBLIC_GTM_ID && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${import.meta.env.PUBLIC_GTM_ID}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+        ></iframe>
+      </noscript>
+    )}
+
+    <!-- 2. Announcement / USP Bar placed at the very top of the body -->
+    <AnnouncementBar 
+      ticker={true} 
+      items={[
+        { text: "🌲 Tested in Scottish Woodlands", href: "/tags/kit-lists" },
+        { text: "🚚 Free UK Delivery on Orders over £50" },
+        { text: "⭐ Rated Brand Directory", href: "/where-to-shop" }
+      ]}
+    />
+
     <slot />
+    
     <script>
       import "@/scripts/theme";
     </script>
