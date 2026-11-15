@@ -57,3 +57,21 @@ html[data-theme="dark"] {
   --muted-foreground: #ddbfa7;
   --border: #2d3e35;     /* Forest slate border */
 }
+/* Seamless Topographic Contour Background on Outer Margins */
+body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%23000000' stroke-width='1.1' stroke-opacity='0.08'%3E%3Cpath d='M-20 40 C 40 10, 80 80, 140 50 S 220 10, 260 40'/%3E%3Cpath d='M-20 85 C 50 55, 90 125, 150 95 S 215 55, 260 85'/%3E%3Cpath d='M-20 135 C 35 110, 100 175, 160 140 S 225 105, 260 135'/%3E%3Cpath d='M-20 185 C 55 155, 85 220, 145 190 S 210 155, 260 185'/%3E%3Cpath d='M-20 230 C 40 205, 95 255, 155 225 S 220 195, 260 230'/%3E%3Cellipse cx='75' cy='95' rx='36' ry='20' transform='rotate(-14 75 95)'/%3E%3Cellipse cx='75' cy='95' rx='18' ry='9' transform='rotate(-14 75 95)'/%3E%3Cellipse cx='185' cy='175' rx='42' ry='22' transform='rotate(18 185 175)'/%3E%3Cellipse cx='185' cy='175' rx='20' ry='10' transform='rotate(18 185 175)'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 320px 320px;
+}
+
+/* Switch contour lines to white in Dark Mode */
+html[data-theme="dark"] body,
+.dark body {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240' viewBox='0 0 240 240'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1.1' stroke-opacity='0.09'%3E%3Cpath d='M-20 40 C 40 10, 80 80, 140 50 S 220 10, 260 40'/%3E%3Cpath d='M-20 85 C 50 55, 90 125, 150 95 S 215 55, 260 85'/%3E%3Cpath d='M-20 135 C 35 110, 100 175, 160 140 S 225 105, 260 135'/%3E%3Cpath d='M-20 185 C 55 155, 85 220, 145 190 S 210 155, 260 185'/%3E%3Cpath d='M-20 230 C 40 205, 95 255, 155 225 S 220 195, 260 230'/%3E%3Cellipse cx='75' cy='95' rx='36' ry='20' transform='rotate(-14 75 95)'/%3E%3Cellipse cx='75' cy='95' rx='18' ry='9' transform='rotate(-14 75 95)'/%3E%3Cellipse cx='185' cy='175' rx='42' ry='22' transform='rotate(18 185 175)'/%3E%3Cellipse cx='185' cy='175' rx='20' ry='10' transform='rotate(18 185 175)'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* Keep the usable center reading width solid so lines stay strictly outside */
+.app-layout,
+main#main-content {
+  background-color: var(--background);
+}
