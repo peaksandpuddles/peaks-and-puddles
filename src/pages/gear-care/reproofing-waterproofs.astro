@@ -1,0 +1,172 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+// Affiliate-ready product recommendations (swap "#" for your affiliate URLs)
+const recommendedProducts = [
+  {
+    name: "Nikwax Tech Wash & TX.Direct Twin Pack",
+    bestFor: "Gore-Tex, eVent & standard hardshell waterproofs",
+    notes: "Cleans without leaving water-attracting residues, then restores water repellency in a second wash cycle. No tumble dryer required.",
+    priceGuide: "£14 – £18",
+    retailer: "Check Price at Cotswold Outdoor",
+    affiliateUrl: "#"
+  },
+  {
+    name: "Grangers Performance Wash + Repel 2-in-1",
+    bestFor: "Quick single-wash reproofing (tumble-dryer activated)",
+    notes: "Saves water and time by cleaning and reproofing in one cycle. Works best if your jacket label allows low-heat tumble drying.",
+    priceGuide: "£12 – £15",
+    retailer: "Check Price at Alpkit / Amazon UK",
+    affiliateUrl: "#"
+  },
+  {
+    name: "Nikwax Tech Wash & TX.Direct Spray-On",
+    bestFor: "Insulated waterproof jackets & fleece-lined shells",
+    notes: "Use spray-on instead of wash-in when your jacket has a wicking mesh or fleece lining you don't want to coat.",
+    priceGuide: "£12 – £16",
+    retailer: "Check Price at Ellis Brigham",
+    affiliateUrl: "#"
+  }
+];
+---
+
+<Layout title="How to Wash & Reproof a Waterproof Jacket (UK Guide) | Peaks and Puddles">
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-4xl px-4 py-12">
+    <!-- Breadcrumbs & Evergreen Freshness Badge -->
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-2 text-sm">
+      <nav aria-label="Breadcrumb" class="text-muted-foreground flex items-center gap-2">
+        <a href="/gear-care" class="hover:text-accent hover:underline">Gear Care</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Reproofing Waterproofs</span>
+      </nav>
+      <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+        Last checked: November 2026
+      </span>
+    </div>
+
+    <!-- Article Header -->
+    <header class="mb-10">
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        How to Wash &amp; Reproof a Waterproof Jacket
+      </h1>
+      <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+        If rain is soaking into the outer fabric of your jacket instead of beading up and rolling off, the membrane probably isn't broken—it just needs dirt stripped away and its DWR coating refreshed.
+      </p>
+    </header>
+
+    <!-- Quick Takeaway Callout -->
+    <div class="bg-card border-accent mb-10 rounded-xl border-l-4 p-6 shadow-sm">
+      <h2 class="text-base font-bold uppercase tracking-wide">The Golden Rule of Waterproof Care</h2>
+      <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+        <strong>Never use standard laundry detergent or fabric softener.</strong> Household detergents leave behind surfactants that attract water, causing your jacket to "wet out" immediately in Scottish rain and trapping sweat inside.
+      </p>
+    </div>
+
+    <!-- Step-by-Step Instructions -->
+    <section class="space-y-8">
+      <h2 class="text-2xl font-bold">Step-by-Step Washing &amp; Reproofing</h2>
+
+      <div class="space-y-6">
+        <div class="border-border rounded-xl border p-6">
+          <div class="flex items-center gap-3">
+            <span class="bg-accent text-accent-foreground flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold">1</span>
+            <h3 class="text-lg font-semibold">Prep the Jacket &amp; Washing Machine</h3>
+          </div>
+          <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+            Empty all pockets, zip up the main front zip and pit zips, and loosen any elastic hem drawcords. Scoop out any dried detergent buildup from your washing machine's drawer before starting.
+          </p>
+        </div>
+
+        <div class="border-border rounded-xl border p-6">
+          <div class="flex items-center gap-3">
+            <span class="bg-accent text-accent-foreground flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold">2</span>
+            <h3 class="text-lg font-semibold">Wash with a Technical Cleaner</h3>
+          </div>
+          <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+            Pour <strong>Nikwax Tech Wash</strong> (or Grangers Performance Wash) into the drawer—usually 100ml for 1–2 garments. Run a gentle <strong>30°C synthetic cycle</strong> with an extra rinse. Often, simply removing body oils and peat grime is enough to revive beading on newer jackets.
+          </p>
+        </div>
+
+        <div class="border-border rounded-xl border p-6">
+          <div class="flex items-center gap-3">
+            <span class="bg-accent text-accent-foreground flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold">3</span>
+            <h3 class="text-lg font-semibold">Apply the Reproofer (Wash-In or Spray-On)</h3>
+          </div>
+          <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+            While the jacket is still damp, run a second 30°C gentle cycle using <strong>TX.Direct Wash-In</strong> (best for unlined 3-layer hardshells). If your jacket has a mesh or fleece lining, hang it up damp and spray <strong>TX.Direct Spray-On</strong> evenly across the outside fabric, wiping away excess with a damp cloth.
+          </p>
+        </div>
+
+        <div class="border-border rounded-xl border p-6">
+          <div class="flex items-center gap-3">
+            <span class="bg-accent text-accent-foreground flex h-8 w-8 shrink-0 items-center justify-center rounded-full text-sm font-bold">4</span>
+            <h3 class="text-lg font-semibold">Dry &amp; Activate</h3>
+          </div>
+          <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+            Check the inside care label. Nikwax air-dries naturally on a hanger, while Grangers and older Gore-Tex treatments benefit from <strong>20 minutes on a low tumble-dry setting</strong> to heat-set the water repellency.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Affiliate Product Cards -->
+    <section class="mt-14">
+      <div class="mb-6 flex flex-wrap items-baseline justify-between gap-2">
+        <h2 class="text-2xl font-bold">Recommended Reproofing Products</h2>
+        <span class="text-muted-foreground text-xs">
+          Links may earn a small commission at no extra cost to you.
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {recommendedProducts.map((product) => (
+          <div class="bg-card border-border flex flex-col justify-between rounded-xl border p-6 shadow-sm">
+            <div>
+              <span class="text-accent text-xs font-semibold uppercase tracking-wider">
+                {product.bestFor}
+              </span>
+              <h3 class="mt-2 text-lg font-bold leading-snug">{product.name}</h3>
+              <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+                {product.notes}
+              </p>
+            </div>
+
+            <div class="border-border mt-6 border-t pt-4">
+              <div class="mb-3 flex items-center justify-between text-sm">
+                <span class="text-muted-foreground">Typical UK Price:</span>
+                <span class="font-semibold">{product.priceGuide}</span>
+              </div>
+              <a
+                href={product.affiliateUrl}
+                rel="nofollow sponsored noopener"
+                target="_blank"
+                class="bg-accent text-accent-foreground block w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition-opacity hover:opacity-90"
+              >
+                {product.retailer} &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Internal Cross-Links to Other Pillars -->
+    <aside class="bg-muted/50 border-border mt-14 rounded-xl border p-6">
+      <h2 class="text-lg font-bold">Related Guides on Peaks &amp; Puddles</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li>
+          &rarr; Need a shell built for horizontal rain? Browse our <a href="/brands-and-shops" class="text-accent font-medium hover:underline">Scottish &amp; UK Outdoor Brands Directory</a>.
+        </li>
+        <li>
+          &rarr; Packing for cold, wet hills? Check our <a href="/kit-lists" class="text-accent font-medium hover:underline">Scottish Kit Lists</a>.
+        </li>
+      </ul>
+    </aside>
+  </main>
+
+  <Footer />
+</Layout>
