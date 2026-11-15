@@ -7,19 +7,22 @@ interface USPItem {
 interface Props {
   items: USPItem[];
   ticker?: boolean;
-  bgColor?: string;   // Optional: Custom background color class
-  textColor?: string; // Optional: Custom text color class
+  bgColor?: string;   // Now accepts hex codes like "#064e3b"
+  textColor?: string; // Now accepts hex codes like "#fef3c7"
 }
 
 const { 
   items, 
   ticker = false, 
-  bgColor = "bg-emerald-900",   // Default Ordnance Survey forest green background
-  textColor = "text-emerald-50" // Default crisp light text
+  bgColor = "#064e3b",   // Hover or click the colour square here in VS Code!
+  textColor = "#ecfdf5"  // Hover or click the colour square here in VS Code!
 } = Astro.props;
 ---
 
-<div class={`${bgColor} ${textColor} relative z-50 overflow-hidden py-2 text-xs font-medium sm:text-sm shadow-inner`}>
+<div 
+  style={`background-color: ${bgColor}; color: ${textColor};`}
+  class="relative z-50 overflow-hidden py-2 text-xs font-medium sm:text-sm shadow-inner"
+>
   {ticker ? (
     /* Ticker Mode: Single-track marquee for seamless freezing */
     <div class="group flex w-full overflow-hidden whitespace-nowrap">
@@ -30,7 +33,7 @@ const {
           {items.map((item) => (
             <span class="inline-flex items-center gap-2">
               {item.href ? (
-                <a href={item.href} class={`hover:underline flex items-center gap-1 transition-opacity hover:opacity-80 ${textColor}`}>
+                <a href={item.href} style={`color: ${textColor};`} class="hover:underline flex items-center gap-1 transition-opacity hover:opacity-80">
                   {item.text} →
                 </a>
               ) : (
@@ -45,7 +48,7 @@ const {
           {items.map((item) => (
             <span class="inline-flex items-center gap-2">
               {item.href ? (
-                <a href={item.href} class={`hover:underline flex items-center gap-1 transition-opacity hover:opacity-80 ${textColor}`}>
+                <a href={item.href} style={`color: ${textColor};`} class="hover:underline flex items-center gap-1 transition-opacity hover:opacity-80">
                   {item.text} →
                 </a>
               ) : (
@@ -63,7 +66,7 @@ const {
       {items.map((item) => (
         <span class="inline-flex items-center gap-1">
           {item.href ? (
-            <a href={item.href} class={`hover:underline font-semibold transition-opacity hover:opacity-80 ${textColor}`}>
+            <a href={item.href} style={`color: ${textColor};`} class="hover:underline font-semibold transition-opacity hover:opacity-80">
               {item.text} →
             </a>
           ) : (
