@@ -2,38 +2,96 @@
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+import { getAssetPath } from "@/utils/withBase";
+
+const kitLists = [
+  {
+    title: "Winter & Cold-Weather Family Hiking",
+    description: "Smart layering, puddle-proof bibs, long-cuff mittens, and emergency pack essentials for kids—plus what parents need to stay warm.",
+    href: "/kit-lists/winter-hillwalking",
+    image: "/images/kit-winter-family.jpg",
+    badge: "Popular"
+  },
+  {
+    title: "Rainy Day & Woodland Play Gear",
+    description: "Mud-proof dungarees, grippy boots, and breathable shells built for splash walks, forest school, and wet-weather adventures.",
+    href: "/kit-lists/rainy-day-woodland",
+    image: "/images/kit-rainy-play.jpg",
+    badge: "All-Season"
+  },
+  {
+    title: "Family Day Hike Pack Checklist",
+    description: "Everything to carry for a full day on the trail with kids—from sun and bug protection to trail snacks and first-aid basics.",
+    href: "/kit-lists/family-day-hike",
+    image: "/images/kit-day-hike.jpg",
+    badge: "Essential"
+  }
+];
 ---
 
-<Layout
-  title="Kit Lists | Peaks + Puddles"
-  description="Curated index of where to get the best layers for your kids"
->
+<Layout title="Outdoor Kit Lists for Kids & Parents | Peaks and Puddles">
   <Header />
-  <main id="main-content" class="mx-auto w-full max-w-3xl px-4 pb-12 pt-8">
-    <article class="app-prose max-w-none">
-      <h1>Kit Lists For The Outdoors</h1>
-      <p>
-        Finding genuine technical kids' outdoor gear in the UK isn't always easy—high street "waterproofs" often soak through after twenty minutes on wet grass, while specialist Scandinavian brands can be tricky to track down. Below are the trusted UK retailers, Nordic stockists, and pre-loved marketplaces we actually use for forest nursery and winter mountain kit.
-      </p>
 
-      <h2>Specialist Kids' Outdoor &amp; Forest School Retailers</h2>
-      <ul>
-        <li>
-          <strong>Little Adventure Shop:</strong> One of the best UK one-stop shops for Scandinavian and British forest school kit, stocking Didriksons, Reima, Muddy Puddles, and Spotty Otter.
-        </li>
-        <li>
-          <strong>Outdoor Kids:</strong> Great range of technical waterproof dungarees, insulated mittens, and thermal wellies with reliable UK shipping.
-        </li>
-        <li>
-          <strong>Scandi Mini / Scandinavian Outdoor Stockists:</strong> Ideal for tracking down genuine Nordic wool-blend base layers, balaclavas, and high-hydrostatic-head snowsuits.
-        </li>
-      </ul>
-      <p>
-        <em>
-          Transparency note: Some retailer links on this site are affiliate links. If you click through and buy something, we may earn a small commission at no extra cost to you.
-        </em>
+  <main id="main-content" class="mx-auto max-w-7xl px-4 py-12">
+    <!-- Hub Header -->
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        Outdoor Kit Lists for Kids &amp; Parents
+      </h1>
+      <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+        Practical, parent-tested packing and layering guides for every season. Each checklist covers what your children need to stay warm, dry, and comfortable—plus a dedicated section for what parents should carry in their own pack.
       </p>
-    </article>
+    </div>
+
+    <!-- Visual Tile Grid -->
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {kitLists.map((list) => (
+        <a
+          href={list.href}
+          class="group bg-card text-card-foreground border-border overflow-hidden rounded-xl border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+        >
+          <div class="bg-muted relative aspect-video w-full overflow-hidden">
+            {/* Placeholder until you drop your real photos into public/images/ */}
+            <div class="absolute inset-0 flex items-center justify-center bg-emerald-950/10 transition-transform duration-500 group-hover:scale-105">
+              <span class="text-sm font-medium opacity-60">📷 {list.title}</span>
+            </div>
+            <!-- <img src={getAssetPath(list.image)} alt={list.title} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" /> -->
+
+            {list.badge && (
+              <span class="bg-accent text-accent-foreground absolute top-3 right-3 rounded-full px-3 py-1 text-xs font-semibold shadow">
+                {list.badge}
+              </span>
+            )}
+          </div>
+
+          <div class="p-6">
+            <h2 class="group-hover:text-accent text-xl font-semibold transition-colors">
+              {list.title} &rarr;
+            </h2>
+            <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+              {list.description}
+            </p>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Bottom Cross-Link Callout -->
+    <aside class="bg-muted/50 border-border mt-16 rounded-xl border p-6 text-center sm:p-8">
+      <h2 class="text-lg font-bold">Not sure which brands hold up to muddy knees and hand-me-downs?</h2>
+      <p class="text-muted-foreground mx-auto mt-2 max-w-2xl text-sm leading-relaxed">
+        We've put together a vetted directory of specialist kids' outdoor brands, trusted retailers, and gear-care guides so your kit lasts through multiple seasons.
+      </p>
+      <div class="mt-5 flex flex-wrap items-center justify-center gap-4 text-sm font-semibold">
+        <a href="/brands-and-shops" class="bg-accent text-accent-foreground rounded-lg px-5 py-2.5 transition-opacity hover:opacity-90">
+          Explore Brands &amp; Shops &rarr;
+        </a>
+        <a href="/gear-care" class="border-border bg-card hover:border-accent rounded-lg border px-5 py-2.5 transition-colors">
+          Browse Gear Care Guides &rarr;
+        </a>
+      </div>
+    </aside>
   </main>
+
   <Footer />
 </Layout>
