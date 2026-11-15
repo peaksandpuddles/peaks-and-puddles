@@ -57,16 +57,43 @@ html[data-theme="dark"] {
   --muted-foreground: #ddbfa7;
   --border: #2d3e35;     /* Forest slate border */
 }
-/* Authentic Ordnance Survey Style Topographic Contour Background */
+/* Authentic Topographic Contour Effect via CSS Gradients (Zero Parser Errors) */
 body {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%23000000' stroke-width='1.1' stroke-opacity='0.09'%3E%3C!-- Main Summit (Top-Left) --%3E%3Cpath d='M95 52 C 138 44, 178 72, 172 112 C 166 152, 124 168, 84 156 C 44 144, 34 102, 52 72 C 66 50, 78 55, 95 52 Z'/%3E%3Cpath d='M100 68 C 132 62, 158 84, 153 110 C 148 136, 118 148, 90 139 C 62 130, 54 102, 68 80 C 78 65, 86 70, 100 68 Z'/%3E%3Cpath d='M104 84 C 124 80, 140 94, 136 110 C 132 126, 112 132, 95 125 C 78 118, 74 100, 84 88 C 90 82, 96 85, 104 84 Z'/%3E%3Cpath d='M108 98 C 117 96, 124 102, 121 110 C 118 117, 108 119, 101 115 C 94 111, 93 102, 100 98 Z'/%3E%3C!-- Secondary Ridge (Bottom-Right) --%3E%3Cpath d='M285 225 C 335 215, 372 248, 365 295 C 358 342, 310 362, 265 348 C 220 334, 212 288, 232 252 C 248 225, 265 229, 285 225 Z'/%3E%3Cpath d='M288 244 C 325 236, 352 260, 346 293 C 340 326, 305 341, 272 330 C 239 319, 233 286, 248 260 C 260 241, 273 247, 288 244 Z'/%3E%3Cpath d='M292 263 C 316 258, 333 274, 328 294 C 323 314, 300 323, 279 315 C 258 307, 254 286, 265 270 C 273 259, 282 265, 292 263 Z'/%3E%3Cpath d='M295 280 C 306 278, 314 285, 311 294 C 308 303, 297 306, 288 302 C 279 298, 278 288, 285 282 Z'/%3E%3C!-- Saddle & Valley Contours (Seamless Tile Edges) --%3E%3Cpath d='M0 20 C 55 15, 145 12, 195 55 C 235 90, 210 165, 255 190 C 300 215, 355 185, 400 205'/%3E%3Cpath d='M0 185 C 45 195, 115 215, 155 185 C 195 155, 225 130, 280 145 C 335 160, 370 150, 400 165'/%3E%3Cpath d='M0 245 C 60 265, 135 235, 180 275 C 215 306, 185 365, 235 385 C 285 405, 350 375, 400 385'/%3E%3Cpath d='M0 340 C 50 330, 105 355, 145 335 C 185 315, 175 265, 130 250 C 85 235, 40 285, 0 300'/%3E%3C!-- Seamless Top-to-Bottom Connector Contours --%3E%3Cpath d='M220 0 C 235 45, 275 85, 325 75 C 365 67, 385 30, 375 0'/%3E%3Cpath d='M255 0 C 268 32, 295 55, 328 48 C 352 43, 362 18, 354 0'/%3E%3Cpath d='M220 400 C 210 375, 245 365, 295 375 C 345 385, 368 395, 375 400'/%3E%3Cpath d='M65 0 C 55 25, 25 45, 0 55'/%3E%3Cpath d='M65 400 C 80 375, 125 370, 155 390 C 165 396, 162 398, 160 400'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 400px 400px;
+  background-color: var(--background);
+  background-image: 
+    /* Summit 1 (Top-Left Elevation Rings) */
+    radial-gradient(circle 120px at 15% 20%, transparent 40%, rgba(0, 0, 0, 0.08) 41%, rgba(0, 0, 0, 0.08) 42%, transparent 43%),
+    radial-gradient(circle 80px at 15% 20%, transparent 40%, rgba(0, 0, 0, 0.07) 41%, rgba(0, 0, 0, 0.07) 42%, transparent 43%),
+    radial-gradient(circle 40px at 15% 20%, transparent 35%, rgba(0, 0, 0, 0.07) 36%, transparent 38%),
+    
+    /* Summit 2 (Bottom-Right Ridge Rings) */
+    radial-gradient(circle 160px at 85% 75%, transparent 45%, rgba(0, 0, 0, 0.07) 46%, rgba(0, 0, 0, 0.07) 47%, transparent 48%),
+    radial-gradient(circle 100px at 85% 75%, transparent 40%, rgba(0, 0, 0, 0.06) 41%, rgba(0, 0, 0, 0.06) 42%, transparent 43%),
+    
+    /* Wavy Contour Lines across margins */
+    repeating-linear-gradient(35deg, transparent, transparent 45px, rgba(0, 0, 0, 0.05) 45px, rgba(0, 0, 0, 0.05) 46px, transparent 46px, transparent 90px),
+    repeating-linear-gradient(-55deg, transparent, transparent 60px, rgba(0, 0, 0, 0.04) 60px, rgba(0, 0, 0, 0.04) 61px, transparent 61px, transparent 120px);
+  background-size: 100% 100%;
+  background-attachment: fixed;
 }
 
-/* Switch contour lines to white in Dark Mode */
+/* White Topographic Contour Lines in Dark Mode */
 html[data-theme="dark"] body,
 .dark body {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1.1' stroke-opacity='0.1'%3E%3C!-- Main Summit (Top-Left) --%3E%3Cpath d='M95 52 C 138 44, 178 72, 172 112 C 166 152, 124 168, 84 156 C 44 144, 34 102, 52 72 C 66 50, 78 55, 95 52 Z'/%3E%3Cpath d='M100 68 C 132 62, 158 84, 153 110 C 148 136, 118 148, 90 139 C 62 130, 54 102, 68 80 C 78 65, 86 70, 100 68 Z'/%3E%3Cpath d='M104 84 C 124 80, 140 94, 136 110 C 132 126, 112 132, 95 125 C 78 118, 74 100, 84 88 C 90 82, 96 85, 104 84 Z'/%3E%3Cpath d='M108 98 C 117 96, 124 102, 121 110 C 118 117, 108 119, 101 115 C 94 111, 93 102, 100 98 Z'/%3E%3C!-- Secondary Ridge (Bottom-Right) --%3E%3Cpath d='M285 225 C 335 215, 372 248, 365 295 C 358 342, 310 362, 265 348 C 220 334, 212 288, 232 252 C 248 225, 265 229, 285 225 Z'/%3E%3Cpath d='M288 244 C 325 236, 352 260, 346 293 C 340 326, 305 341, 272 330 C 239 319, 233 286, 248 260 C 260 241, 273 247, 288 244 Z'/%3E%3Cpath d='M292 263 C 316 258, 333 274, 328 294 C 323 314, 300 323, 279 315 C 258 307, 254 286, 265 270 C 273 259, 282 265, 292 263 Z'/%3E%3Cpath d='M295 280 C 306 278, 314 285, 311 294 C 308 303, 297 306, 288 302 C 279 298, 278 288, 285 282 Z'/%3E%3C!-- Saddle & Valley Contours (Seamless Tile Edges) --%3E%3Cpath d='M0 20 C 55 15, 145 12, 195 55 C 235 90, 210 165, 255 190 C 300 215, 355 185, 400 205'/%3E%3Cpath d='M0 185 C 45 195, 115 215, 155 185 C 195 155, 225 130, 280 145 C 335 160, 370 150, 400 165'/%3E%3Cpath d='M0 245 C 60 265, 135 235, 180 275 C 215 306, 185 365, 235 385 C 285 405, 350 375, 400 385'/%3E%3Cpath d='M0 340 C 50 330, 105 355, 145 335 C 185 315, 175 265, 130 250 C 85 235, 40 285, 0 300'/%3E%3C!-- Seamless Top-to-Bottom Connector Contours --%3E%3Cpath d='M220 0 C 235 45, 275 85, 325 75 C 365 67, 385 30, 375 0'/%3E%3Cpath d='M255 0 C 268 32, 295 55, 328 48 C 352 43, 362 18, 354 0'/%3E%3Cpath d='M220 400 C 210 375, 245 365, 295 375 C 345 385, 368 395, 375 400'/%3E%3Cpath d='M65 0 C 55 25, 25 45, 0 55'/%3E%3Cpath d='M65 400 C 80 375, 125 370, 155 390 C 165 396, 162 398, 160 400'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: 
+    radial-gradient(circle 120px at 15% 20%, transparent 40%, rgba(255, 255, 255, 0.09) 41%, rgba(255, 255, 255, 0.09) 42%, transparent 43%),
+    radial-gradient(circle 80px at 15% 20%, transparent 40%, rgba(255, 255, 255, 0.08) 41%, rgba(255, 255, 255, 0.08) 42%, transparent 43%),
+    radial-gradient(circle 40px at 15% 20%, transparent 35%, rgba(255, 255, 255, 0.08) 36%, transparent 38%),
+    
+    radial-gradient(circle 160px at 85% 75%, transparent 45%, rgba(255, 255, 255, 0.08) 46%, rgba(255, 255, 255, 0.08) 47%, transparent 48%),
+    radial-gradient(circle 100px at 85% 75%, transparent 40%, rgba(255, 255, 255, 0.07) 41%, rgba(255, 255, 255, 0.07) 42%, transparent 43%),
+    
+    repeating-linear-gradient(35deg, transparent, transparent 45px, rgba(255, 255, 255, 0.06) 45px, rgba(255, 255, 255, 0.06) 46px, transparent 46px, transparent 90px),
+    repeating-linear-gradient(-55deg, transparent, transparent 60px, rgba(255, 255, 255, 0.05) 60px, rgba(255, 255, 255, 0.05) 61px, transparent 61px, transparent 120px);
 }
+
+/* Keep the usable center reading width solid */
+.app-layout,
+main#main-content {
+  background-color: var(--background);
 }
