@@ -57,22 +57,26 @@ html[data-theme="dark"] {
   --muted-foreground: #f1f5f2;
   --border: #2d3e35;     /* Forest slate border */
 }
-/* Dense, Organic Ordnance Survey Topographic Contour Background */
+/* Ordnance Survey Topographic Background using a PNG or JPG */
 body {
   background-color: var(--background);
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjAuOCIgc3Ryb2tlLW9wYWNpdHk9IjAuMTIiPjxwYXRoIGQ9Ik0wLDQwIFExMDAsMTAgMjAwLDYwIFQ0MDAsNDAgTSwwLDgwIFExMDAsNTAgMjAwLDEwMCBUNDEwLDgwIE0wLDEyMCBRMTAwLDkwIDIwMCwxNDAgVDQwMCwxMjAgTSwwLDE2MCBRMTAwLDEzMCAyMDAsMTgwIFQ0MDAsMTYwIE0wLDIwMCBRMTAwLDE3MCAyMDAsMjIwIFQ0MDAsMjAwIE0wLDI0MCBRMTAwLDIxMCAyMDAsMjYwIFQ0MDAsMjQwIE0wLDI4MCBRMTAwLDI1MCAyMDAsMzAwIFQ0MDAsMjgwIE0wLDMyMCBRMTAwLDI5MCAyMDAsMzQwIFQ0MDAsMzIwIE0wLDM2MCBRMTAwLDMzMCAyMDAsMzgwIFQ0MDAsMzYwIi8+PGVsbGlwc2UgY3g9IjEyMCIgY3k9IjE0MCIgcng9IjUwIiByeT0iMjUiIHRyYW5zZm9ybT0icm90YXRlKC0yNSAxMjAgMTQwKSIvPjxlbGxpcHNlIGN4PSIxMjAiIGN5PSIxNDAiIHJ4PSIzMCIgcnk9IjE1IiB0cmFuc2Zvcm09InJvdGF0ZSgtMjUgMTIwIDE0MCkiLz48ZWxsaXBzZSBjeD0iMTIwIiBjeT0iMTQwIiByeD0iMTIiIHJ5PSI2IiB0cmFuc2Zvcm09InJvdGF0ZSgtMjUgMTIwIDE0MCkiLz48ZWxsaXBzZSBjeD0iMjgwIiBjeT0iMjgwIiByeD0iNjUiIHJ5PSIzMiIgdHJhbnNmb3JtPSJyb3RhdGUoMzUgMjgwIDI4MCkiLz48ZWxsaXBzZSBjeD0iMjgwIiBjeT0iMjgwIiByeD0iNDAiIHJ5PSIyMCIgdHJhbnNmb3JtPSJyb3RhdGUoMzUgMjgwIDI4MCkiLz48ZWxsaXBzZSBjeD0iMjgwIiBjeT0iMjgwIiByeD0iMTgiIHJ5PSI5IiB0cmFuc2Zvcm09InJvdGF0ZSgzNSAyODAgMjgwKSIvPjwvZz48L3N2Zz4=");
+  background-image: url("/topo-bg.png");
   background-repeat: repeat;
-  background-size: 400px 400px;
+  background-size: 400px 400px; /* Adjust this to make the pattern larger or smaller */
+  background-attachment: fixed;
 }
 
-/* White Topographic Contour Lines in Dark Mode */
+/* Dark Mode: Automatically inverts dark lines to light lines for dark mode */
 html[data-theme="dark"] body,
 .dark body {
-  background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+PGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjAuOCIgc3Ryb2tlLW9wYWNpdHk9IjAuMTUiPjxwYXRoIGQ9Ik0wLDQwIFExMDAsMTAgMjAwLDYwIFQ0MDAsNDAgTSwwLDgwIFExMDAsNTAgMjAwLDEwMCBUNDEwLDgwIE0wLDEyMCBRMTAwLDkwIDIwMCwxNDAgVDQwMCwxMjAgTSwwLDE2MCBRMTAwLDEzMCAyMDAsMTgwIFQ0MDAsMTYwIE0wLDIwMCBRMTAwLDE3MCAyMDAsMjIwIFQ0MDAsMjAwIE0wLDI0MCBRMTAwLDIxMCAyMDAsMjYwIFQ0MDAsMjQwIE0wLDI4MCBRMTAwLDI1MCAyMDAsMzAwIFQ0MDAsMjgwIE0wLDMyMCBRMTAwLDI5MCAyMDAsMzQwIFQ0MDAsMzIwIE0wLDM2MCBRMTAwLDMzMCAyMDAsMzgwIFQ0MDAsMzYwIi8+PGVsbGlwc2UgY3g9IjEyMCIgY3k9IjE0MCIgcng9IjUwIiByeT0iMjUiIHRyYW5zZm9ybT0icm90YXRlKC0yNSAxMjAgMTQwKSIvPjxlbGxpcHNlIGN4PSIxMjAiIGN5PSIxNDAiIHJ4PSIzMCIgcnk9IjE1IiB0cmFuc2Zvcm09InJvdGF0ZSgtMjUgMTIwIDE0MCkiLz48ZWxsaXBzZSBjeD0iMTIwIiBjeT0iMTQwIiByeD0iMTIiIHJ5PSI2IiB0cmFuc2Zvcm09InJvdGF0ZSgtMjUgMTIwIDE0MCkiLz48ZWxsaXBzZSBjeD0iMjgwIiBjeT0iMjgwIiByeD0iNjUiIHJ5PSIzMiIgdHJhbnNmb3JtPSJyb3RhdGUoMzUgMjgwIDI4MCkiLz48ZWxsaXBzZSBjeD0iMjgwIiBjeT0iMjgwIiByeD0iNDAiIHJ5PSIyMCIgdHJhbnNmb3JtPSJyb3RhdGUoMzUgMjgwIDI4MCkiLz48ZWxsaXBzZSBjeD0iMjgwIiBjeT0iMjgwIiByeD0iMTgiIHJ5PSI5IiB0cmFuc2Zvcm09InJvdGF0ZSgzNSAyODAgMjgwKSIvPjwvZz48L3N2Zz4=");
+  background-image: url("/topo-bg.png");
+  filter: invert(1) hue-rotate(180deg);
+  opacity: 0.85;
 }
 
-/* Keep the usable center reading width solid */
+/* Keep the center reading column completely solid and unaffected */
 .app-layout,
 main#main-content {
   background-color: var(--background);
+  filter: none;
 }
