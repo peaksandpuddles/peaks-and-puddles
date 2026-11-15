@@ -31,7 +31,7 @@
 }
 
 @utility active-nav {
-  @apply underline decoration-wavy decoration-2 underline-offset-8;
+  @apply underline decoration-wavy decoration-2 underline-offset-2;
 }
 
 :target {
@@ -78,7 +78,7 @@ body::before {
 /* Dark Mode: Switch to a dark-mode variant or adjust appearance cleanly */
 html[data-theme="dark"] body::before,
 .dark body::before {
-  opacity: 0.15;
+  opacity: 0.5;
   /* If you want a separate dark mode image later, you can swap it here: */
   /* background-image: url("/topo-bg-dark.png"); */
 }
