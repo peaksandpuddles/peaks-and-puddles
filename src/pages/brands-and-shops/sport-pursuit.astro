@@ -1,0 +1,191 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+const referralUrl = "https://www.sportpursuit.com/join/PeaksAndPuddles";
+
+const parentTips = [
+  {
+    title: "Size Up for Future Seasons",
+    notes: "Because kids outgrow jackets and boots every 6–12 months, SportPursuit is ideal for buying next autumn's rain shell or winter snowsuit during end-of-season clearance drops at 40–60% off."
+  },
+  {
+    title: "Watch the Dispatch Dates",
+    notes: "Some deals are 'In Stock' for immediate shipping, while others are pre-ordered directly from the brand at the end of a 7-day flash sale (taking 2–3 weeks to arrive). Check the dispatch estimate on the product page if you need gear for a trip next weekend."
+  },
+  {
+    title: "Filter by Size First",
+    notes: "Flash sales sell through popular kids' sizes quickly. Use the size filter at the top of the Kids category immediately so you only see items actually available in your child's height or shoe size."
+  },
+  {
+    title: "Stock Up for Parents at the Same Time",
+    notes: "Since shipping is a flat rate per order, it's one of the easiest ways to grab merino base layers, trail shoes, or waterproof shells for yourself in the same basket as your kids' gear."
+  }
+];
+
+const notableBrands = [
+  {
+    name: "Reima & Didriksons",
+    category: "Kids' Waterproofs & Snow Gear",
+    notes: "Regularly pop up with heavy discounts on puddle suits, winter parkas, and long-cuff mittens."
+  },
+  {
+    name: "Merrell, Keen & Columbia",
+    category: "Kids' & Adult Trail Footwear",
+    notes: "Frequent flash sales on waterproof hiking shoes, winter snow boots, and summer trail sandals."
+  },
+  {
+    name: "Rab, Montane & Helly Hansen",
+    category: "Technical Shells & Insulation",
+    notes: "Strong selection of adult—and occasional youth—hardshells, fleeces, and down jackets."
+  },
+  {
+    name: "Icebreaker & Smartwool",
+    category: "Merino Base Layers & Socks",
+    notes: "Great for picking up discounted merino thermals and cushioned hiking socks for the whole family."
+  }
+];
+---
+
+<Layout title="SportPursuit Review for Outdoor Parents: Scoring Kids' & Adult Gear Deals | Peaks and Puddles">
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-4xl px-4 py-12">
+    <!-- Breadcrumbs & Evergreen Freshness Badge -->
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-2 text-sm">
+      <nav aria-label="Breadcrumb" class="text-muted-foreground flex items-center gap-2">
+        <a href="/brands-and-shops" class="hover:text-accent hover:underline">Brands &amp; Shops</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">SportPursuit</span>
+      </nav>
+      <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+        Last checked: November 2026
+      </span>
+    </div>
+
+    <!-- Article Header -->
+    <header class="mb-10">
+      <div class="mb-3 flex flex-wrap items-center gap-2">
+        <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
+          Members-Only Flash Sales
+        </span>
+        <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+          Kids &amp; Adults
+        </span>
+      </div>
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        SportPursuit for Outdoor Families: How to Score Big Discounts on Kids' &amp; Adult Gear
+      </h1>
+      <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+        Outfitting growing kids in genuine waterproofs, merino layers, and sturdy boots gets expensive fast—especially when they jump a size every season. SportPursuit is one of our favourite ways to buy technical outdoor brands at genuine outlet prices without sacrificing quality.
+      </p>
+    </header>
+
+    <!-- Honest Callout + Referral CTA Box -->
+    <div class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8">
+      <h2 class="text-lg font-bold">How SportPursuit Works (and Why You Need an Account to Browse)</h2>
+      <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+        SportPursuit operates as a free, members-only flash-sale club. Because they negotiate steep, time-limited discounts directly with outdoor brands (often 30% to 60% off RRP), brands require prices to be tucked behind a free login rather than indexed publicly on Google.
+      </p>
+      <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+        <strong>Full transparency:</strong> Joining is completely free, and you can use our invite link below to get straight in. Full disclosure—you don't get a special sign-up voucher from using our link (everyone gets the exact same sale prices), but if you ever place an order, SportPursuit gives us a small referral credit that helps keep <em>Peaks and Puddles</em> running at zero extra cost to you.
+      </p>
+      <div class="mt-5">
+        <a
+          href={referralUrl}
+          rel="nofollow sponsored noopener"
+          target="_blank"
+          class="bg-accent text-accent-foreground inline-block rounded-lg px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
+        >
+          Browse Current Sales on SportPursuit (Free Sign-Up) &rarr;
+        </a>
+      </div>
+    </div>
+
+    <!-- Brands You'll Frequently Spot -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold">Outdoor Brands That Regularly Appear</h2>
+      <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+        Sales rotate every few days, so inventory changes constantly—but these reliable family outdoor staples show up frequently across the year:
+      </p>
+
+      <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {notableBrands.map((brand) => (
+          <div class="border-border bg-card/50 rounded-xl border p-5">
+            <span class="text-accent text-xs font-semibold uppercase tracking-wider">
+              {brand.category}
+            </span>
+            <h3 class="mt-1 text-lg font-bold">{brand.name}</h3>
+            <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+              {brand.notes}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Parent Shopping Strategy -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold">4 Tips for Buying Kids' Kit on SportPursuit</h2>
+      <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+        Because flash sales work a little differently from a standard high-street shop, keeping these four habits in mind saves hassle:
+      </p>
+
+      <div class="mt-6 space-y-4">
+        {parentTips.map((tip, index) => (
+          <div class="border-border rounded-xl border p-5">
+            <div class="flex items-center gap-3">
+              <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                {index + 1}
+              </span>
+              <h3 class="font-semibold">{tip.title}</h3>
+            </div>
+            <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+              {tip.notes}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Bottom CTA Card -->
+    <section class="bg-card border-border mb-14 rounded-xl border p-6 text-center shadow-sm sm:p-8">
+      <h2 class="text-xl font-bold">Worth a Quick Check Before Paying Full RRP</h2>
+      <p class="text-muted-foreground mx-auto mt-2 max-w-2xl text-sm leading-relaxed">
+        Whenever we're building out a seasonal kit list for our kids—or replacing worn-out waterproofs for ourselves—SportPursuit is usually our first stop before paying full retail price elsewhere.
+      </p>
+      <div class="mt-5">
+        <a
+          href={referralUrl}
+          rel="nofollow sponsored noopener"
+          target="_blank"
+          class="bg-accent text-accent-foreground inline-block rounded-lg px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
+        >
+          Create a Free SportPursuit Account &rarr;
+        </a>
+      </div>
+      <p class="text-muted-foreground mt-3 text-xs">
+        Referral link: Joining is free; we may earn store credit if you make a purchase.
+      </p>
+    </section>
+
+    <!-- Internal Cross-Links to Other Pillars -->
+    <aside class="bg-muted/50 border-border rounded-xl border p-6">
+      <h2 class="text-lg font-bold">Put Your Bargain Finds to Good Use</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li>
+          &rarr; Not sure which layers to hunt for? Check our <a href="/kit-lists/cold-weather-hiking" class="text-accent font-medium hover:underline">Winter &amp; Cold-Weather Hiking Kit List for Kids (and Parents)</a>.
+        </li>
+        <li>
+          &rarr; Keep discounted shells beading water through multiple hand-me-downs: <a href="/gear-care/reproofing-waterproofs" class="text-accent font-medium hover:underline">How to Wash &amp; Reproof Kids' Rain Gear</a>.
+        </li>
+        <li>
+          &rarr; Browse more vetted retailers in <a href="/brands-and-shops" class="text-accent font-medium hover:underline">Brands &amp; Shops</a>.
+        </li>
+      </ul>
+    </aside>
+  </main>
+
+  <Footer />
+</Layout>
