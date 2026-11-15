@@ -1,0 +1,270 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+// Categorized Kids' Kit Checklist + Dedicated Parent Section
+const kitSections = [
+  {
+    category: "1. Kids' Clothing & Layering System",
+    subtitle: "Kids sit in snow, kneel in mud, and heat up fast when running—easy-to-shed layers and sealed cuffs are key.",
+    items: [
+      {
+        name: "Merino Wool or Thermal Base Layers (Top & Bottom)",
+        essential: true,
+        notes: "Soft, non-itchy merino or synthetic thermals wick sweat when kids run ahead and keep them warm when they stop. Skip cotton, which turns cold once damp."
+      },
+      {
+        name: "Fleece or Lightweight Puffer Mid-Layer",
+        essential: true,
+        notes: "A full-zip fleece or packable insulated jacket makes it easy to adjust warmth on the trail without pulling layers over their heads."
+      },
+      {
+        name: "Waterproof Shell Jacket (or Insulated Winter Coat)",
+        essential: true,
+        notes: "Look for taped seams, a peaked hood that stays up in wind, and Velcro wrist cuffs that seal over gloves."
+      },
+      {
+        name: "Waterproof Dungarees / Snow Bibs (or Overtrousers)",
+        essential: true,
+        notes: "Bibs or dungarees are a game-changer for younger kids—no cold drafts up their backs when bending down or sliding on wet grass and snow."
+      }
+    ]
+  },
+  {
+    category: "2. Kids' Footwear, Hands & Heads",
+    subtitle: "Cold fingers and wet socks end family walks faster than anything else.",
+    items: [
+      {
+        name: "Insulated Waterproof Boots + Wool Socks",
+        essential: true,
+        notes: "Choose easy-on waterproof hiking boots or insulated rain/snow boots with grippy soles, paired with cushioned merino socks (skip double-layering socks, which restricts circulation)."
+      },
+      {
+        name: "Long-Cuff Waterproof Mittens (+ Spare Pair)",
+        essential: true,
+        notes: "Mittens are warmer and much easier for little fingers to get into than 5-finger gloves. Look for extra-long gauntlets that tuck under jacket sleeves—and always pack a dry backup pair."
+      },
+      {
+        name: "Warm Beanie & Neck Gaiter (Buff)",
+        essential: true,
+        notes: "A fleece-lined neck tube stays put better than a loose scarf and doubles as face protection in biting wind."
+      },
+      {
+        name: "Kids' Microspikes (For Icy Trails)",
+        essential: false,
+        notes: "If your local winter paths get packed down into sheet ice, pull-on rubber traction cleats give kids instant confidence."
+      }
+    ]
+  },
+  {
+    category: "3. Trail Comfort, Snacks & Spare Bag",
+    subtitle: "The small pack items that keep morale high when temperatures drop.",
+    items: [
+      {
+        name: "Full Spare Outfit in a Dry Bag",
+        essential: true,
+        notes: "Spare socks, thermal leggings, and a dry top sealed in a waterproof bag—either carried in your pack or waiting in the car for the drive home."
+      },
+      {
+        name: "High-Energy Snacks & Warm Drink Flask",
+        essential: true,
+        notes: "Digestion generates body heat. Pack easy-to-eat snacks (flapjacks, trail mix, dried fruit) and an insulated flask of hot chocolate or warm broth."
+      },
+      {
+        name: "Foam Sit Pad",
+        essential: false,
+        notes: "A lightweight folding foam pad lets kids sit down for snack breaks without soaking through their trousers on frozen ground."
+      },
+      {
+        name: "Kids' Headlamp or Clip-On Light",
+        essential: false,
+        notes: "Short winter afternoons get dark fast—giving kids their own lightweight headlamp turns twilight walks into an adventure."
+      }
+    ]
+  },
+  {
+    category: "4. For the Parents: What You Need to Carry & Wear",
+    subtitle: "Parents spend a lot of time standing still, tying laces, and carrying extra layers—dress warmer than you think.",
+    items: [
+      {
+        name: "Extra Insulating Layer for Stationary Stops",
+        essential: true,
+        notes: "Because you move at kid-pace rather than a brisk adult stride, you generate less body heat. Pack a warm down or synthetic puffy jacket for slow stretches."
+      },
+      {
+        name: "Liner Gloves Under Waterproof Mitts",
+        essential: true,
+        notes: "You will be taking your gloves off constantly to open snack wrappers, wipe noses, and adjust buckles—thin liner gloves keep your bare hands from freezing while you help."
+      },
+      {
+        name: "25L–35L Daypack with Dry Bags",
+        essential: true,
+        notes: "Big enough to swallow shed kids' coats, spare mittens, a flask, and a first-aid kit without overflowing."
+      },
+      {
+        name: "Emergency Shelter, Headtorch & Hand Warmers",
+        essential: true,
+        notes: "A lightweight 2–4 person emergency bothy shelter, a fully charged phone in an inner warm pocket, and a couple of air-activated hand warmers for cold little fingers."
+      }
+    ]
+  }
+];
+
+// Affiliate-ready standout picks (universal/international-friendly brands, swap "#" for your links)
+const featuredGear = [
+  {
+    name: "Didriksons / Spotty Otter Waterproof Dungarees",
+    bestFor: "Puddle-Proof Kids' Bottoms",
+    notes: "High-waisted waterproof bibs with foot stirrups keep socks dry and stop mud and snow from sneaking up kids' backs.",
+    priceGuide: "$45 – $65 / £35 – £50",
+    retailer: "Check Availability",
+    affiliateUrl: "#"
+  },
+  {
+    name: "SnowStoppers / Reima Long-Cuff Kids' Mittens",
+    bestFor: "Mittens That Actually Stay On",
+    notes: "Extra-long nylon sleeves tuck neatly inside coat cuffs to lock out snow and cold drafts—and eliminate the dreaded wrist gap.",
+    priceGuide: "$25 – $35 / £20 – £28",
+    retailer: "Check Availability",
+    affiliateUrl: "#"
+  },
+  {
+    name: "Lifesystems 2–4 Person Ultralight Survival Shelter",
+    bestFor: "Parent Pack Safety Essential",
+    notes: "Packs down to the size of a water bottle and creates an instant wind-free tent for warm snack breaks or unexpected weather turns.",
+    priceGuide: "$35 – $45 / £28 – £35",
+    retailer: "Check Availability",
+    affiliateUrl: "#"
+  }
+];
+---
+
+<Layout title="Winter Hiking & Cold-Weather Kit List for Kids (and Parents) | Peaks and Puddles">
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-4xl px-4 py-12">
+    <!-- Breadcrumbs & Evergreen Freshness Badge -->
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-2 text-sm">
+      <nav aria-label="Breadcrumb" class="text-muted-foreground flex items-center gap-2">
+        <a href="/kit-lists" class="hover:text-accent hover:underline">Kit Lists</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Winter Family Walks</span>
+      </nav>
+      <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+        Last checked: November 2026
+      </span>
+    </div>
+
+    <!-- Article Header -->
+    <header class="mb-10">
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        Winter &amp; Cold-Weather Hiking Kit List for Kids (and Parents)
+      </h1>
+      <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+        Getting kids outdoors in cold, wet, or snowy weather comes down to smart layering, dry extremities, and having backup mittens ready before anyone gets chilly. Here is everything to pack for your children—plus what parents need in their own pack.
+      </p>
+    </header>
+
+    <!-- Parent Prep Tip Callout -->
+    <div class="bg-card border-accent mb-10 rounded-xl border-l-4 p-6 shadow-sm">
+      <h2 class="text-base font-bold uppercase tracking-wide">Parent Rule of Thumb: Dress for Two Speeds</h2>
+      <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+        Kids alternate between sprinting up trails and sitting completely still in puddles or snowbanks. Choose <strong>easy-zip layers</strong> over pull-on sweaters, and remember that <strong>you will feel colder than they do</strong> while matching their pace—always pack an extra warm layer for yourself.
+      </p>
+    </div>
+
+    <!-- Categorized Kit Checklist -->
+    <section class="space-y-12">
+      {kitSections.map((section) => (
+        <div>
+          <div class="mb-4">
+            <h2 class="text-2xl font-bold">{section.category}</h2>
+            <p class="text-muted-foreground mt-1 text-sm">{section.subtitle}</p>
+          </div>
+
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {section.items.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <div class="flex items-start justify-between gap-2">
+                  <h3 class="font-semibold leading-snug">{item.name}</h3>
+                  {item.essential ? (
+                    <span class="bg-accent/15 text-accent shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold">
+                      Essential
+                    </span>
+                  ) : (
+                    <span class="bg-muted text-muted-foreground shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                      Optional
+                    </span>
+                  )}
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <!-- Affiliate Standout Gear Picks -->
+    <section class="mt-14">
+      <div class="mb-6 flex flex-wrap items-baseline justify-between gap-2">
+        <h2 class="text-2xl font-bold">Parent-Tested Winter Gear Picks</h2>
+        <span class="text-muted-foreground text-xs">
+          Links may earn a small commission at no extra cost to you.
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {featuredGear.map((product) => (
+          <div class="bg-card border-border flex flex-col justify-between rounded-xl border p-6 shadow-sm">
+            <div>
+              <span class="text-accent text-xs font-semibold uppercase tracking-wider">
+                {product.bestFor}
+              </span>
+              <h3 class="mt-2 text-lg font-bold leading-snug">{product.name}</h3>
+              <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+                {product.notes}
+              </p>
+            </div>
+
+            <div class="border-border mt-6 border-t pt-4">
+              <div class="mb-3 flex items-center justify-between text-sm">
+                <span class="text-muted-foreground">Typical Price:</span>
+                <span class="font-semibold">{product.priceGuide}</span>
+              </div>
+              <a
+                href={product.affiliateUrl}
+                rel="nofollow sponsored noopener"
+                target="_blank"
+                class="bg-accent text-accent-foreground block w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition-opacity hover:opacity-90"
+              >
+                {product.retailer} &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Internal Cross-Links to Other Pillars -->
+    <aside class="bg-muted/50 border-border mt-14 rounded-xl border p-6">
+      <h2 class="text-lg font-bold">More for Outdoor Families</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li>
+          &rarr; Keep kids' shells and snowsuits beading water all season: <a href="/gear-care/reproofing-waterproofs" class="text-accent font-medium hover:underline">How to Wash &amp; Reproof Waterproof Outerwear</a>.
+        </li>
+        <li>
+          &rarr; Looking for durable kids' brands that hold up to hand-me-downs? Browse <a href="/brands-and-shops" class="text-accent font-medium hover:underline">Brands &amp; Shops</a>.
+        </li>
+        <li>
+          &rarr; Need ideas for manageable family trails? Explore our <a href="/adventures" class="text-accent font-medium hover:underline">Family Adventures Guides</a>.
+        </li>
+      </ul>
+    </aside>
+  </main>
+
+  <Footer />
+</Layout>
