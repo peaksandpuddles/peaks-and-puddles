@@ -3,20 +3,43 @@ import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 
-const shops = [
+// 1. Define all your shops here in any order
+const allShops = [
   {
     name: "Decathlon",
     description: "Budget-friendly technical base layers, fleece, and waterproofs that hold up to daily nursery wear.",
     href: "/brands-and-shops/shops/decathlon",
-    badge: "Budget-Friendly"
+    badge: "Budget-Friendly",
+    isTopPick: true // <-- Appears in the top 3 featured section
   },
   {
     name: "SportPursuit",
     description: "Members-only flash sales offering 30% to 60% off high-end kids' and adult outdoor gear.",
     href: "/brands-and-shops/shops/sport-pursuit",
-    badge: "Flash Sales"
+    badge: "Flash Sales",
+    isTopPick: true // <-- Appears in the top 3 featured section
+  },
+  {
+    name: "Little Adventure Shop",
+    description: "One-stop specialist stocking Didriksons, Reima, and Muddy Puddles for forest school families.",
+    href: "/brands-and-shops/shops/little-adventure-shop",
+    badge: "Specialist",
+    isTopPick: true // <-- Appears in the top 3 featured section
+  },
+  {
+    name: "Secondhand Marketplaces",
+    description: "Vinted, eBay, and official brand resale platforms for pre-loved technical outerwear.",
+    href: "/brands-and-shops/shops/secondhand-gear",
+    badge: "Pre-Loved",
+    isTopPick: false
   }
 ];
+
+// 2. Automatically filter out top picks for the top highlight grid
+const topPicks = allShops.filter((shop) => shop.isTopPick);
+
+// 3. Automatically sort all shops alphabetically by name (A-Z)
+const alphabetizedShops = [...allShops].sort((a, b) => a.name.localeCompare(b.name));
 ---
 
 <Layout title="Trusted Outdoor Retailers & Shops | Peaks and Puddles">
@@ -38,31 +61,63 @@ const shops = [
         Trusted Outdoor Shops &amp; Retailers
       </h1>
       <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
-        Where to buy durable kids' outdoor gear—from budget-friendly high-street staples and private flash-sale outlets to specialist forest school stockists.
+        Where to buy durable kids' outdoor gear—from budget-friendly high-street staples and private flash-sale outlets to specialist forest school stockists and secondhand marketplaces.
       </p>
     </div>
 
-    <!-- Shop Cards Grid -->
-    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
-      {shops.map((shop) => (
-        <a
-          href={shop.href}
-          class="group bg-card text-card-foreground border-border rounded-xl border p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
-        >
-          <div class="flex items-start justify-between gap-2">
-            <h2 class="text-xl font-semibold group-hover:text-accent">
-              {shop.name} &rarr;
-            </h2>
-            <span class="bg-accent/15 text-accent rounded-full px-2.5 py-0.5 text-xs font-semibold">
-              {shop.badge}
-            </span>
-          </div>
-          <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
-            {shop.description}
-          </p>
-        </a>
-      ))}
-    </div>
+    <!-- Top Picks / Featured Section (3 Highlights) -->
+    <section class="mb-16">
+      <h2 class="mb-6 text-2xl font-bold">Editor's Top Shop Picks</h2>
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {topPicks.map((shop) => (
+          <a
+            href={shop.href}
+            class="group bg-card text-card-foreground border-border relative flex flex-col justify-between overflow-hidden rounded-xl border p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-md"
+          >
+            <div>
+              {shop.badge && (
+                <span class="bg-accent text-accent-foreground mb-4 inline-block rounded-full px-3 py-1 text-xs font-semibold shadow-sm">
+                  {shop.badge}
+                </span>
+              )}
+              <h3 class="text-xl font-semibold group-hover:text-accent">
+                {shop.name} &rarr;
+              </h3>
+              <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                {shop.description}
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Complete Alphabetical Directory Section -->
+    <section class="mb-12">
+      <div class="mb-6 flex items-baseline justify-between">
+        <h2 class="text-2xl font-bold">All Retailers (A–Z)</h2>
+        <span class="text-muted-foreground text-sm">Alphabetical directory</span>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        {alphabetizedShops.map((shop) => (
+          <a
+            href={shop.href}
+            class="border-border bg-card/50 hover:border-accent group rounded-xl border p-5 transition-all"
+          >
+            <div class="flex items-start justify-between gap-2">
+              <h3 class="font-bold group-hover:text-accent">{shop.name} &rarr;</h3>
+              {shop.badge && (
+                <span class="bg-muted text-muted-foreground rounded-full px-2 py-0.5 text-xs font-medium">
+                  {shop.badge}
+                </span>
+              )}
+            </div>
+            <p class="text-muted-foreground mt-2 text-xs leading-relaxed">{shop.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
   </main>
 
   <Footer />
