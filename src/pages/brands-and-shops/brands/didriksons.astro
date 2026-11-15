@@ -1,0 +1,165 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+// Swap "#" for your affiliate tracking link
+const brandAffiliateUrl = "#";
+
+const coreLines = [
+  {
+    category: "Galon® PU Splash Sets (Boardman & Plaskeman)",
+    name: "Welded-Seam Waterproof Dungarees & Jackets",
+    notes: "The ultimate wipe-clean mud and puddle gear for younger children. Fully windproof and waterproof with zero maintenance required—just hose or wipe them down."
+  },
+  {
+    category: "Rebound & Winter Parkas",
+    name: "Insulated Technical Coats (Sten, Sylvin & Thelma)",
+    notes: "Heavy-duty winter coats with high hydrostatic ratings, synthetic insulation, and detachable hoods built to handle freezing winds, sleet, and snow."
+  },
+  {
+    category: "Extend Size™ Outerwear",
+    name: "Grow-With-Me Cuffs & Sleeves",
+    notes: "A signature Didriksons feature: unpicking a hidden red seam inside the sleeves or trouser legs extends the length by one full clothing size, stretching wear across multiple seasons."
+  },
+  {
+    category: "Accessories & Mittens",
+    name: "Long-Gauntlet Waterproof Mitts & Thermal Hats",
+    notes: "Designed with wide wrist openings and secure clips to lock out snow and prevent mittens from vanishing on the trail or at forest school."
+  }
+];
+
+const parentTakeaways = [
+  {
+    title: "The Magic of 'Extend Size™'",
+    notes: "Kids grow unpredictably. Didriksons engineers many of their mid-season and winter jackets with internal seams you can unpick to lengthen sleeves and legs by a full size, saving you from buying a brand-new coat halfway through winter."
+  },
+  {
+    title: "Galon® vs. Breathable Shells",
+    notes: "Their classic toddler sets use Galon® (a flexible, rubberized PU) which is completely impenetrable to water and mud without needing DWR spray. For older kids hiking or running fast, look to their STORMsystem™ breathable hardshells."
+  },
+  {
+    title: "Exceptional Hand-Me-Down Lifespan",
+    notes: "Built with rugged reinforcement patches on high-friction zones like knees and seats, Didriksons gear easily survives active child's play and looks pristine enough to pass down to siblings."
+  }
+];
+---
+
+<Layout title="Didriksons Brand Review for Outdoor Parents: Extend Size & Weather Gear | Peaks and Puddles">
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-4xl px-4 py-12">
+    <!-- 3-Tier Breadcrumbs & Evergreen Freshness Badge -->
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-2 text-sm">
+      <nav aria-label="Breadcrumb" class="text-muted-foreground flex items-center gap-2">
+        <a href="/brands-and-shops" class="hover:text-accent hover:underline">Brands &amp; Shops</a>
+        <span>/</span>
+        <a href="/brands-and-shops/brands" class="hover:text-accent hover:underline">Brands</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Didriksons</span>
+      </nav>
+      <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+        Last checked: November 2026
+      </span>
+    </div>
+
+    <!-- Article Header -->
+    <header class="mb-10">
+      <div class="mb-3 flex flex-wrap items-center gap-2">
+        <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
+          Swedish Heritage Weather Gear
+        </span>
+        <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+          Kids &amp; Family Outerwear
+        </span>
+      </div>
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        Didriksons Brand Review: Are Their Grow-With-Me Kids' Waterproofs Worth It?
+      </h1>
+      <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+        Originating from the stormy west coast of Sweden over a century ago, Didriksons specializes in gear built for uncompromising wet and cold weather. Famous for their indestructible PU splash sets and clever "Extend Size" cuffs, we take a close look at how their kids' range performs in the mud and snow.
+      </p>
+    </header>
+
+    <!-- Affiliate / Brand Intro Callout -->
+    <div class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8">
+      <h2 class="text-lg font-bold">The Verdict: Built for Real Scandinavian Weather</h2>
+      <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+        If you are tired of high-street children's coats soaking through after twenty minutes in wet grass, Didriksons is a gold-standard upgrade. While upfront pricing sits in the mid-to-high tier, features like extendable sizing and extreme tear-resistance mean fewer replacements and effortless hand-me-down potential.
+      </p>
+      <div class="mt-5">
+        <a
+          href={brandAffiliateUrl}
+          rel="nofollow sponsored noopener"
+          target="_blank"
+          class="bg-accent text-accent-foreground inline-block rounded-lg px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
+        >
+          Explore Didriksons Kids' Collection &rarr;
+        </a>
+      </div>
+      <p class="text-muted-foreground mt-3 text-xs">
+        <em>Transparency: We may earn a small commission if you purchase through our links at no extra cost to you.</em>
+      </p>
+    </div>
+
+    <!-- Core Line Categories -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold">Core Didriksons Lines for Outdoor Families</h2>
+      <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+        From toddler puddle suits to technical winter coats, here is how their product families break down:
+      </p>
+
+      <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {coreLines.map((item) => (
+          <div class="border-border bg-card/50 rounded-xl border p-5">
+            <span class="text-accent text-xs font-semibold uppercase tracking-wider">
+              {item.category}
+            </span>
+            <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+            <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+              {item.notes}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Why Parents Love Didriksons -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold">3 Things Parents Appreciate Most</h2>
+      <div class="mt-6 space-y-4">
+        {parentTakeaways.map((takeaway, index) => (
+          <div class="border-border rounded-xl border p-5">
+            <div class="flex items-center gap-3">
+              <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                {index + 1}
+              </span>
+              <h3 class="font-semibold">{takeaway.title}</h3>
+            </div>
+            <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+              {takeaway.notes}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Internal Cross-Links -->
+    <aside class="bg-muted/50 border-border rounded-xl border p-6">
+      <h2 class="text-lg font-bold">Related Brand &amp; Gear Guides</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li>
+          &rarr; Comparing top Nordic makers? Read our full <a href="/brands-and-shops/brands/reima" class="text-accent font-medium hover:underline">Reima Brand Review</a>.
+        </li>
+        <li>
+          &rarr; Spot Didriksons sales through private clubs: <a href="/brands-and-shops/shops/sport-pursuit" class="text-accent font-medium hover:underline">SportPursuit Retailer Guide</a>.
+        </li>
+        <li>
+          &rarr; Keep waterproof shells performing like new: <a href="/gear-care/reproofing-waterproofs" class="text-accent font-medium hover:underline">How to Wash &amp; Reproof Kids' Rain Gear</a>.
+        </li>
+      </ul>
+    </aside>
+  </main>
+
+  <Footer />
+</Layout>
