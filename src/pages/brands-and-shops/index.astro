@@ -2,65 +2,135 @@
 import Layout from "@/layouts/Layout.astro";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
+import { getAssetPath } from "@/utils/withBase";
+
+// 3 Main Featured Tiles of Your Choosing
+const featuredTiles = [
+  {
+    title: "Decathlon for Families",
+    description: "Budget-friendly technical base layers, fleece, and waterproofs that hold up to daily nursery wear.",
+    href: "/brands-and-shops/shops/decathlon",
+    badge: "Top Shop Pick"
+  },
+  {
+    title: "SportPursuit Flash Sales",
+    description: "How to score 30% to 60% off high-end kids' and adult outdoor gear through private member sales.",
+    href: "/brands-and-shops/shops/sport-pursuit",
+    badge: "Best Discounts"
+  },
+  {
+    title: "Reima vs. Didriksons",
+    description: "A head-to-head comparison of top Nordic outdoor brands for waterproof durability and hand-me-down quality.",
+    href: "/brands-and-shops/brands/reima-vs-didriksons", // Example upcoming brand guide
+    badge: "Brand Guide"
+  }
+];
+
+// Brands Section Links
+const brandLinks = [
+  { name: "Reima", description: "Technical Nordic outerwear built for active play.", href: "/brands-and-shops/brands/reima" },
+  { name: "Didriksons", description: "Renowned for waterproof dungarees and grow-with-me cuffs.", href: "/brands-and-shops/brands/didriksons" },
+  { name: "Spotty Otter", description: "Heavy-duty forest school gear designed for real British and wet-climate weather.", href: "/brands-and-shops/brands/spotty-otter" },
+  { name: "Keela", description: "Homegrown performance waterproofs that handle horizontal rain effortlessly.", href: "/brands-and-shops/brands/keela" }
+];
+
+// Shops Section Links
+const shopLinks = [
+  { name: "Decathlon", description: "Unbeatable value for children's outdoor layers and boots.", href: "/brands-and-shops/shops/decathlon" },
+  { name: "SportPursuit", description: "Members-only flash sales on top outdoor brands.", href: "/brands-and-shops/shops/sport-pursuit" },
+  { name: "Little Adventure Shop", description: "One-stop UK specialist for forest school and Nordic kit.", href: "/brands-and-shops/shops/little-adventure-shop" },
+  { name: "Secondhand Marketplaces", description: "Vinted, eBay, and official brand resale platforms for pre-loved gear.", href: "/brands-and-shops/shops/secondhand-gear" }
+];
 ---
 
-<Layout
-  title="Where to Shop | Peaks and Puddles"
-  description="Trusted UK and Nordic outdoor retailers, forest school stockists, and secondhand gear marketplaces for kids' technical waterproofs and winter layers."
->
+<Layout title="Brands & Shops: Trusted Outdoor Gear for Kids | Peaks and Puddles">
   <Header />
-  <main id="main-content" class="mx-auto w-full max-w-3xl px-4 pb-12 pt-8">
-    <article class="app-prose max-w-none">
-      <h1>Where to Shop</h1>
-      <p>
-        Finding genuine technical kids' outdoor gear in the UK isn't always easy—high street "waterproofs" often soak through after twenty minutes on wet grass, while specialist Scandinavian brands can be tricky to track down. Below are the trusted UK retailers, Nordic stockists, and pre-loved marketplaces we actually use for forest nursery and winter mountain kit.
+
+  <main id="main-content" class="mx-auto max-w-7xl px-4 py-12">
+    <!-- Hub Intro -->
+    <div class="mx-auto mb-12 max-w-3xl text-center">
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        Brands &amp; Shops Directory
+      </h1>
+      <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+        Finding genuine technical kids' outdoor gear isn't always easy—high street "waterproofs" often soak through after twenty minutes in wet grass, while specialist Scandinavian brands can be tricky to track down. Here, we test and review the brands worth investing in, and point you to the trusted retailers and outlets we actually use.
       </p>
+    </div>
 
-      <h2>Specialist Kids' Outdoor &amp; Forest School Retailers</h2>
-      <ul>
-        <li>
-          <strong>Little Adventure Shop:</strong> One of the best UK one-stop shops for Scandinavian and British forest school kit, stocking Didriksons, Reima, Muddy Puddles, and Spotty Otter.
-        </li>
-        <li>
-          <strong>Outdoor Kids:</strong> Great range of technical waterproof dungarees, insulated mittens, and thermal wellies with reliable UK shipping.
-        </li>
-        <li>
-          <strong>Scandi Mini / Scandinavian Outdoor Stockists:</strong> Ideal for tracking down genuine Nordic wool-blend base layers, balaclavas, and high-hydrostatic-head snowsuits.
-        </li>
-      </ul>
+    <!-- 3 Highlighted Main Tiles -->
+    <section class="mb-16">
+      <h2 class="mb-6 text-2xl font-bold">Featured Guides &amp; Retailers</h2>
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+        {featuredTiles.map((tile) => (
+          <a
+            href={tile.href}
+            class="group bg-card text-card-foreground border-border relative flex flex-col justify-between overflow-hidden rounded-xl border p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+          >
+            <div>
+              {tile.badge && (
+                <span class="bg-accent text-accent-foreground mb-4 inline-block rounded-full px-3 py-1 text-xs font-semibold shadow-sm">
+                  {tile.badge}
+                </span>
+              )}
+              <h3 class="text-xl font-semibold transition-colors group-hover:text-accent">
+                {tile.title} &rarr;
+              </h3>
+              <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                {tile.description}
+              </p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
 
-      <h2>Mainstream Outdoor &amp; Mountain Retailers</h2>
-      <ul>
-        <li>
-          <strong>Decathlon UK:</strong> Unbeatable value for merino base layers, fleece mid-layers, and entry-level snow boots that hold up well to daily nursery wear.
-        </li>
-        <li>
-          <strong>Cotswold Outdoor &amp; Tiso:</strong> Worth checking for end-of-season sales on technical kids' shells, hiking boots, and merino socks from brands like Patagonia, Columbia, and Smartwool.
-        </li>
-        <li>
-          <strong>Amazon UK:</strong> Useful for fast next-day delivery on everyday essentials like thermal socks, hand warmers, and backup waterproof mittens.
-        </li>
-      </ul>
+    <!-- Brands Section -->
+    <section class="mb-16">
+      <div class="mb-6 flex items-baseline justify-between">
+        <h2 class="text-2xl font-bold">Brands We Trust</h2>
+        <span class="text-muted-foreground text-sm">Tested for durability &amp; wet weather</span>
+      </div>
 
-      <h2>Secondhand &amp; Pre-Loved Gear</h2>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {brandLinks.map((brand) => (
+          <a
+            href={brand.href}
+            class="border-border bg-card/50 hover:border-accent group rounded-xl border p-5 transition-all"
+          >
+            <h3 class="font-bold group-hover:text-accent">{brand.name} &rarr;</h3>
+            <p class="text-muted-foreground mt-2 text-xs leading-relaxed">{brand.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Shops Section -->
+    <section class="mb-12">
+      <div class="mb-6 flex items-baseline justify-between">
+        <h2 class="text-2xl font-bold">Shops &amp; Retailers</h2>
+        <span class="text-muted-foreground text-sm">Where to buy new and pre-loved</span>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {shopLinks.map((shop) => (
+          <a
+            href={shop.href}
+            class="border-border bg-card/50 hover:border-accent group rounded-xl border p-5 transition-all"
+          >
+            <h3 class="font-bold group-hover:text-accent">{shop.name} &rarr;</h3>
+            <p class="text-muted-foreground mt-2 text-xs leading-relaxed">{shop.description}</p>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Transparency Note Footer -->
+    <div class="bg-muted/40 border-border rounded-xl border p-6 text-center text-xs text-muted-foreground">
       <p>
-        High-spec Nordic brands like Polarn O. Pyret, Reima, and Didriksons are built to survive multiple children. Before buying new, it is always worth checking:
+        <em>Transparency note: Some retailer links on this site are affiliate links. If you click through and buy something, we may earn a small commission at no extra cost to you.</em>
       </p>
-      <ul>
-        <li>
-          <strong>Vinted &amp; eBay:</strong> Search by specific brand names and hydrostatic head ratings rather than generic "kids waterproofs" to find barely-worn forest school dungarees at half price.
-        </li>
-        <li>
-          <strong>Polarn O. Pyret Pre-Loved (PO.P Second Hand):</strong> Official resale platform for buying and trading in outgrown layers.
-        </li>
-      </ul>
-
-      <p>
-        <em>
-          Transparency note: Some retailer links on this site are affiliate links. If you click through and buy something, we may earn a small commission at no extra cost to you.
-        </em>
-      </p>
-    </article>
+    </div>
   </main>
+
   <Footer />
 </Layout>

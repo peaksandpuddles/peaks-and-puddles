@@ -1,0 +1,166 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+// Decathlon runs its UK affiliate program via Awin (https://www.awin.com)
+// Once approved, swap "#" for your unique Awin affiliate tracking link
+const decathlonAffiliateUrl = "#";
+
+const topPicks = [
+  {
+    category: "Base Layers",
+    name: "Quechua Kids' Wool-Blend Trekking Tops & Leggings",
+    notes: "A fraction of the price of premium outdoor stores. The merino-blend options provide genuine warmth and moisture-wicking without the itch."
+  },
+  {
+    category: "Waterproofs",
+    name: "Quechua Kids' Rain Jackets & Waterproof Overtrousers",
+    notes: "Look for models with stated hydrostatic head ratings. They withstand hours of playground slides and puddle-jumping remarkably well for the price."
+  },
+  {
+    category: "Footwear",
+    name: "Quechua Kids' Waterproof Hiking & Snow Boots",
+    notes: "Sturdy soles with reliable grip and easy Velcro or bungee laces that little fingers can manage independently."
+  },
+  {
+    category: "Snow & Ski",
+    name: "Wedze Kids' Ski Trousers & Padded Jackets",
+    notes: "Even if you aren't skiing, Decathlon's winter sports gear doubles as bulletproof, heavily insulated sledging and deep-winter snow suits."
+  }
+];
+
+const parentTips = [
+  {
+    title: "Check the Hydrostatic Ratings",
+    notes: "Decathlon clearly lists waterproof ratings (e.g., 2,000mm vs 5,000mm+). For all-day forest school or heavy rain, filter for their higher-spec waterproof shells."
+  },
+  {
+    title: "In-Store Click & Collect",
+    notes: "If you have a local Decathlon store, ordering online for free store pickup is a lifesaver when you need quick replacements before a weekend trip."
+  },
+  {
+    title: "Hand-Me-Down Durability",
+    notes: "Reinforced knees and seat panels on their hiking trousers mean they easily survive passing down to younger siblings."
+  }
+];
+---
+
+<Layout title="Decathlon Review for Parents: Best Kids' Outdoor Gear & Budget Buys | Peaks and Puddles">
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-4xl px-4 py-12">
+    <!-- 3-Tier Breadcrumbs & Evergreen Freshness Badge -->
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-2 text-sm">
+      <nav aria-label="Breadcrumb" class="text-muted-foreground flex items-center gap-2">
+        <a href="/brands-and-shops" class="hover:text-accent hover:underline">Brands &amp; Shops</a>
+        <span>/</span>
+        <a href="/brands-and-shops/shops" class="hover:text-accent hover:underline">Shops</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Decathlon</span>
+      </nav>
+      <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+        Last checked: November 2026
+      </span>
+    </div>
+
+    <!-- Article Header -->
+    <header class="mb-10">
+      <div class="mb-3 flex flex-wrap items-center gap-2">
+        <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
+          Budget-Friendly Outdoor Gear
+        </span>
+        <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+          Kids &amp; Adults
+        </span>
+      </div>
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        Decathlon for Outdoor Families: Which Kids' Gear Is Actually Worth Buying?
+      </h1>
+      <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+        Outfitting kids who grow out of gear every year can drain your wallet fast. Decathlon is one of our go-to recommendations for families because their in-house brands (Quechua and Wedze) offer genuine technical performance at a fraction of specialist high-street prices.
+      </p>
+    </header>
+
+    <!-- Affiliate Callout Box -->
+    <div class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8">
+      <h2 class="text-lg font-bold">Why Decathlon Works So Well for Growing Kids</h2>
+      <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+        Unlike fashion retailers whose "waterproofs" soak through in minutes, Decathlon designs gear for active mountain use. Their kids' lines balance durability, ease of wear, and affordable pricing—making them ideal for forest schools, muddy weekend walks, and winter weather.
+      </p>
+      <div class="mt-5">
+        <a
+          href={decathlonAffiliateUrl}
+          rel="nofollow sponsored noopener"
+          target="_blank"
+          class="bg-accent text-accent-foreground inline-block rounded-lg px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
+        >
+          Browse Kids' Outdoor Gear at Decathlon &rarr;
+        </a>
+      </div>
+      <p class="text-muted-foreground mt-3 text-xs">
+        <em>Transparency: We may earn a small commission if you purchase through our links via Awin at no extra cost to you.</em>
+      </p>
+    </div>
+
+    <!-- Best Kids' Categories -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold">Top Kids' Categories to Look For</h2>
+      <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+        Decathlon spans dozens of sports, but these are the specific family-focused lines worth adding to your kit list:
+      </p>
+
+      <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {topPicks.map((item) => (
+          <div class="border-border bg-card/50 rounded-xl border p-5">
+            <span class="text-accent text-xs font-semibold uppercase tracking-wider">
+              {item.category}
+            </span>
+            <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+            <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+              {item.notes}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Parent Shopping Tips -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold">3 Tips for Shopping Decathlon with Kids</h2>
+      <div class="mt-6 space-y-4">
+        {parentTips.map((tip, index) => (
+          <div class="border-border rounded-xl border p-5">
+            <div class="flex items-center gap-3">
+              <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                {index + 1}
+              </span>
+              <h3 class="font-semibold">{tip.title}</h3>
+            </div>
+            <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+              {tip.notes}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Internal Cross-Links -->
+    <aside class="bg-muted/50 border-border rounded-xl border p-6">
+      <h2 class="text-lg font-bold">Explore More Shops &amp; Gear Guides</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li>
+          &rarr; Looking for flash-sale brand discounts? Read our <a href="/brands-and-shops/shops/sport-pursuit" class="text-accent font-medium hover:underline">SportPursuit Guide</a>.
+        </li>
+        <li>
+          &rarr; Ready to pack for winter? Check out our <a href="/kit-lists/cold-weather-hiking" class="text-accent font-medium hover:underline">Cold-Weather Hiking Kit List</a>.
+        </li>
+        <li>
+          &rarr; Keep budget gear performing all season: <a href="/gear-care/reproofing-waterproofs" class="text-accent font-medium hover:underline">How to Wash &amp; Reproof Kids' Rain Gear</a>.
+        </li>
+      </ul>
+    </aside>
+  </main>
+
+  <Footer />
+</Layout>
