@@ -57,26 +57,34 @@ html[data-theme="dark"] {
   --muted-foreground: #f1f5f2;
   --border: #2d3e35;     /* Forest slate border */
 }
-/* Ordnance Survey Topographic Background using a PNG or JPG */
+/* Dedicated Topographic Background Layer (Stays behind everything) */
 body {
   background-color: var(--background);
-  background-image: url("/topo-bg.png");
-  background-repeat: repeat;
-  background-size: 400px 400px; /* Adjust this to make the pattern larger or smaller */
-  background-attachment: fixed;
+  position: relative;
 }
 
-/* Dark Mode: Automatically inverts dark lines to light lines for dark mode */
-html[data-theme="dark"] body,
-.dark body {
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
   background-image: url("/topo-bg.png");
-  filter: invert(1) hue-rotate(180deg);
-  opacity: 0.85;
+  background-repeat: repeat;
+  background-size: 400px 400px;
+  opacity: 0.12; /* Subtle light mode watermark */
+  pointer-events: none;
+}
+
+/* Dark Mode: Switch to a dark-mode variant or adjust appearance cleanly */
+html[data-theme="dark"] body::before,
+.dark body::before {
+  opacity: 0.15;
+  /* If you want a separate dark mode image later, you can swap it here: */
+  /* background-image: url("/topo-bg-dark.png"); */
 }
 
 /* Keep the center reading column completely solid and unaffected */
 .app-layout,
 main#main-content {
   background-color: var(--background);
-  filter: none;
 }
