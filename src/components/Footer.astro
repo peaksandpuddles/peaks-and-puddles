@@ -11,39 +11,41 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer
-  class:list={["app-layout", { "mt-auto": !noMarginTop }, className]}
+  class:list={["w-full bg-background", { "mt-auto": !noMarginTop }, className]}
   {...attrs}
 >
-  <div
-    class="border-t border-[var(--border)] flex flex-col items-center justify-between gap-4 py-6 sm:flex-row-reverse sm:py-5"
-  >
-    <Socials />
-
-    <nav
-      aria-label="Footer navigation"
-      class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm"
+  <div class="mx-auto max-w-7xl px-4">
+    <div
+      class="border-t border-[var(--border)] flex flex-col items-center justify-between gap-4 py-6 sm:flex-row-reverse sm:py-5"
     >
-      <a href="/about" class="underline-offset-4 hover:underline">
-        About
-      </a>
-      <a href="/affiliate-disclosure" class="underline-offset-4 hover:underline">
-        Affiliate Disclosure
-      </a>
-      <a href="/privacy-policy" class="underline-offset-4 hover:underline">
-        Privacy Policy
-      </a>
-      <a href="/contact" class="underline-offset-4 hover:underline">
-        Contact
-      </a>
-    </nav>
-  </div>
+      <Socials />
 
-  <div class="pb-6 text-center text-xs opacity-75 sm:text-left">
-    <p>
-      Copyright &#169; {currentYear} Peaks and Puddles. All rights reserved.
-    </p>
-    <p class="mt-1">
-      As an Amazon Associate I earn from qualifying purchases.
-    </p>
+      <nav
+        aria-label="Footer navigation"
+        class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm"
+      >
+        <a href="/about" class="underline-offset-4 hover:underline">
+          About
+        </a>
+        <a href="/affiliate-disclosure" class="underline-offset-4 hover:underline">
+          Affiliate Disclosure
+        </a>
+        <a href="/privacy-policy" class="underline-offset-4 hover:underline">
+          Privacy Policy
+        </a>
+        <a href="/contact" class="underline-offset-4 hover:underline">
+          Contact
+        </a>
+      </nav>
+    </div>
+
+    <div class="pb-6 text-center text-xs opacity-75 sm:text-left">
+      <p>
+        Copyright &#169; {currentYear} Peaks and Puddles. All rights reserved.
+      </p>
+      <p class="mt-1">
+        As an Amazon Associate I earn from qualifying purchases.
+      </p>
+    </div>
   </div>
 </footer>
