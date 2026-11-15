@@ -1,0 +1,76 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import { getAssetPath } from "@/utils/withBase";
+
+const careGuides = [
+  {
+    title: "Washing & Reproofing Waterproofs",
+    description: "How to restore DWR coatings on Gore-Tex, Páramo, and hardshell jackets without ruining breathability.",
+    href: "/gear-care/reproofing-waterproofs",
+    image: "/images/care-waterproofs.jpg",
+    badge: "Essential"
+  },
+  {
+    title: "Walking Boot Cleaning & Waxing",
+    description: "Protecting leather and fabric boots from acidic Scottish peat, mud, and cracking.",
+    href: "/gear-care/walking-boot-care",
+    image: "/images/care-boots.jpg",
+    badge: "Seasonal"
+  },
+  {
+    title: "Field Patches & UK Repair Hubs",
+    description: "Tenacious Tape fixes for down jackets plus the best mail-in outdoor repair services in the UK.",
+    href: "/gear-care/gear-repair-guide",
+    image: "/images/care-repair.jpg",
+    badge: "Repair First"
+  }
+];
+---
+
+<Layout title="Outdoor Gear Care, Reproofing & Repair | Peaks and Puddles">
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-7xl px-4 py-12">
+    <div class="mb-12 text-center">
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">Gear Care &amp; Repair</h1>
+      <p class="text-muted-foreground mt-3 text-lg">
+        Practical guides to washing, reproofing, and fixing outdoor kit so it lasts for years in wet weather.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+      {careGuides.map((guide) => (
+        <a
+          href={guide.href}
+          class="group bg-card text-card-foreground border-border overflow-hidden rounded-xl border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+        >
+          <div class="bg-muted relative aspect-video w-full overflow-hidden">
+            <div class="absolute inset-0 flex items-center justify-center bg-emerald-950/10 transition-transform duration-500 group-hover:scale-105">
+              <span class="text-sm font-medium opacity-60">📷 {guide.title} Tile</span>
+            </div>
+            <!-- <img src={getAssetPath(guide.image)} alt={guide.title} class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" /> -->
+
+            {guide.badge && (
+              <span class="bg-accent text-accent-foreground absolute top-3 right-3 rounded-full px-3 py-1 text-xs font-semibold shadow">
+                {guide.badge}
+              </span>
+            )}
+          </div>
+
+          <div class="p-6">
+            <h2 class="text-xl font-semibold transition-colors group-hover:text-accent">
+              {guide.title} &rarr;
+            </h2>
+            <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+              {guide.description}
+            </p>
+          </div>
+        </a>
+      ))}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
