@@ -1,0 +1,165 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const comparisons = [
+  {
+    feature: "Toilet & Pitstop Practicality",
+    dungarees: "Winner. Unclip the shoulder straps and drop the trousers without removing the jacket—keeping their core warm and cuffs out of the mud.",
+    allInOne: "Difficult. Peeling off a full suit requires unzipping from collar to crotch, often letting sleeves drag on public restroom floors or muddy ground."
+  },
+  {
+    feature: "Draft & Gap Protection",
+    dungarees: "High coverage, but vigorous rolling or climbing can occasionally cause jackets to ride up slightly above the waistline.",
+    allInOne: "Unbeatable. Zero gaps at the waist means zero chance of snow, slush, or cold wind sneaking down their back when hanging upside down."
+  },
+  {
+    feature: "Season & Weather Versatility",
+    dungarees: "Modular. Wear just the jacket on dry chilly days, or add dungarees when heavy rain hits. Easier to mix-and-match sizes as kids grow.",
+    allInOne: "All-or-nothing. Great for pouring rain or deep snow, but harder to adapt when weather changes midway through a family walk."
+  },
+  {
+    feature: "Best Suited For",
+    dungarees: "Potty-trained kids (Ages 3 to 7+), forest schoolers, and active hikers who need fast bathroom access.",
+    allInOne: "Crawlers, non-potty trained toddlers (Ages 0 to 2), and dedicated puddle-sitters who spend time sliding through deep mud."
+  }
+];
+---
+
+<Layout
+  title="Puddle Suits vs. Waterproof Dungarees: Which Is Better for Kids? | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Gear Explained
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Outerwear Guide
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Full Puddle Suits vs. Waterproof Dungarees: The Toilet Practicality Showdown
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          When you are standing on a freezing, muddy trail and a four-year-old
+          urgently whispers, &ldquo;I need a wee,&rdquo; the engineering flaws of
+          your child's outdoor gear become glaringly obvious. We weigh up bathroom
+          practicality against all-weather protection.
+        </p>
+      </header>
+
+      <!-- Quick Takeaway Callout -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">The Short Verdict</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          For quick toilet breaks and active kids, <strong class="text-foreground">Team Speed (Waterproof Dungarees + Separate Jacket)</strong> wins hands down. However, full puddle suits still hold a vital place in the wardrobe for pre-walkers and dedicated mud-sitters.
+        </p>
+      </div>
+
+      <!-- Comparison Table / Grid -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Head-to-Head Comparison</h2>
+        <div class="border-border mt-6 overflow-x-auto rounded-xl border">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-muted/60 border-border border-b text-xs uppercase">
+              <tr>
+                <th class="px-4 py-3 font-semibold">Consideration</th>
+                <th class="px-4 py-3 font-semibold">Waterproof Dungarees / Bibs</th>
+                <th class="px-4 py-3 font-semibold">Full Puddle Suits (All-in-Ones)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-border divide-y">
+              {
+                comparisons.map((row) => (
+                  <tr>
+                    <td class="px-4 py-3 font-medium">{row.feature}</td>
+                    <td class="text-muted-foreground px-4 py-3">{row.dungarees}</td>
+                    <td class="text-muted-foreground px-4 py-3">{row.allInOne}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Detailed Breakdown Sections -->
+      <section class="mb-12 space-y-8">
+        <div>
+          <h2 class="text-2xl font-bold">1. Toilet Practicality &amp; Real-World Pitstops</h2>
+          <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+            When nature calls on a wet walk, unshipping shoulder straps and dropping dungarees takes seconds while keeping the upper jacket zipped against the wind. Full all-in-one suits require peeling the entire top half off their shoulders, turning public restrooms or muddy forest floors into an awkward exercise in keeping sleeves clean.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold">2. Why Full Puddle Suits Still Rule (The Pros)</h2>
+          <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+            Despite the bathroom wrestling match, full suits offer seamless draft protection. No matter how high a toddler climbs or rolls, cold wind, snow, and wet slush cannot sneak down their back. For pre-walkers sitting directly in deep puddles, they provide impenetrable armor.
+          </p>
+        </div>
+
+        <div>
+          <h2 class="text-2xl font-bold">3. Age-Based Recommendation</h2>
+          <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+            <strong class="text-foreground">Ages 0 to 2 (Crawlers):</strong> Go Full Puddle Suit. Since you are dealing with nappy changes anyway, seamless draft protection wins.<br />
+            <strong class="text-foreground">Ages 3 to 7+ (Potty Training &amp; Up):</strong> Switch to Dungarees + Separate Jacket to save yourself public toilet headaches and gain modular layering versatility.
+          </p>
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Gear &amp; Kit Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Check out our recommended checklist in the{" "}
+            <a
+              href="/kit-lists/rainy-day-woodland"
+              class="text-accent font-medium hover:underline"
+            >
+              Rainy Day &amp; Woodland Play Kit List
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Explore top outerwear brands like Didriksons and Frugi in{" "}
+            <a
+              href="/brands-and-shops"
+              class="text-accent font-medium hover:underline"
+            >
+              Brands &amp; Shops Directory
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
