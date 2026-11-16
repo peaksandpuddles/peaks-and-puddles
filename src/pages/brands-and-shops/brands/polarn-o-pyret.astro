@@ -1,0 +1,234 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+// Swap "#" for your affiliate link (e.g., Awin / Rakuten / direct brand affiliate program)
+const brandAffiliateUrl = "#";
+
+const topLines = [
+  {
+    category: "Signature Mid-Layers",
+    name: "Windfleece Jackets & Baby Pramsuits",
+    notes:
+      "PO.P's famous windproof, water-repellent, and breathable fleece jackets feature thumbhole cuffs and storm flaps—doubling as a standalone outer layer in spring/autumn and zipping directly into their shell coats in winter."
+  },
+  {
+    category: "Technical Waterproofs",
+    name: "PO.P WeatherPRO® Shells & Dungarees",
+    notes:
+      "Rated to at least 10,000mm–12,000mm hydrostatic head with fully taped seams, reinforced knees/seats, and detachable hoods. Built to survive daily forest school mud and torrential rain."
+  },
+  {
+    category: "Merino & Cotton Base Layers",
+    name: "Classic Striped Thermals & Merino Wool Sets",
+    notes:
+      "Soft, flat-seam merino wool tops and leggings designed to sit comfortably under waterproof dungarees without bunching or chafing."
+  },
+  {
+    category: "Accessories",
+    name: "Waterproof Mittens, Balaclavas & Reflective Gear",
+    notes:
+      "Long-gauntlet waterproof mittens with side zips for easy toddler dressing, plus merino-lined winter hats and high-visibility trim."
+  }
+];
+
+const parentTakeaways = [
+  {
+    title: "The Clever Snap-In Layering System",
+    notes:
+      "Polarn O. Pyret designs its Windfleece jackets to snap or zip directly inside its WeatherPRO waterproof shell coats—turning two separate layers into a single, easy-on winter coat."
+  },
+  {
+    title: "The '3 Kids' Hand-Me-Down Standard",
+    notes:
+      "Every PO.P garment is engineered around a goal of dressing at least three children before wearing out, complete with multi-name ID labels stitched inside and ultra-tough Cordura-style reinforcements on high-wear zones."
+  },
+  {
+    title: "PO.P Second Hand & Repair Ethos",
+    notes:
+      "Thanks to Swedish minimalist styling and extreme durability, Polarn O. Pyret holds exceptional secondhand value on Vinted, eBay, and PO.P's own pre-loved resale channels."
+  }
+];
+---
+
+<Layout
+  title="Polarn O. Pyret Brand Review: Swedish Layering & Outerwear for Kids | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Evergreen Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Layering Experts
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Swedish Outdoor Gear
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Polarn O. Pyret Brand Review: Masters of Kids' Outdoor Layering
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Founded in Sweden in 1976, Polarn O. Pyret (often shortened to PO.P)
+          builds practical, gender-neutral outdoor clothing around one simple
+          Scandinavian principle: let kids play outside in any weather, and make
+          clothes tough enough to pass through at least three children.
+        </p>
+      </header>
+
+      <!-- Affiliate / Brand Intro Callout -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">
+          The Verdict: Unbeatable Modular Layering for Unpredictable Weather
+        </h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          If you live somewhere with four seasons in a single afternoon, PO.P's
+          combination of <strong>Windfleece</strong> mid-layers and{" "}
+          <strong>WeatherPRO®</strong> outer shells is hard to beat. While
+          retail prices sit in the mid-to-premium tier, their modular zip-in
+          design replaces multiple separate coats across spring, autumn, and
+          winter.
+        </p>
+        <div class="mt-5">
+          <a
+            href={brandAffiliateUrl}
+            rel="nofollow sponsored noopener"
+            target="_blank"
+            class="bg-accent text-accent-foreground inline-block rounded-lg px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
+          >
+            Explore Polarn O. Pyret Collection &rarr;
+          </a>
+        </div>
+        <p class="text-muted-foreground mt-3 text-xs">
+          <em>
+            Transparency: We may earn a small commission if you purchase through
+            our links at no extra cost to you.
+          </em>
+        </p>
+      </div>
+
+      <!-- Key Line Categories -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">
+          Standout Polarn O. Pyret Lines for Outdoor Families
+        </h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          PO.P organizes its range around modular layering so parents can adapt
+          to changing temperatures in seconds:
+        </p>
+
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            topLines.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Why Parents Love Polarn O. Pyret -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">3 Things Parents Appreciate Most</h2>
+        <div class="mt-6 space-y-4">
+          {
+            parentTakeaways.map((takeaway, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{takeaway.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {takeaway.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Sizing & Fit Note -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Sizing &amp; Fit Tips for UK Parents</h2>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          Like most Scandinavian outdoor brands, Polarn O. Pyret uses{" "}
+          <strong class="text-foreground">centimetre height sizing</strong>{" "}
+          (for example, <strong class="text-foreground">98/104</strong> for
+          3–4 years or <strong class="text-foreground">110/116</strong> for
+          5–6 years). Garments feature generous sleeve length, pre-bent knees,
+          and fold-over cuffs on baby/toddler items so you rarely need to size
+          up early.
+        </p>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Brand &amp; Gear Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Master the 3-tier system behind PO.P's clothing in{" "}
+            <a
+              href="/gear-explained/layering-systems"
+              class="text-accent font-medium hover:underline"
+            >
+              Outdoor Layering Systems for Kids
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Compare windproof fleece against softshells in{" "}
+            <a
+              href="/gear-explained/softshells-explained"
+              class="text-accent font-medium hover:underline"
+            >
+              Softshells Explained
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Compare another Nordic outerwear favorite in our{" "}
+            <a
+              href="/brands-and-shops/brands/reima"
+              class="text-accent font-medium hover:underline"
+            >
+              Reima Brand Review
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

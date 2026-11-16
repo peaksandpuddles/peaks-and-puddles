@@ -1,0 +1,242 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+// Swap "#" for your affiliate link (e.g., Awin / AvantLink / direct partner link)
+const brandAffiliateUrl = "#";
+
+const topLines = [
+  {
+    category: "Waterproof Shells",
+    name: "Torrentshell 3L Kids' Rain Jacket",
+    notes:
+      "A 3-layer H2No Performance Standard waterproof shell with fully taped seams, pit-free durability, and a sturdy storm flap. Built to survive years of torrential rain and muddy woodland play."
+  },
+  {
+    category: "Synthetic & Down Insulation",
+    name: "Hi-Loft Down Sweater & Nano Puff Jackets",
+    notes:
+      "Ultra-packable, lightweight warmth using 700-fill-power recycled down or PrimaLoft Gold synthetic insulation. Ideal for cold hill walks, summit snack breaks, and sub-zero school runs."
+  },
+  {
+    category: "Iconic Mid-Layers",
+    name: "Retro-X Fleece & Synchilla Snap-T Pullovers",
+    notes:
+      "Thick, wind-blocking sherpa and recycled fleece mid-layers that deliver cozy warmth and shrug off daily playground abrasion."
+  },
+  {
+    category: "Sun & Trail Layers",
+    name: "Baggies Shorts & Capilene Cool Daily Tops",
+    notes:
+      "Quick-drying, UPF-rated trail shirts and indestructible nylon amphibious shorts made for summer paddling, rock pooling, and warm-weather hikes."
+  }
+];
+
+const parentTakeaways = [
+  {
+    title: "The Ironclad Guarantee & Worn Wear Repairs",
+    notes:
+      "Patagonia backs every garment with its Ironclad Guarantee—if a zip snaps or a seam fails, they repair or replace it. Combined with their Worn Wear resale and repair program, Patagonia kids' gear holds huge secondhand resale value."
+  },
+  {
+    title: "Built-In Hand-Me-Down ID Labels",
+    notes:
+      "Almost every Patagonia kids' jacket and fleece comes with a multi-line 'Hand It Down' ID label stitched inside, explicitly designed to pass through three or four siblings before retiring."
+  },
+  {
+    title: "100% Recycled Fabrics & Ethical Manufacturing",
+    notes:
+      "From NetPlus recycled fishing-net nylon shells to Fair Trade Certified sewing and PFAS-free DWR coatings, Patagonia leads the outdoor industry in minimizing chemical and environmental impact."
+  }
+];
+---
+
+<Layout
+  title="Patagonia Kids Brand Review: Is Their Outdoor Gear Worth the Price? | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Evergreen Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Heritage Outdoor Icon
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Kids' Technical Gear
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Patagonia Kids Brand Review: Built to Survive Multiple Siblings?
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Patagonia shrinks its legendary adult alpine gear down for toddlers,
+          kids, and teens—using the exact same 3-layer waterproof membranes,
+          recycled down, and rugged fabrics. We look at how their premium kids'
+          line holds up to muddy UK trails and whether the resale value makes
+          the upfront price worthwhile.
+        </p>
+      </header>
+
+      <!-- Affiliate / Brand Intro Callout -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">
+          The Verdict: Buy Once, Pass Down Three Times
+        </h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          There is no hiding that Patagonia sits at the premium end of kids'
+          outdoor clothing. However, because pieces like the{" "}
+          <strong>Torrentshell 3L</strong> and <strong>Nano Puff</strong> are
+          built with genuine adult-grade materials—and backed by free repairs
+          and strong secondhand demand—your net cost after passing them down or
+          reselling them is often lower than replacing cheap coats every
+          winter.
+        </p>
+        <div class="mt-5">
+          <a
+            href={brandAffiliateUrl}
+            rel="nofollow sponsored noopener"
+            target="_blank"
+            class="bg-accent text-accent-foreground inline-block rounded-lg px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
+          >
+            Explore Patagonia Kids' Collection &rarr;
+          </a>
+        </div>
+        <p class="text-muted-foreground mt-3 text-xs">
+          <em>
+            Transparency: We may earn a small commission if you purchase through
+            our links at no extra cost to you.
+          </em>
+        </p>
+      </div>
+
+      <!-- Key Line Categories -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">
+          Standout Patagonia Lines for Outdoor Families
+        </h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Rather than seasonal fashion gimmicks, Patagonia refines the same
+          core technical staples year after year:
+        </p>
+
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            topLines.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Why Parents Love Patagonia -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">3 Things Parents Appreciate Most</h2>
+        <div class="mt-6 space-y-4">
+          {
+            parentTakeaways.map((takeaway, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{takeaway.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {takeaway.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Sizing & Fit Note -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Sizing &amp; Fit Tips for UK Parents</h2>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          Patagonia uses US age/size brackets (such as <strong class="text-foreground">XS (5–6)</strong>,{" "}
+          <strong class="text-foreground">S (7–8)</strong>, and{" "}
+          <strong class="text-foreground">M (10)</strong>) with a regular,
+          layer-friendly cut. Jackets have slightly longer sleeves and drop-tail
+          hems to cover kids' backs when bending down—so buying true to your
+          child's current age bracket usually leaves plenty of room for a{" "}
+          <a
+            href="/gear-explained/fleece-weights-explained"
+            class="text-accent font-medium hover:underline"
+          >
+            midweight fleece
+          </a>{" "}
+          underneath.
+        </p>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Brand &amp; Gear Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Comparing down vs. synthetic puffers like the Nano Puff? Read{" "}
+            <a
+              href="/gear-explained/down-vs-synthetic"
+              class="text-accent font-medium hover:underline"
+            >
+              Down vs. Synthetic Insulation Explained
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Keep your Torrentshell beading water for years:{" "}
+            <a
+              href="/gear-explained/gear-care/reproofing-waterproofs"
+              class="text-accent font-medium hover:underline"
+            >
+              How to Wash &amp; Reproof Kids' Rain Gear
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Compare another Nordic outerwear favorite in our{" "}
+            <a
+              href="/brands-and-shops/brands/reima"
+              class="text-accent font-medium hover:underline"
+            >
+              Reima Brand Review
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
