@@ -1,0 +1,221 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const comparisonTable = [
+  {
+    feature: "Warmth When Wet",
+    merino: "Retains 100% of its insulating warmth even when completely soaked in sweat or rain.",
+    synthetic: "Retains most warmth when damp and dries significantly faster than wool.",
+    winner: "Merino Wool"
+  },
+  {
+    feature: "Odour Control (The Stink Factor)",
+    merino: "Naturally antimicrobial—can be worn for multiple days on camping trips without smelling.",
+    synthetic: "Holds onto body oils and bacteria, requiring washing after a single sweaty day.",
+    winner: "Merino Wool"
+  },
+  {
+    feature: "Drying Speed",
+    merino: "Takes longer to air-dry because natural fibers absorb moisture into their core.",
+    synthetic: "Dries rapidly as moisture sits on the surface of the plastic fibers.",
+    winner: "Synthetic"
+  },
+  {
+    feature: "Durability & Rough Play",
+    merino: "Fine natural fibers can wear thin or tear on Velcro, rough rocks, or brambles.",
+    synthetic: "Tough, abrasion-resistant, and built to survive rough forest school playgrounds.",
+    winner: "Synthetic"
+  },
+  {
+    feature: "Skin Feel & Itchiness",
+    merino: "Ultra-fine merino (17.5-19 micron) is luxuriously soft and non-scratchy against sensitive skin.",
+    synthetic: "Can sometimes feel clammy or cause static, though modern technical fabrics are very soft.",
+    winner: "Merino Wool"
+  },
+  {
+    feature: "Price",
+    merino: "Premium price tag due to natural harvesting and processing.",
+    synthetic: "More affordable and budget-friendly for fast-growing kids.",
+    winner: "Synthetic"
+  }
+];
+
+const scenarios = [
+  {
+    title: "Best for Multi-Day Camping & Hiking Trips",
+    choice: "100% Merino Wool",
+    badge: "Odour Winner",
+    notes: "When you are packing light for a weekend trail trip, merino tops can be worn for 3 to 4 days straight without developing a locker-room stench."
+  },
+  {
+    title: "Best for Daily Forest School & Muddy Play",
+    choice: "Synthetic (Polyester / Polypropylene)",
+    badge: "Durability Winner",
+    notes: "Withstands snagging on branches, daily machine washing, and rough treatment against timber and mud far better than delicate natural wool."
+  },
+  {
+    title: "Best Compromise for Everyday Winter Wear",
+    choice: "Merino-Poly Blends (e.g., 80% Wool / 20% Poly)",
+    badge: "The Smart Choice",
+    notes: "Blended base layers add synthetic nylon reinforcement to merino yarn, giving you the natural warmth and odour control of wool with the rugged durability of synthetic."
+  }
+];
+---
+
+<Layout title="Merino Wool vs. Synthetic Base Layers for Kids: Which Is Best? | Peaks and Puddles">
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
+            Gear Explained
+          </span>
+          <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+            Warmth &amp; Layering
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Merino Wool vs. Synthetic Base Layers for Kids: Which Should You Buy?
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          The <a href="/gear-explained/layering-systems" class="text-accent font-medium hover:underline">base layer</a> is the most critical component of a child's outdoor kit because it sits directly against their skin. While traditional cotton character t-shirts absorb sweat and leave kids shivering, choosing between high-end merino wool and technical synthetics can feel tricky. Here is how they compare for active kids.
+        </p>
+      </header>
+
+      <!-- Quick Summary Callout -->
+      <div class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8">
+        <h2 class="text-lg font-bold">The Cheat Sheet for Busy Parents</h2>
+        <ul class="text-muted-foreground mt-3 space-y-2 text-sm leading-relaxed">
+          <li>
+            <strong class="text-foreground">Choose Merino Wool if:</strong> You want unmatched odour control for multi-day trips, natural temperature regulation, and a luxuriously soft, itch-free fit that stays warm even when soaked.
+          </li>
+          <li>
+            <strong class="text-foreground">Choose Synthetics if:</strong> You need high durability for rough playground climbing, faster air-drying times, and a budget-friendly price point for fast-growing children.
+          </li>
+          <li>
+            <strong class="text-foreground">The Secret Weapon:</strong> Look for merino-synthetic blends. They combine the best of both worlds by reinforcing delicate wool fibers with tough polyester.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section 1: What Is a Base Layer? -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">1. Why Base Layers Matter</h2>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          When kids run around a chilly woodland, they sweat. If that sweat is trapped against their skin by a cotton shirt, body heat evaporates the moisture rapidly, causing an intense chill the moment they stop running (known as <strong class="text-foreground">after-chill</strong>).
+        </p>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          Both merino wool and synthetic base layers solve this by <strong class="text-foreground">wicking</strong>—pulling moisture away from the skin and pushing it outward through the fabric weave so it can evaporate safely.
+        </p>
+      </section>
+
+      <!-- Section 2: Merino Wool Explained -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">2. Merino Wool: Nature's High-Tech Fiber</h2>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          Generated by Merino sheep living in harsh alpine environments, merino wool bears no resemblance to the scratchy wool jumpers of your childhood. Its fibers are microscopic and exceptionally fine, bending gently against sensitive skin.
+        </p>
+        <ul class="text-muted-foreground mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed">
+          <li><strong class="text-foreground">Active temperature control:</strong> It traps warm air when it is freezing, but breathes brilliantly to release heat when kids warm up.</li>
+          <li><strong class="text-foreground">Magic odour resistance:</strong> Wool naturally neutralizes bacteria, meaning a merino top can be worn on a three-day camping trip without smelling like a locker room.</li>
+          <li><strong class="text-foreground">Warm when wet:</strong> Even if a child falls in a stream or sweats profusely, wool fibers retain their internal warmth.</li>
+        </ul>
+      </section>
+
+      <!-- Section 3: Synthetics Explained -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">3. Synthetic Base Layers: The Rugged Workhorse</h2>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          Made from engineered polyester or polypropylene fibers, synthetic thermal sets (often labelled as thermal underwear or quick-dry tops) are designed for pure athletic performance and durability.
+        </p>
+        <ul class="text-muted-foreground mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed">
+          <li><strong class="text-foreground">Indestructible playground durability:</strong> Polyester fibers resist abrasion, making them ideal for kids sliding down rocks, scrambling up trees, or wearing under rough backpack straps.</li>
+          <li><strong class="text-foreground">Lightning-fast drying:</strong> Because synthetic fibers don't absorb moisture into their core, water sits on the surface and evaporates rapidly after washing or puddle splashes.</li>
+          <li><strong class="text-foreground">Wallet-friendly:</strong> Significantly cheaper to buy, which takes the sting out of replacing sizes every year as children grow.</li>
+        </ul>
+      </section>
+
+      <!-- Section 4: Head-to-Head Comparison Table -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">4. Head-to-Head Comparison</h2>
+        <div class="border-border mt-6 overflow-x-auto rounded-xl border">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-muted/60 border-border border-b text-xs uppercase">
+              <tr>
+                <th class="px-4 py-3 font-semibold">Feature</th>
+                <th class="px-4 py-3 font-semibold">Merino Wool</th>
+                <th class="px-4 py-3 font-semibold">Synthetic</th>
+                <th class="px-4 py-3 font-semibold">Winner</th>
+              </tr>
+            </thead>
+            <tbody class="divide-border divide-y">
+              {comparisonTable.map((row) => (
+                <tr>
+                  <td class="px-4 py-3 font-medium">{row.feature}</td>
+                  <td class="text-muted-foreground px-4 py-3">{row.merino}</td>
+                  <td class="text-muted-foreground px-4 py-3">{row.synthetic}</td>
+                  <td class="text-accent px-4 py-3 font-semibold">{row.winner}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 5: Which Should You Choose? -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">5. Which One Fits Your Family?</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {scenarios.map((item) => (
+            <div class="border-border bg-card/50 flex flex-col justify-between rounded-xl border p-5">
+              <div>
+                <span class="bg-muted text-muted-foreground inline-block rounded-full px-2.5 py-0.5 text-xs font-medium">
+                  {item.badge}
+                </span>
+                <h3 class="mt-3 font-bold">{item.title}</h3>
+                <p class="text-muted-foreground mt-2 text-xs leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+              <div class="border-border/60 mt-4 border-t pt-3">
+                <span class="text-accent text-xs font-semibold">Pick: {item.choice}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Related Guides & Next Steps -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Continue Exploring Gear Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Ready to complete the system? Read our main guide on <a href="/gear-explained/layering-systems" class="text-accent font-medium hover:underline">Outdoor Layering Systems for Kids</a>.
+          </li>
+          <li>
+            &rarr; Looking at midlayers and jackets? Check <a href="/gear-explained/down-vs-synthetic" class="text-accent font-medium hover:underline">Down vs. Synthetic Insulation Explained</a>.
+          </li>
+          <li>
+            &rarr; Wondering how to wash wool and technical gear? Visit our <a href="/gear-explained/gear-care" class="text-accent font-medium hover:underline">Gear Care Hub</a>.
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

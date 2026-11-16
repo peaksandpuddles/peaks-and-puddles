@@ -1,0 +1,205 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const comparisonTable = [
+  {
+    feature: "Thermal Efficiency & Warmth",
+    mittens: "Exceptional. Fingers share body heat inside a single compartment, drastically reducing heat loss.",
+    gloves: "Lower. Individual fingers are isolated and separated by fabric walls, exposing them to faster cold penetration.",
+    winner: "Mittens"
+  },
+  {
+    feature: "Manual Dexterity & Fine Motor Skills",
+    mittens: "Poor. Difficult for toddlers or kids to pick up small objects, tie laces, or hold ski poles.",
+    gloves: "High. Each finger moves independently, making it easy to climb trees, grip handlebars, or zip coats.",
+    winner: "Gloves"
+  },
+  {
+    feature: "Ease of Putting On (Independence)",
+    mittens: "Very Easy. No struggling to align tiny thumbs into individual finger holes—great for nursery kids.",
+    gloves: "Frustrating. Inevitably results in thumbs getting stuck in the pinky slot on cold, rushing mornings.",
+    winner: "Mittens"
+  },
+  {
+    feature: "Wet-Weather Performance",
+    mittens: "Relies on a single outer shell. If water gets in, all fingers get soaked at once.",
+    gloves: "Individual finger chambers can isolate localized moisture, though seams are harder to keep bone-dry.",
+    winner: "Tie"
+  }
+];
+
+const scenarios = [
+  {
+    title: "Best for Toddlers, Nursery & Forest School Play",
+    choice: "Waterproof Mittens (with Long Gauntlets)",
+    badge: "Warmth & Simplicity",
+    notes: "Younger kids lose heat rapidly through their fingers. Mittens keep hands toasty during digging and snowball fights, and long gauntlets tuck right over coat cuffs to keep snow and mud out."
+  },
+  {
+    title: "Best for Older Kids, Cycling & Active Scrambling",
+    choice: "Dexterous Waterproof Gloves",
+    badge: "Grip & Mobility",
+    notes: "Once children need to hold bike handlebars, zip up backpacks, or scramble over rocks, isolated finger mobility becomes essential."
+  },
+  {
+    title: "The Ultimate Cold-Weather Solution",
+    choice: "Glove Liners + Outer Mittens",
+    badge: "The Pro Strategy",
+    notes: "Pair a thin, moisture-wicking merino glove liner with a roomy waterproof shell mitten over the top. Kids keep their hands warm, and can briefly pop off the outer mitten for fine tasks without exposing bare skin."
+  }
+];
+---
+
+<Layout title="Gloves vs. Mittens for Kids: Warmth, Dexterity & Layering Tips | Peaks and Puddles">
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
+            Gear Explained
+          </span>
+          <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+            Warmth &amp; Layering
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Gloves vs. Mittens for Kids: Which Keep Little Hands Warmer?
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Few things cut a family walk short faster than a child screaming in tears because their fingers are freezing cold. Every winter, parents face the classic debate: should you buy fingered gloves for mobility or mittens for warmth? Here is how they compare, alongside pro layering tips to keep tiny hands cozy all day.
+        </p>
+      </header>
+
+      <!-- Quick Summary Callout -->
+      <div class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8">
+        <h2 class="text-lg font-bold">The Cheat Sheet for Busy Parents</h2>
+        <ul class="text-muted-foreground mt-3 space-y-2 text-sm leading-relaxed">
+          <li>
+            <strong class="text-foreground">Mittens win on warmth:</strong> By keeping all four fingers together in a single chamber, body heat circulates freely. Physics dictates that fingers share warmth; separated fingers cool down fast.
+          </li>
+          <li>
+            <strong class="text-foreground">Gloves win on dexterity:</strong> If your child needs to hold bike handles, climb timber frames, or manipulate toys, individual fingers are mandatory.
+          </li>
+          <li>
+            <strong class="text-foreground">The ultimate layering trick:</strong> Pair thin merino glove liners underneath a roomy waterproof shell mitten for unbeatable warmth and modular flexibility.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section 1: The Physics of Cold Hands -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">1. Why Kids' Fingers Freeze So Fast</h2>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          Children have a higher surface-area-to-mass ratio than adults, meaning their bodies radiate heat much faster. When exposed to cold wind or damp air, blood vessels in the extremities constrict rapidly to protect core body temperature, leaving fingers vulnerable.
+        </p>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          This is why <strong class="text-foreground">mittens are almost always the best choice for children under six</strong>. Separating fingers into individual fabric tubes isolates them, stripping away their ability to pool body heat together.
+        </p>
+      </section>
+
+      <!-- Section 2: Head-to-Head Comparison Table -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">2. Head-to-Head: Gloves vs. Mittens</h2>
+        <div class="border-border mt-6 overflow-x-auto rounded-xl border">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-muted/60 border-border border-b text-xs uppercase">
+              <tr>
+                <th class="px-4 py-3 font-semibold">Feature</th>
+                <th class="px-4 py-3 font-semibold">Mittens</th>
+                <th class="px-4 py-3 font-semibold">Gloves</th>
+                <th class="px-4 py-3 font-semibold">Winner</th>
+              </tr>
+            </thead>
+            <tbody class="divide-border divide-y">
+              {comparisonTable.map((row) => (
+                <tr>
+                  <td class="px-4 py-3 font-medium">{row.feature}</td>
+                  <td class="text-muted-foreground px-4 py-3">{row.mittens}</td>
+                  <td class="text-muted-foreground px-4 py-3">{row.gloves}</td>
+                  <td class="text-accent px-4 py-3 font-semibold">{row.winner}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 3: Layering Tips for Little Hands -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">3. Hand Layering Systems: The Two-Part Strategy</h2>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          Just like your child's core <a href="/gear-explained/layering-systems" class="text-accent font-medium hover:underline">clothing layers</a>, hands benefit massively from a two-part system rather than relying on a single bulky snow glove:
+        </p>
+        <div class="mt-6 space-y-4">
+          <div class="border-border bg-card/50 rounded-xl border p-5">
+            <h3 class="font-bold">Part 1: The Inner Liner (Merino or Synthetic)</h3>
+            <p class="text-muted-foreground mt-2 text-xs leading-relaxed">
+              Start with a thin, snug <strong class="text-foreground">merino wool or technical synthetic glove liner</strong>. Just like a <a href="/gear-explained/merino-vs-synthetic" class="text-accent font-medium hover:underline">base layer</a>, its job is to wick sweat away from tiny palms. Sweaty hands turn into ice cubes the moment kids stop moving.
+            </p>
+          </div>
+          <div class="border-border bg-card/50 rounded-xl border p-5">
+            <h3 class="font-bold">Part 2: The Outer Shell Mitten (Wind &amp; Waterproof)</h3>
+            <p class="text-muted-foreground mt-2 text-xs leading-relaxed">
+              Pull a roomy, insulated, waterproof mitten over the top. Make sure it features a <strong class="text-foreground">long gauntlet cuff</strong> that fits <em>over</em> the jacket sleeve rather than tucked inside, stopping snow and puddle water from trickling down their wrists.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 4: Which Should You Choose? -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">4. Which Option Fits Your Child's Age &amp; Activity?</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {scenarios.map((item) => (
+            <div class="border-border bg-card/50 flex flex-col justify-between rounded-xl border p-5">
+              <div>
+                <span class="bg-muted text-muted-foreground inline-block rounded-full px-2.5 py-0.5 text-xs font-medium">
+                  {item.badge}
+                </span>
+                <h3 class="mt-3 font-bold">{item.title}</h3>
+                <p class="text-muted-foreground mt-2 text-xs leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+              <div class="border-border/60 mt-4 border-t pt-3">
+                <span class="text-accent text-xs font-semibold">Pick: {item.choice}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Related Guides & Next Steps -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Continue Exploring Gear Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Review the core principles behind keeping kids warm in <a href="/gear-explained/layering-systems" class="text-accent font-medium hover:underline">Outdoor Layering Systems for Kids</a>.
+          </li>
+          <li>
+            &rarr; Compare wool vs. synthetic performance in <a href="/gear-explained/merino-vs-synthetic" class="text-accent font-medium hover:underline">Merino Wool vs. Synthetic Base Layers</a>.
+          </li>
+          <li>
+            &rarr; Need waterproof shells to match? Read <a href="/gear-explained/waterproof-ratings-explained" class="text-accent font-medium hover:underline">Waterproof Ratings Explained</a>.
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
