@@ -1,0 +1,214 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const leakReasons = [
+  {
+    title: "1. The 'Wicking Cuff' Effect (Long Grass & Trousers)",
+    notes:
+      "The #1 reason kids end up with wet socks isn't a hole in the boot—it's wet trouser hems and grass brushing against the fabric ankle collar. Moisture wicks down the inner lining like a sponge until socks are soaked."
+  },
+  {
+    title: "2. 'Water-Resistant' vs. True Waterproof Membranes",
+    notes:
+      "Many high-street kids' boots only have a spray-on DWR coating over mesh or suede. DWR beads off light splashes, but pushing through soaking wet meadow grass forces water straight through the fabric within 15 minutes."
+  },
+  {
+    title: "3. Worn-Out DWR & Heavy Mud Caking",
+    notes:
+      "Even Gore-Tex boots rely on an outer water-repellent finish. When mud dries onto the boot, it clogs the breathable pores and lets the outer fabric saturate, making the inside feel cold and clammy."
+  },
+  {
+    title: "4. Foot Sweat Trapped Inside",
+    notes:
+      "Kids' feet sweat heavily when running. Without breathable membranes and merino socks, condensed sweat feels identical to a leak."
+  }
+];
+---
+
+<Layout
+  title="Waterproof Membranes Explained: Why Kids' Boots Leak in Wet Grass | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Gear Explained
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Footwear &amp; Socks
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Waterproof Membranes Explained: Gore-Tex vs. Proprietary Liners (And Why
+          Kids' Boots Still Leak in Wet Grass)
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Few things frustrate outdoor parents more than buying "waterproof"
+          walking boots, only for your child to come back from a walk through
+          wet grass with soaked socks. Here is how boot membranes actually work
+          and the surprisingly simple reasons wet grass defeats them.
+        </p>
+      </header>
+
+      <!-- Quick Summary Callout -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">The Cheat Sheet for Busy Parents</h2>
+        <ul class="text-muted-foreground mt-3 space-y-2 text-sm leading-relaxed">
+          <li>
+            <strong class="text-foreground">How membranes work:</strong>{" "}
+            Waterproof boots contain an internal "bootie" liner (like Gore-Tex
+            or ReimaTec) with microscopic pores too small for liquid water to
+            enter, yet large enough for sweat vapor to escape.
+          </li>
+          <li>
+            <strong class="text-foreground">Wet grass is tougher than rain:</strong>{" "}
+            Walking through saturated grass acts like a continuous car-wash
+            brush against the tongue and ankle cuff, wicking water over the top.
+          </li>
+          <li>
+            <strong class="text-foreground">The easy fix:</strong> Pull{" "}
+            <a
+              href="/gear-explained/waterproof-ratings-explained"
+              class="text-accent font-medium hover:underline"
+            >
+              waterproof overtrousers
+            </a>{" "}
+            <em>over</em> the outside of the boot collar (using stirrup straps)
+            and pair with merino hiking socks.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section 1: Gore-Tex vs Brand Membranes -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">
+          1. Gore-Tex vs. Brand-Own Waterproof Membranes
+        </h2>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          When shopping for kids' boots, you will usually see either{" "}
+          <strong class="text-foreground">GORE-TEX</strong> or a brand's own
+          proprietary membrane (such as{" "}
+          <strong class="text-foreground">Keen.Dry</strong>,{" "}
+          <strong class="text-foreground">ReimaTec</strong>, or{" "}
+          <strong class="text-foreground">Salomon ClimaSalomon</strong>).
+        </p>
+        <ul class="text-muted-foreground mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed">
+          <li>
+            <strong class="text-foreground">GORE-TEX:</strong> The gold
+            standard for durability and strict factory seam-sealing inspections.
+            Adds £15–£25 to the price tag, but holds up reliably across rough
+            scrambling.
+          </li>
+          <li>
+            <strong class="text-foreground">Proprietary Membranes:</strong>{" "}
+            Modern brand-own liners use nearly identical microporous technology
+            at a lower price point. For kids who outgrow footwear every 6 to 9
+            months, proprietary membranes offer fantastic value—provided the
+            boot has a <strong class="text-foreground">gusseted tongue</strong>{" "}
+            (sewn to the sides of the boot so water can't sneak through the
+            laces).
+          </li>
+        </ul>
+      </section>
+
+      <!-- Section 2: Why Boots Fail in Wet Grass -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">
+          2. Four Reasons "Waterproof" Boots Fail in Wet Grass
+        </h2>
+        <div class="mt-6 space-y-4">
+          {
+            leakReasons.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <h3 class="font-bold">{item.title}</h3>
+                <p class="text-muted-foreground mt-2 text-xs leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Section 3: How to Keep Feet Dry -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">
+          3. How to Actually Keep Kids' Feet Dry in Scottish Weather
+        </h2>
+        <ul class="text-muted-foreground mt-3 list-disc space-y-2.5 pl-5 text-sm leading-relaxed">
+          <li>
+            <strong class="text-foreground">Use boot stirrups on waterproof trousers:</strong>{" "}
+            Never tuck waterproof trousers inside boots—that funnels rainwater
+            straight onto their socks. Pull cuffs over the ankle and hook the
+            elastic stirrup under the sole.
+          </li>
+          <li>
+            <strong class="text-foreground">Check the tongue height:</strong>{" "}
+            A boot is only waterproof up to the lowest point where the tongue
+            connects to the upper. Look for a fully gusseted tongue sewn high up
+            the ankle.
+          </li>
+          <li>
+            <strong class="text-foreground">Brush off mud &amp; reproof:</strong>{" "}
+            Once muddy boots dry, brush them off and apply a spray-on footwear
+            DWR treatment so water beads off the leather or mesh instead of
+            soaking in.
+          </li>
+        </ul>
+      </section>
+
+      <!-- Related Guides -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Continue Exploring Gear Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Pair your boots with the right socks:{" "}
+            <a
+              href="/gear-explained/hiking-socks-explained"
+              class="text-accent font-medium hover:underline"
+            >
+              Kids' Hiking Socks Explained
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Learn how to restore water beading on outerwear and boots in
+            our{" "}
+            <a
+              href="/gear-explained/gear-care"
+              class="text-accent font-medium hover:underline"
+            >
+              Gear Care Hub
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

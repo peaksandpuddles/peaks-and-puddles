@@ -1,0 +1,240 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const fleeceTable = [
+  {
+    type: "Microfleece (100-weight / ~100-150 GSM)",
+    warmth: "Light warmth, ultra-breathable",
+    bestFor: "Active hill climbs, autumn walks, and layering under waterproof shells without bulk.",
+    notes: "Thin, flexible, and dries almost instantly. Ideal for kids who run hot."
+  },
+  {
+    type: "Midweight Fleece (200-weight / ~200-250 GSM)",
+    warmth: "Balanced everyday warmth",
+    bestFor: "Forest school, cold playground mornings, and winter mid-layers.",
+    notes: "The classic all-rounder. Traps significant warm air while still fitting comfortably under coats."
+  },
+  {
+    type: "Heavyweight / Sherpa (300-weight / 300+ GSM)",
+    warmth: "Maximum warmth, bulky fit",
+    bestFor: "Dry, freezing days, campfires, or wearing as a standalone outer jacket.",
+    notes: "Too thick to fit easily under slim waterproof sleeves and blocks very little wind on its own."
+  },
+  {
+    type: "Grid Fleece (Waffle Backing)",
+    warmth: "High warmth-to-weight & top breathability",
+    bestFor: "High-output hiking, scrambling, and variable mountain weather.",
+    notes: "Recessed channels dump excess sweat vapor while raised squares trap warm air."
+  }
+];
+
+const scenarios = [
+  {
+    title: "Best for Active Hill Walking & Layering",
+    choice: "100-Weight Microfleece or Grid Fleece",
+    badge: "Breathability Winner",
+    notes:
+      "Kids generate huge heat going uphill. A thin microfleece or waffle-grid top prevents overheating and slides effortlessly into waterproof jacket sleeves."
+  },
+  {
+    title: "Best for Everyday Forest School & Winter",
+    choice: "200-Weight Midweight Fleece",
+    badge: "All-Rounder Winner",
+    notes:
+      "Warm enough for chilly woodland play yet tough enough to survive daily washing, mud, and backpack straps."
+  },
+  {
+    title: "Best for Dry Cold & Post-Swim Warmups",
+    choice: "300-Weight / High-Pile Sherpa Fleece",
+    badge: "Cozy Winner",
+    notes:
+      "Unbeatable blanket-like warmth for frosty car rides, beach warmups, or dry winter days—just pair with a windproof gilet if a breeze picks up."
+  }
+];
+---
+
+<Layout
+  title="Fleece Weights Explained for Kids: 100g vs. 200g vs. Grid Fleece | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Gear Explained
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Warmth &amp; Layering
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Fleece Weights Explained: Microfleece vs. Midweight vs. Grid Fleece
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Fleece is the unsung hero of a child's outdoor wardrobe—durable,
+          fast-drying, and warm even when damp. Yet product labels throw around
+          terms like <strong>100-weight</strong>, <strong>200 GSM</strong>, and{" "}
+          <strong>grid fleece</strong> without explaining what they mean for
+          movement and warmth. Here is how to pick the right thickness.
+        </p>
+      </header>
+
+      <!-- Quick Summary Callout -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">The Cheat Sheet for Busy Parents</h2>
+        <ul class="text-muted-foreground mt-3 space-y-2 text-sm leading-relaxed">
+          <li>
+            <strong class="text-foreground">What the numbers mean:</strong>{" "}
+            Fleece weight is measured in grams per square meter (GSM). Higher
+            numbers mean thicker, warmer, and bulkier fabric.
+          </li>
+          <li>
+            <strong class="text-foreground">Skip thick fleeces under raincoats:</strong>{" "}
+            A chunky 300-weight sherpa fleece bunches up inside waterproof
+            sleeves and restricts arm movement. Stick to 100-weight or
+            200-weight for layering.
+          </li>
+          <li>
+            <strong class="text-foreground">Wind cuts straight through fleece:</strong>{" "}
+            Standard fleece has an open knit that breathes brilliantly—which
+            means a cold breeze blows right through it unless topped with a
+            shell.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section 1: Fleece Weights Compared -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">1. The 4 Main Types of Kids' Fleece</h2>
+        <div class="border-border mt-6 overflow-x-auto rounded-xl border">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-muted/60 border-border border-b text-xs uppercase">
+              <tr>
+                <th class="px-4 py-3 font-semibold">Fleece Type</th>
+                <th class="px-4 py-3 font-semibold">Warmth Profile</th>
+                <th class="px-4 py-3 font-semibold">Best Use Case</th>
+                <th class="px-4 py-3 font-semibold">Parent Notes</th>
+              </tr>
+            </thead>
+            <tbody class="divide-border divide-y">
+              {
+                fleeceTable.map((row) => (
+                  <tr>
+                    <td class="px-4 py-3 font-medium">{row.type}</td>
+                    <td class="text-accent px-4 py-3 font-semibold">
+                      {row.warmth}
+                    </td>
+                    <td class="text-muted-foreground px-4 py-3">
+                      {row.bestFor}
+                    </td>
+                    <td class="text-muted-foreground px-4 py-3">{row.notes}</td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 2: Why Grid Fleece Is Worth Knowing -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">
+          2. What Is Grid Fleece (And Why Do Hikers Love It)?
+        </h2>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          If you turn a technical fleece inside out and see a raised
+          waffle-like checkerboard pattern, that is{" "}
+          <strong class="text-foreground">grid fleece</strong>. By carving
+          thin channels between plush fleece squares, designers reduce bulk and
+          create escape routes for sweat vapor while still trapping warm air
+          against your child's{" "}
+          <a
+            href="/gear-explained/merino-vs-synthetic"
+            class="text-accent font-medium hover:underline"
+          >
+            base layer
+          </a>
+          .
+        </p>
+      </section>
+
+      <!-- Section 3: Scenarios -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">3. Which Weight Should You Buy?</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {
+            scenarios.map((item) => (
+              <div class="border-border bg-card/50 flex flex-col justify-between rounded-xl border p-5">
+                <div>
+                  <span class="bg-muted text-muted-foreground inline-block rounded-full px-2.5 py-0.5 text-xs font-medium">
+                    {item.badge}
+                  </span>
+                  <h3 class="mt-3 font-bold">{item.title}</h3>
+                  <p class="text-muted-foreground mt-2 text-xs leading-relaxed">
+                    {item.notes}
+                  </p>
+                </div>
+                <div class="border-border/60 mt-4 border-t pt-3">
+                  <span class="text-accent text-xs font-semibold">
+                    Pick: {item.choice}
+                  </span>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Related Guides -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Continue Exploring Gear Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; See how fleece fits into the 3-tier system in{" "}
+            <a
+              href="/gear-explained/layering-systems"
+              class="text-accent font-medium hover:underline"
+            >
+              Outdoor Layering Systems for Kids
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Need a windproof outer layer over fleece? Read{" "}
+            <a
+              href="/gear-explained/softshells-explained"
+              class="text-accent font-medium hover:underline"
+            >
+              Softshells Explained
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
