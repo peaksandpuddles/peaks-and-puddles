@@ -49,38 +49,28 @@ const breadcrumbItems = breadcrumbList.map((breadcrumb) => {
 });
 ---
 
-<nav class="w-full mt-8 mb-1" aria-label="breadcrumb">
-  <ul
-    class="mx-auto max-w-6xl px-4 flex flex-wrap items-center gap-x-1 font-light [&>li:not(:last-child)>a]:hover:opacity-100"
-  >
-    <li class="flex items-center gap-x-1">
-      <a href={getRelativeLocaleUrl(locale, "")} class="opacity-80">
+<nav aria-label="Breadcrumb" class="text-muted-foreground text-sm">
+  <ul class="flex flex-wrap items-center gap-2">
+    <li class="flex items-center gap-2">
+      <a href={getRelativeLocaleUrl(locale, "")} class="hover:text-accent hover:underline">
         {t.nav.home}
       </a>
-      <span aria-hidden="true" class="opacity-80">&raquo;</span>
+      <span aria-hidden="true">/</span>
     </li>
     {
       breadcrumbItems.map((item, index) =>
         index + 1 === breadcrumbItems.length ? (
           <li>
-            <span
-              class="opacity-75 font-medium"
-              aria-current="page"
-            >
+            <span class="text-foreground font-medium" aria-current="page">
               {item.label}
             </span>
           </li>
         ) : (
-          <li class="flex items-center gap-x-1">
-            <a
-              href={item.href}
-              class="opacity-70 hover:underline"
-            >
+          <li class="flex items-center gap-2">
+            <a href={item.href} class="hover:text-accent hover:underline">
               {item.label}
             </a>
-            <span aria-hidden="true" class="opacity-70">
-              &raquo;
-            </span>
+            <span aria-hidden="true">/</span>
           </li>
         )
       )
