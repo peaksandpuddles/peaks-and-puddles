@@ -1,0 +1,270 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+// Categorized Rainy Day & Woodland Play Kit Checklist
+const kitSections = [
+  {
+    category: "1. Head-to-Toe Waterproof Shells",
+    subtitle: "Forest school and puddle play demand serious waterproof protection that survives abrasive mud, gravel, and climbing.",
+    items: [
+      {
+        name: "Welded-Seam PU Suit or Waterproof Dungarees",
+        essential: true,
+        notes: "Brands like Didriksons, Frugi, or Reima. PU suits or high-waisted bibs stop muddy water and sand from creeping down trousers when kids sit in puddles."
+      },
+      {
+        name: "Breathable Waterproof Rain Jacket",
+        essential: true,
+        notes: "Look for 10,000mm+ hydrostatic head ratings, fully taped seams, and a peaked hood that shields eyes from driving drizzle."
+      },
+      {
+        name: "Waterproof Mittens / Mud Gloves",
+        essential: true,
+        notes: "Long-gauntlet waterproof gloves or rubberized mud play mitts keep hands warm and dry while digging in wet soil or handling stream water."
+      },
+      {
+        name: "Flexible Wellington Boots or Neoprene Wellies",
+        essential: true,
+        notes: "Natural rubber boots with flexible soles and good tread. Pair with merino hiking socks rather than thick cotton to prevent damp, cold toes."
+      }
+    ]
+  },
+  {
+    category: "2. Under-Layers & Comfort",
+    subtitle: "Even in waterproof gear, kids get clammy or damp from puddles splashing over cuffs. Smart layers protect skin.",
+    items: [
+      {
+        name: "Merino Wool or Synthetic Base Layers",
+        essential: true,
+        notes: "Long-sleeve tops and leggings. Avoid cotton entirely—damp cotton holds moisture against the skin and causes chills."
+      },
+      {
+        name: "Microfleece Mid-Layer",
+        essential: true,
+        notes: "A lightweight 100g or 200g fleece adds core warmth on chilly, damp woodland days without feeling bulky under waterproof shells."
+      },
+      {
+        name: "Merino-Blend Hiking Socks",
+        essential: true,
+        notes: "Cushioned wool socks stay warm even if a little moisture sneaks past the boot cuff."
+      },
+      {
+        name: "Spare Fleece Hat / Beanie",
+        essential: false,
+        notes: "A backup hat in case the first one takes an accidental dive into a muddy stream."
+      }
+    ]
+  },
+  {
+    category: "3. Clean-Up & Car-Boot Kit",
+    subtitle: "The gear you need so the mud stays outside your car and house.",
+    items: [
+      {
+        name: "Waterproof Dry Bags for Muddy Kit",
+        essential: true,
+        notes: "A couple of large dry bags or heavy-duty IKEA bags to swallow dripping muddy suits, wellies, and boots before tossing them in the boot."
+      },
+      {
+        name: "Full Change of Clothes & Towel",
+        essential: true,
+        notes: "Dry underwear, trousers, jumper, and socks waiting in the car, plus a small hand towel to dry muddy legs before changing."
+      },
+      {
+        name: "Boot Puller & Stiff Scrubbing Brush",
+        essential: false,
+        notes: "Kept in the boot of the car to knock dried mud off wellies and waterproofs before loading them up."
+      },
+      {
+        name: "Wet Wipes & Hand Sanitizer",
+        essential: true,
+        notes: "Essential for cleaning faces, hands, and muddy fingernails before snack time or getting back into the car."
+      }
+    ]
+  },
+  {
+    category: "4. Woodland Adventure Extras",
+    subtitle: "Small tools that turn a rainy walk into an immersive nature exploration.",
+    items: [
+      {
+        name: "Magnifying Glass & Nature Spotter Sheet",
+        essential: false,
+        notes: "Great for inspecting wet moss, tree bark, fungi, and creepy-crawlies during damp woodland walks."
+      },
+      {
+        name: "Thermos of Hot Chocolate or Soup",
+        essential: true,
+        notes: "The ultimate morale booster when outdoor temperatures drop or drizzle sets in."
+      },
+      {
+        name: "Lightweight Folding Sit Pad",
+        essential: false,
+        notes: "Keeps trousers dry when sitting on wet logs for snack breaks."
+      },
+      {
+        name: "Small Child-Sized Rucksack",
+        essential: false,
+        notes: "Allows older kids to carry their own waterproof snack box and mini water bottle."
+      }
+    ]
+  }
+];
+
+// Affiliate-ready standout gear picks
+const featuredGear = [
+  {
+    name: "Didriksons Slaskeman / Boardman PU Set",
+    bestFor: "Ultimate Puddle Protection",
+    notes: "Welded-seam waterproof sets that shrug off heavy mud and puddles with zero leakage. Choose Slaskeman for unlined spring rain or Boardman for fleece-lined winter warmth.",
+    priceGuide: "£55 – £85 / $70 – $110",
+    retailer: "Check Availability",
+    affiliateUrl: "#"
+  },
+  {
+    name: "Frugi Puddle Buster Suit",
+    bestFor: "Recycled Eco Waterproofs",
+    notes: "Made from 100% recycled plastic bottles with 10,000mm hydrostatic head waterproofing, taped seams, and fun, high-visibility Cornish prints.",
+    priceGuide: "£48 – £65 / $60 – $85",
+    retailer: "Check Availability",
+    affiliateUrl: "#"
+  },
+  {
+    name: "Lifeventure Waterproof Dry Bags",
+    bestFor: "Car-Boot Mud Containment",
+    notes: "Roll-top waterproof bags that securely seal away dripping muddy suits and wellies so your car boot stays spotless.",
+    priceGuide: "£12 – £22 / $15 – $28",
+    retailer: "Check Availability",
+    affiliateUrl: "#"
+  }
+];
+---
+
+<Layout title="Rainy Day & Woodland Play Kit List for Kids | Peaks and Puddles">
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <!-- Breadcrumbs & Evergreen Freshness Badge -->
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-2 text-sm">
+      <nav aria-label="Breadcrumb" class="text-muted-foreground flex items-center gap-2">
+        <a href="/kit-lists" class="hover:text-accent hover:underline">Kit Lists</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Rainy Day &amp; Woodland Play</span>
+      </nav>
+      <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+        Last checked: November 2026
+      </span>
+    </div>
+
+    <!-- Article Header -->
+    <header class="mb-10">
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        Rainy Day &amp; Woodland Play Kit List for Kids
+      </h1>
+      <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+        Whether it is nursery forest school, weekend puddle jumping, or muddy trail walks, heading out in the rain requires gear designed to take a proper beating. Here is the ultimate checklist for keeping kids dry, warm, and happy in the mud—plus car-boot essentials to keep your vehicle clean.
+      </p>
+    </header>
+
+    <!-- Parent Prep Tip Callout -->
+    <div class="bg-card border-accent mb-10 rounded-xl border-l-4 p-6 shadow-sm">
+      <h2 class="text-base font-bold uppercase tracking-wide">Parent Rule of Thumb: Waterproof Cuffs &amp; Stirrups</h2>
+      <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+        Never tuck waterproof trousers inside wellies—rainwater running down legs funnels straight into boots. Always pull waterproof trouser cuffs or dungaree legs <strong>over the outside</strong> of wellington boots and hook their elastic stirrups under the soles.
+      </p>
+    </div>
+
+    <!-- Categorized Kit Checklist -->
+    <section class="space-y-12">
+      {kitSections.map((section) => (
+        <div>
+          <div class="mb-4">
+            <h2 class="text-2xl font-bold">{section.category}</h2>
+            <p class="text-muted-foreground mt-1 text-sm">{section.subtitle}</p>
+          </div>
+
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {section.items.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <div class="flex items-start justify-between gap-2">
+                  <h3 class="font-semibold leading-snug">{item.name}</h3>
+                  {item.essential ? (
+                    <span class="bg-accent/15 text-accent shrink-0 rounded-full px-2.5 py-0.5 text-xs font-semibold">
+                      Essential
+                    </span>
+                  ) : (
+                    <span class="bg-muted text-muted-foreground shrink-0 rounded-full px-2.5 py-0.5 text-xs font-medium">
+                      Optional
+                    </span>
+                  )}
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <!-- Affiliate Standout Gear Picks -->
+    <section class="mt-14">
+      <div class="mb-6 flex flex-wrap items-baseline justify-between gap-2">
+        <h2 class="text-2xl font-bold">Parent-Tested Mud &amp; Rain Picks</h2>
+        <span class="text-muted-foreground text-xs">
+          Links may earn a small commission at no extra cost to you.
+        </span>
+      </div>
+
+      <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+        {featuredGear.map((product) => (
+          <div class="bg-card border-border flex flex-col justify-between rounded-xl border p-6 shadow-sm">
+            <div>
+              <span class="text-accent text-xs font-semibold uppercase tracking-wider">
+                {product.bestFor}
+              </span>
+              <h3 class="mt-2 text-lg font-bold leading-snug">{product.name}</h3>
+              <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+                {product.notes}
+              </p>
+            </div>
+
+            <div class="border-border mt-6 border-t pt-4">
+              <div class="mb-3 flex items-center justify-between text-sm">
+                <span class="text-muted-foreground">Typical Price:</span>
+                <span class="font-semibold">{product.priceGuide}</span>
+              </div>
+              <a
+                href={product.affiliateUrl}
+                rel="nofollow sponsored noopener"
+                target="_blank"
+                class="bg-accent text-accent-foreground block w-full rounded-lg px-4 py-2.5 text-center text-sm font-semibold transition-opacity hover:opacity-90"
+              >
+                {product.retailer} &rarr;
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Internal Cross-Links to Other Pillars -->
+    <aside class="bg-muted/50 border-border mt-14 rounded-xl border p-6">
+      <h2 class="text-lg font-bold">More for Outdoor Families</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li>
+          &rarr; Learn how to clean and restore mud-caked PU suits: <a href="/gear-explained/gear-care/reproofing-waterproofs" class="text-accent font-medium hover:underline">How to Wash &amp; Reproof Waterproof Outerwear</a>.
+        </li>
+        <li>
+          &rarr; Compare top wet-weather outerwear brands like Didriksons and Frugi in our <a href="/brands-and-shops" class="text-accent font-medium hover:underline">Brands &amp; Shops Directory</a>.
+        </li>
+        <li>
+          &rarr; Check out why boots leak in wet grass in <a href="/gear-explained/waterproof-boots-explained" class="text-accent font-medium hover:underline">Waterproof Membranes Explained</a>.
+        </li>
+      </ul>
+    </aside>
+  </main>
+
+  <Footer />
+</Layout>
