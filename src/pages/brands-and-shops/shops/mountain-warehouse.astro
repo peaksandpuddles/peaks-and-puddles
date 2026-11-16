@@ -1,0 +1,196 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+// Swap "#" for your affiliate link (e.g., Awin / direct affiliate program)
+const shopAffiliateUrl = "#";
+
+const keyOfferings = [
+  {
+    category: "Waterproof Jackets & Puddle Suits",
+    name: "Isotex Shells & Pakka Rainwear",
+    notes: "Mountain Warehouse's proprietary Isotex waterproof membranes and lightweight Pakka range offer budget-friendly weather protection for occasional family walks and school commutes."
+  },
+  {
+    category: "Footwear & Wellies",
+    name: "Kids' Walking Boots & Neoprene Wellies",
+    notes: "Affordable entry-level hiking boots and rubber wellington boots designed for casual weekend trail walks and muddy park visits."
+  },
+  {
+    category: "Thermals & Base Layers",
+    name: "Isotherm Fleece Tops & Thermal Sets",
+    notes: "Synthetic base layer sets and fleece jackets that provide accessible warmth without the premium price tag of merino wool."
+  },
+  {
+    category: "Ski & Winter Wear",
+    name: "Kids' Ski Jackets, Snow Pants & Gloves",
+    notes: "A popular destination for seasonal winter holiday gear, offering complete snow suits and insulated jackets at a fraction of specialist alpine brand costs."
+  }
+];
+
+const parentTakeaways = [
+  {
+    title: "Frequent Sales & Multi-Buy Deals",
+    notes: "Mountain Warehouse is rarely at full RRP. Constant seasonal clearances, clearance offers, and multi-buy promotions on thermals and socks make it easy to kit out fast-growing kids on a budget."
+  },
+  {
+    title: "Great for Casual & Occasional Use",
+    notes: "While entry-level gear may lack the long-term Martindale abrasion durability or 20,000mm ratings of high-end Nordic brands, it is more than sufficient for dry weekend walks, park play, and casual wet-weather commutes."
+  },
+  {
+    title: "Extensive High-Street & Online Presence",
+    notes: "With hundreds of stores across the UK and a reliable online shop, it is one of the most accessible places to try on kids' walking boots or pick up emergency rain gear before a weekend trip."
+  }
+];
+---
+
+<Layout
+  title="Mountain Warehouse Kids' Gear Review: Budget Outdoor Kit | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Evergreen Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            High-Street Retailer
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Budget Outdoor Kit
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Mountain Warehouse Kids' Gear Review: Is Budget Kit Worth Buying?
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          As one of the UK's most accessible outdoor high-street chains,
+          Mountain Warehouse is often the first stop for parents looking for
+          affordable kids' waterproofs, walking boots, and ski wear. We look at
+          where budget gear shines and when it pays to invest more.
+        </p>
+      </header>
+
+      <!-- Retailer Callout Block -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">Shopping at Mountain Warehouse</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          If you need affordable everyday kit for growing children who will
+          outgrow their clothes in six months, Mountain Warehouse offers great
+          accessibility and frequent sales:
+        </p>
+        <div class="mt-5">
+          <a
+            href={shopAffiliateUrl}
+            rel="nofollow sponsored noopener"
+            target="_blank"
+            class="bg-accent text-accent-foreground inline-block rounded-lg px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
+          >
+            Visit Mountain Warehouse Store &rarr;
+          </a>
+        </div>
+        <p class="text-muted-foreground mt-3 text-xs">
+          <em>
+            Transparency: We may earn a small commission if you purchase through
+            our links at no extra cost to you.
+          </em>
+        </p>
+      </div>
+
+      <!-- Key Offerings -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">What to Buy (And What to Skip)</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Mountain Warehouse covers almost every category of children's outdoor
+          clothing, though performance varies by line:
+        </p>
+
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            keyOfferings.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Why Parents Shop Here -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">3 Things Parents Appreciate Most</h2>
+        <div class="mt-6 space-y-4">
+          {
+            parentTakeaways.map((takeaway, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{takeaway.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {takeaway.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Guides &amp; Resources</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Wondering how budget waterproof ratings compare? Read{" "}
+            <a
+              href="/gear-explained/waterproof-ratings-explained"
+              class="text-accent font-medium hover:underline"
+            >
+              Waterproof Ratings Explained
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Looking for specialized technical brands instead? Explore our{" "}
+            <a
+              href="/brands-and-shops/brands/reima"
+              class="text-accent font-medium hover:underline"
+            >
+              Reima Brand Review
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

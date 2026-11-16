@@ -1,0 +1,197 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const brandAffiliateUrl = "#";
+
+const topLines = [
+  {
+    category: "Hydroshield Waterproof Shells",
+    name: "Kids' Waterproof Jackets & InterActive Shells",
+    notes: "Built with Berghaus's proprietary Hydroshield waterproof technology, fully taped seams, and fixed hoods to block heavy downpours on weekend hill walks."
+  },
+  {
+    category: "Interactive Fleece Mid-Layers",
+    name: "IA (InterActive) Fleece Jackets",
+    notes: "Classic anti-pill polar fleece jackets designed with internal zips so they can lock directly inside compatible Berghaus waterproof outer shells for deep winter warmth."
+  },
+  {
+    category: "Trail Footwear",
+    name: "Waterproof Walking & Hiking Boots",
+    notes: "Sturdy junior walking boots featuring durable suede or mesh uppers, cushioned EVA midsoles, and dependable rubber grip soles for rocky paths."
+  },
+  {
+    category: "Accessories & Beanies",
+    name: "Warm Winter Hats & Thermal Accessories",
+    notes: "Cozy knit beanies and thermal winter accessories designed to hold up against biting winds on open hilltops."
+  }
+];
+
+const parentTakeaways = [
+  {
+    title: "The InterActive (IA) Zip System",
+    notes: "Berghaus's signature IA system lets you zip a fleece directly into a waterproof shell, creating a single, cohesive heavy-duty winter coat that won't slide around or bunch up at the wrists."
+  },
+  {
+    title: "Trusted British Mountain Heritage",
+    notes: "With decades of experience outfitting British mountaineers, Berghaus scales its adult weather-testing down to junior sizes, ensuring zippers, storms flaps, and seams withstand real outdoor abuse."
+  },
+  {
+    title: "Accessible Mid-Tier Pricing",
+    notes: "Positioned competitively below ultra-premium specialist brands, Berghaus offers robust, dependable performance that easily fits a family outdoor budget."
+  }
+];
+---
+
+<Layout
+  title="Berghaus Kids Brand Review: Waterproof Jackets & InterActive Fleece | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            British Heritage
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Kids' Outdoor Gear
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Berghaus Kids Brand Review: Are Their Jackets &amp; Fleece Layers Worth It?
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          As a cornerstone of British outdoor culture, Berghaus brings decades of
+          mountain heritage to its junior range. We look at how their
+          Hydroshield waterproof shells and InterActive fleece layers perform for
+          family hill walks and everyday school commutes.
+        </p>
+      </header>
+
+      <!-- Standardized Where to Buy Callout Block -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">Where to Buy Berghaus Kids' Gear</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          You can purchase Berghaus directly through their official store or via
+          major UK outdoor stockists:
+        </p>
+        <div class="mt-5 flex flex-wrap items-center gap-3">
+          <a
+            href={brandAffiliateUrl}
+            rel="nofollow sponsored noopener"
+            target="_blank"
+            class="bg-accent text-accent-foreground inline-block rounded-lg px-5 py-2.5 text-sm font-semibold transition-opacity hover:opacity-95"
+          >
+            Shop Official Berghaus Store &rarr;
+          </a>
+          <a
+            href="/brands-and-shops/shops/mountain-warehouse"
+            class="bg-muted text-foreground hover:bg-muted/80 inline-block rounded-lg px-5 py-2.5 text-sm font-medium transition-colors"
+          >
+            Browse Outdoor Retailers
+          </a>
+        </div>
+        <p class="text-muted-foreground mt-3 text-xs">
+          <em>
+            Transparency: We may earn a small commission if you purchase through
+            our links at no extra cost to you.
+          </em>
+        </p>
+      </div>
+
+      <!-- Key Line Categories -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">
+          Core Berghaus Lines for Outdoor Families
+        </h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            topLines.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Why Parents Love Berghaus -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">3 Things Parents Appreciate Most</h2>
+        <div class="mt-6 space-y-4">
+          {
+            parentTakeaways.map((takeaway, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{takeaway.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {takeaway.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Guides &amp; Resources</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Learn how layering systems work with InterActive fleeces:{" "}
+            <a
+              href="/gear-explained/layering-systems"
+              class="text-accent font-medium hover:underline"
+            >
+              Outdoor Layering Systems for Kids
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Check out fleece weight options in our{" "}
+            <a
+              href="/gear-explained/fleece-weights-explained"
+              class="text-accent font-medium hover:underline"
+            >
+              Fleece Weights Explained Guide
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,197 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const brandAffiliateUrl = "#";
+
+const topLines = [
+  {
+    category: "Patrol & Forest Ranges",
+    name: "Heavy-Duty Waterproof All-in-Ones & Jackets",
+    notes: "Built with exceptionally high hydrostatic head ratings (typically 10,000mm to 15,000mm+), fully taped seams, and heavy-duty ripstop fabrics designed to survive crawling through thorns, mud, and rocky streams."
+  },
+  {
+    category: "Fleece & Mid-Layers",
+    name: "Lined Active Fleeces & Thermal Tops",
+    notes: "Plush, moisture-wicking midlayers cut specifically to snap or layer effortlessly under Spotty Otter waterproof shells without restricting child movement."
+  },
+  {
+    category: "Footwear & Wellies",
+    name: "Neoprene-Lined Wellies & Trail Boots",
+    notes: "Warm, thick-soled natural rubber boots lined with insulating neoprene to keep toes warm during freezing winter puddle-jumping sessions."
+  },
+  {
+    category: "Accessories",
+    name: "Waterproof Mittens & Fleece-Lined Storm Hats",
+    notes: "Robust, high-grip gloves and balaclavas designed with long gauntlets to prevent snow and wet mud from sneaking past coat cuffs."
+  }
+];
+
+const parentTakeaways = [
+  {
+    title: "Uncompromising UK Weather Performance",
+    notes: "Spotty Otter was born out of a frustration with flimsy high-street rain gear. Their kit is specifically designed for British downpours, boggy hills, and outdoor nursery schools."
+  },
+  {
+    title: "Built-In Longevity & Toughness",
+    notes: "Using heavy-duty abrasion-resistant reinforcements on knees and seats, Spotty Otter gear easily handles rugged playground abuse and multiple siblings."
+  },
+  {
+    title: "Strong Secondhand Resale Value",
+    notes: "Because of their premium price point and bulletproof durability, Spotty Otter items hold their value brilliantly on Vinted, eBay, and outdoor family gear groups."
+  }
+];
+---
+
+<Layout
+  title="Spotty Otter Kids Brand Review: Forest School Waterproofs & Gear | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Forest School Favorite
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            UK Outdoor Gear
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Spotty Otter Brand Review: Are Their Premium Outdoor Kits Worth It?
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          If you spend time around UK forest schools and outdoor nurseries,
+          Spotty Otter is widely regarded as the gold standard for children's
+          waterproof protection. We examine whether their high-end price tag is
+          justified by real-world durability on wet trails.
+        </p>
+      </header>
+
+      <!-- Standardized Where to Buy Callout Block -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">Where to Buy Spotty Otter Kids' Gear</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          You can purchase Spotty Otter directly through their official store or
+          via specialized UK outdoor independent retailers:
+        </p>
+        <div class="mt-5 flex flex-wrap items-center gap-3">
+          <a
+            href={brandAffiliateUrl}
+            rel="nofollow sponsored noopener"
+            target="_blank"
+            class="bg-accent text-accent-foreground inline-block rounded-lg px-5 py-2.5 text-sm font-semibold transition-opacity hover:opacity-95"
+          >
+            Shop Official Spotty Otter Store &rarr;
+          </a>
+          <a
+            href="/brands-and-shops/shops/little-trekkers"
+            class="bg-muted text-foreground hover:bg-muted/80 inline-block rounded-lg px-5 py-2.5 text-sm font-medium transition-colors"
+          >
+            Browse Little Trekkers Stock
+          </a>
+        </div>
+        <p class="text-muted-foreground mt-3 text-xs">
+          <em>
+            Transparency: We may earn a small commission if you purchase through
+            our links at no extra cost to you.
+          </em>
+        </p>
+      </div>
+
+      <!-- Key Line Categories -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">
+          Core Spotty Otter Lines for Outdoor Families
+        </h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            topLines.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Why Parents Love Spotty Otter -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">3 Things Parents Appreciate Most</h2>
+        <div class="mt-6 space-y-4">
+          {
+            parentTakeaways.map((takeaway, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{takeaway.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {takeaway.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Brand &amp; Gear Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Learn how to care for high-end waterproof membranes:{" "}
+            <a
+              href="/gear-explained/gear-care/reproofing-waterproofs"
+              class="text-accent font-medium hover:underline"
+            >
+              How to Wash &amp; Reproof Kids' Rain Gear
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Compare waterproof specifications against other top makers:{" "}
+            <a
+              href="/gear-explained/waterproof-ratings-explained"
+              class="text-accent font-medium hover:underline"
+            >
+              Waterproof Ratings Explained
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
