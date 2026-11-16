@@ -1,0 +1,235 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const comparisonMatrix = [
+  {
+    factor: "Wet-Weather Performance",
+    down: "Loses almost all warmth if soaked and takes hours to dry.",
+    synthetic: "Retains up to 85-90% of its warmth when damp and dries fast.",
+    winner: "Synthetic"
+  },
+  {
+    factor: "Warmth-to-Weight Ratio",
+    down: "Unbeatable warmth for almost zero weight.",
+    synthetic: "Slightly heavier and bulkier for the same heat level.",
+    winner: "Down"
+  },
+  {
+    factor: "Packability",
+    down: "Compresses down to the size of a water bottle in a rucksack.",
+    synthetic: "Bulkier when stuffed into a daypack.",
+    winner: "Down"
+  },
+  {
+    factor: "Machine Washability",
+    down: "Requires specialist down wash, gentle spin, and tumble-drying with dryer balls.",
+    synthetic: "Toss in a standard wash cycle and line-dry overnight.",
+    winner: "Synthetic"
+  },
+  {
+    factor: "Lifespan & Hand-Me-Down Value",
+    down: "Lasts 10+ years without losing loft if cared for properly.",
+    synthetic: "Fibers gradually flatten after 2-3 winters of heavy compression.",
+    winner: "Down"
+  },
+  {
+    factor: "Price",
+    down: "More expensive upfront (especially high fill-power).",
+    synthetic: "More budget-friendly for fast-growing kids.",
+    winner: "Synthetic"
+  }
+];
+
+const scenarios = [
+  {
+    title: "Best for Forest School & Muddy Playgrounds",
+    choice: "Synthetic Insulation",
+    badge: "Everyday Winner",
+    notes: "Kids spill drinks, sit in damp grass, and come home caked in mud. Synthetic puffers can be washed weekly without clumping and still keep kids warm if rain sneaks under a hood."
+  },
+  {
+    title: "Best for Freezing, Dry Winter Hills & Skiing",
+    choice: "Down Insulation (650+ Fill Power)",
+    badge: "Sub-Zero Winner",
+    notes: "When temperatures drop below freezing and precipitation falls as dry snow rather than sleet, nothing matches the cozy, weightless heat of a proper down parka."
+  },
+  {
+    title: "Best for Parent Rucksacks (Emergency Layer)",
+    choice: "Lightweight Packable Down",
+    badge: "Packability Winner",
+    notes: "If you are carrying spare warm layers for three kids up a Scottish hill, packable down jackets vanish into the bottom of a backpack until summit lunch stops."
+  }
+];
+---
+
+<Layout title="Down vs. Synthetic Insulation for Kids: Which Should You Buy? | Peaks and Puddles">
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
+            Gear Explained
+          </span>
+          <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+            Warmth &amp; Layering
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Down vs. Synthetic Insulation for Kids: Which Is Better?
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          When winter hits, puffer jackets become a daily uniform. Yet two nearly identical-looking coats can behave completely differently in damp British drizzle, washing machines, and bottom-of-the-rucksack emergencies. Here is how natural down stacks up against modern synthetic fills for active kids.
+        </p>
+      </header>
+
+      <!-- Quick Summary Callout -->
+      <div class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8">
+        <h2 class="text-lg font-bold">The Cheat Sheet for Busy Parents</h2>
+        <ul class="text-muted-foreground mt-3 space-y-2 text-sm leading-relaxed">
+          <li>
+            <strong class="text-foreground">For wet, muddy UK winters:</strong> Choose <strong class="text-foreground">synthetic insulation</strong> (like PrimaLoft or Thermore). It stays warm when damp and survives frequent machine washing.
+          </li>
+          <li>
+            <strong class="text-foreground">For dry freezing cold &amp; backpacking:</strong> Choose <strong class="text-foreground">down</strong> (look for 650+ fill power). It is warmer, lighter, packs smaller, and lasts for multiple siblings.
+          </li>
+          <li>
+            <strong class="text-foreground">How insulation works:</strong> Neither material creates heat—both work by trapping pockets of warm air around your child's body. The loftier (fluffier) the jacket, the warmer it is.
+          </li>
+        </ul>
+      </div>
+
+      <!-- Section 1: What Is Down Insulation? -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">1. What Is Down Insulation (And What Does "Fill Power" Mean)?</h2>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          <strong class="text-foreground">Down</strong> is the soft, fluffy undercoating found beneath the outer feathers of ducks and geese. Unlike flat feathers with hard quills, down clusters look like three-dimensional dandelions that trap thousands of tiny air pockets.
+        </p>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          On jacket tags, you will see a number like <strong class="text-foreground">600, 700, or 800 Fill Power</strong>. Fill power measures fluffiness (loft), not the total amount of down inside the coat:
+        </p>
+        <ul class="text-muted-foreground mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed">
+          <li><strong class="text-foreground">550-650 Fill Power:</strong> Great everyday warmth for school runs and winter town coats.</li>
+          <li><strong class="text-foreground">700-800+ Fill Power:</strong> Higher-grade down that delivers the same heat with significantly less weight and bulk—ideal for hillwalking midlayers.</li>
+        </ul>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          <em>Ethical note:</em> Always check tags for <strong class="text-foreground">RDS (Responsible Down Standard)</strong> or <strong class="text-foreground">Downpass</strong> certification to verify the down is ethically sourced.
+        </p>
+      </section>
+
+      <!-- Section 2: What Is Synthetic Insulation? -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">2. What Is Synthetic Insulation?</h2>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          <strong class="text-foreground">Synthetic insulation</strong> (branded as PrimaLoft®, Thinsulate™, Thermoball™, or brand-specific recycled polyester fills) consists of spun plastic microfibers engineered to mimic the air-trapping structure of natural down.
+        </p>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          Because polyester fibers do not absorb water the way natural feathers do, synthetic insulation refuses to clump up when wet. Even if a child gets caught in sleet or sweats heavily while climbing, synthetic fill holds its structure and keeps insulating.
+        </p>
+      </section>
+
+      <!-- Section 3: What About Hybrid Insulation? -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">3. What About Hybrid Insulation? (The Best of Both Worlds)</h2>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          You don't always have to pick one over the other. Many technical outdoor brands (like Patagonia, Rab, and Reima) now make <strong class="text-foreground">hybrid insulated jackets</strong> using a technique called <strong class="text-foreground">body-mapping</strong>.
+        </p>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          Instead of stuffing the entire coat with one fill, designers place each material where it performs best:
+        </p>
+        <ul class="text-muted-foreground mt-3 list-disc space-y-1.5 pl-5 text-sm leading-relaxed">
+          <li>
+            <strong class="text-foreground">Down in the core (chest &amp; back):</strong> Maximizes warmth and packability around your child's vital organs where heat loss matters most.
+          </li>
+          <li>
+            <strong class="text-foreground">Synthetic in moisture-prone zones (hood, shoulders, cuffs &amp; underarms):</strong> Keeps the areas exposed to rain, backpack straps, and sweat from clumping or losing warmth.
+          </li>
+        </ul>
+        <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+          <em>Note:</em> Some brands also use "down-blend" fills (like PrimaLoft® Gold Down Blend or Thermoball™ Fusion), which mix hydrophobic down clusters directly with synthetic fibers so the whole jacket dries faster than pure down.
+        </p>
+      </section>
+
+      <!-- Section 3: Head-to-Head Comparison Table -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">3. Head-to-Head: Down vs. Synthetic</h2>
+        <div class="border-border mt-6 overflow-x-auto rounded-xl border">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-muted/60 border-border border-b text-xs uppercase">
+              <tr>
+                <th class="px-4 py-3 font-semibold">Feature</th>
+                <th class="px-4 py-3 font-semibold">Down</th>
+                <th class="px-4 py-3 font-semibold">Synthetic</th>
+                <th class="px-4 py-3 font-semibold">Winner</th>
+              </tr>
+            </thead>
+            <tbody class="divide-border divide-y">
+              {comparisonMatrix.map((row) => (
+                <tr>
+                  <td class="px-4 py-3 font-medium">{row.factor}</td>
+                  <td class="text-muted-foreground px-4 py-3">{row.down}</td>
+                  <td class="text-muted-foreground px-4 py-3">{row.synthetic}</td>
+                  <td class="text-accent px-4 py-3 font-semibold">{row.winner}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Section 4: Which Should You Choose for Your Kids? -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">4. Which One Fits Your Family's Adventures?</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
+          {scenarios.map((item) => (
+            <div class="border-border bg-card/50 flex flex-col justify-between rounded-xl border p-5">
+              <div>
+                <span class="bg-muted text-muted-foreground inline-block rounded-full px-2.5 py-0.5 text-xs font-medium">
+                  {item.badge}
+                </span>
+                <h3 class="mt-3 font-bold">{item.title}</h3>
+                <p class="text-muted-foreground mt-2 text-xs leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+              <div class="border-border/60 mt-4 border-t pt-3">
+                <span class="text-accent text-xs font-semibold">Pick: {item.choice}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <!-- Related Guides & Next Steps -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Continue Exploring Gear Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Layering a waterproof shell over a puffer in wet snow? Check <a href="/gear-explained/waterproof-ratings-explained" class="text-accent font-medium hover:underline">Waterproof Ratings Explained: Hydrostatic Head &amp; DWR</a>.
+          </li>
+          <li>
+            &rarr; Looking for active autumn warmth without the puffer bulk? Read <a href="/gear-explained/softshells-explained" class="text-accent font-medium hover:underline">Softshells Explained: Why Every Outdoor Kid Needs One</a>.
+          </li>
+          <li>
+            &rarr; Need to wash a muddy winter coat? Visit our <a href="/gear-explained/gear-care" class="text-accent font-medium hover:underline">Gear Care Guides</a>.
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
