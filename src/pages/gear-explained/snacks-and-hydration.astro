@@ -1,0 +1,152 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const fuelingPrinciples = [
+  {
+    category: "The Cold-Weather Calorie Burn",
+    name: "Why Kids Burn More Fuel in Winter",
+    notes: "Shivering and thermoregulation burn massive amounts of glycogen. When children start lagging or complaining on a walk, it is almost always low blood sugar rather than laziness. Frequent, high-fat, high-carbohydrate snacks keep internal engines burning."
+  },
+  {
+    category: "The Frozen Water Bottle Trap",
+    name: "Insulated Flasks vs. Standard Plastic Bottles",
+    notes: "Standard plastic water bottles and hydration bladder tubes freeze solid in sub-zero temperatures. In winter, an insulated steel flask with warm water, squash, or hot chocolate is a total game-changer for morale."
+  },
+  {
+    category: "The Mitten-Friendly Snack Rule",
+    name: "Finger-Food Accessibility",
+    notes: "Kids cannot and will not untie complex wrappers or peel sticky fruit when their fingers are cold. Pack bite-sized, high-energy morsels (flapjack bites, dried mango, or chocolate-coated nuts) in easily accessible hip-pocket containers."
+  },
+  {
+    category: "Hydration in Cold Air",
+    name: "Masking Dehydration",
+    notes: "Cold winter air is exceptionally dry, but kids rarely feel thirsty when it's cold outside. Dehydration creeps up unnoticed, accelerating fatigue and cold-weather sluggishness."
+  }
+];
+---
+
+<Layout
+  title="Snacks & Hydration Explained: Fueling Kids on Winter Walks | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Gear Explained
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Trail Fuel &amp; Hydration
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Snacks &amp; Hydration Explained: How to Keep Kids Fueled and Warm on Winter Trails
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          You can have the best waterproof shell and boots in the world, but if a child
+          runs out of energy or their water bottle freezes solid, the walk grinds to
+          a halt. We break down the science of winter trail nutrition and hydration.
+        </p>
+      </header>
+
+      <!-- Core Principle Callout -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">The Morale &amp; Metabolism Rule</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Children's bodies work twice as hard to maintain core temperature in cold weather.
+          Regular, high-calorie snacks act as internal logs for a campfire. Combined with
+          warm fluids from an insulated flask, food is your most powerful tool for turning
+          a grumpy, cold child into an enthusiastic explorer.
+        </p>
+      </div>
+
+      <!-- Fueling Principles Grid -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Key Fueling Principles for Cold Walks</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            fuelingPrinciples.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Practical Takeaways Section -->
+      <section class="mb-12 space-y-6">
+        <h2 class="text-2xl font-bold">Practical Packing Tips for Parents</h2>
+        <div class="border-border rounded-xl border p-5">
+          <h3 class="font-semibold">The Hot Flask Strategy</h3>
+          <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+            Pack a wide-mouth insulated food flask with warm tomato soup, or a standard steel flask with hot chocolate and a pinch of salt. Offering warm liquids during a windy ridge pause instantly restores circulation and lifts spirits.
+          </p>
+        </div>
+        <div class="border-border rounded-xl border p-5">
+          <h3 class="font-semibold">Micro-Snacking vs. Heavy Stops</h3>
+          <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+            Instead of waiting for a long sit-down lunch (which causes kids to cool down rapidly), practice "micro-snacking"—handing out high-energy flapjack bites or jelly sweets every 30 minutes while on the move.
+          </p>
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Kit &amp; Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; See what else goes into the adult pack:{" "}
+            <a
+              href="/kit-lists/cold-weather-hiking"
+              class="text-accent font-medium hover:underline"
+            >
+              Winter &amp; Cold-Weather Hiking Kit List
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Learn how to protect extremities when stopping for snacks:{" "}
+            <a
+              href="/gear-explained/vital-accessories-extremities"
+              class="text-accent font-medium hover:underline"
+            >
+              Vital Accessories Explained
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
