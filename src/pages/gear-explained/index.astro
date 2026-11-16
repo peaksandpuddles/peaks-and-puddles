@@ -1,0 +1,152 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const explainerGuides = [
+  {
+    title: "Waterproof Ratings Explained: Hydrostatic Head & DWR",
+    category: "Outerwear & Weather Protection",
+    badge: "Waterproofs",
+    description: "What 5,000mm or 10,000mm hydrostatic head actually means, why DWR coatings wet out, and how to choose the right gear for Scottish rain.",
+    href: "/gear-explained/waterproof-ratings-explained",
+    status: "Published"
+  },
+  {
+    title: "Softshells Explained: Why Every Outdoor Kid Needs One",
+    category: "Outerwear & Weather Protection",
+    badge: "Active Outerwear",
+    description: "When to skip the crinkly rain coat in favor of a stretchy, fleece-backed softshell—and how to handle wind, drizzle, and mud.",
+    href: "/gear-explained/softshells-explained",
+    status: "Published"
+  },
+  {
+    title: "Down vs. Synthetic Insulation for Kids",
+    category: "Warmth & Layering",
+    badge: "Warmth & Layering",
+    description: "Comparing packability, warmth-to-weight ratios, wet-weather performance, and body-mapped hybrid jackets for winter puffers.",
+    href: "/gear-explained/down-vs-synthetic",
+    status: "Published"
+  },
+  {
+    title: "Outdoor Layering Systems for Kids: How to Dress Them",
+    category: "Warmth & Layering",
+    badge: "Warmth & Layering",
+    description: "Why cotton ruins winter walks, how to balance base layers and mid layers, and what to dress kids in for everything from drizzle to sub-zero hills.",
+    href: "/gear-explained/layering-systems",
+    status: "Published"
+  },
+  {
+    title: "Merino Wool vs. Synthetic Base Layers for Kids",
+    category: "Warmth & Layering",
+    badge: "Warmth & Layering",
+    description: "Comparing odour control, wet warmth, playground durability, and skin sensitivity for children's winter thermals.",
+    href: "/gear-explained/merino-vs-synthetic",
+    status: "Published"
+  },
+  {
+    title: "Gloves vs. Mittens for Kids: Warmth & Layering Tips",
+    category: "Warmth & Layering",
+    badge: "Warmth & Layering",
+    description: "Why mittens keep little hands warmer than gloves, dexterity by age, and the two-part glove-liner layering system for freezing weather.",
+    href: "/gear-explained/gloves-vs-mittens",
+    status: "Published"
+  }
+];
+---
+
+<Layout title="Gear Explained: Technical Guides for Outdoor Kids | Peaks and Puddles">
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Hub Header -->
+      <header class="mb-12">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
+            Technical Resource Hub
+          </span>
+          <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+            Parent Guides
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Gear Explained: Making Sense of Outdoor Kids' Kit
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Marketing terms like <strong class="text-foreground">hydrostatic head</strong>, <strong class="text-foreground">fill power</strong>, and <strong class="text-foreground">breathability ratings</strong> can feel like a foreign language when you are shopping for children. We break down the technical specifications, fabrics, and layering science so you can buy with confidence and keep kids comfortable in all weather.
+        </p>
+      </header>
+
+      <!-- Featured Sub-Hub Callout: Gear Care -->
+      <section class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8">
+        <div class="flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
+          <div>
+            <span class="bg-muted text-muted-foreground inline-block rounded-full px-2.5 py-0.5 text-xs font-medium">
+              Maintenance &amp; Longevity
+            </span>
+            <h2 class="mt-2 text-xl font-bold">Looking After Your Kit?</h2>
+            <p class="text-muted-foreground mt-1 text-sm leading-relaxed">
+              Bought good gear? Learn how to wash muddy waterproofs without wrecking their membranes, reproof DWR coatings, and wash merino wool.
+            </p>
+          </div>
+          <div>
+            <a
+              href="/gear-explained/gear-care"
+              class="inline-flex items-center justify-center rounded-lg bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground shadow transition hover:opacity-90 whitespace-nowrap"
+            >
+              Explore Gear Care &rarr;
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Guides Grid -->
+      <section class="space-y-12">
+        <h2 class="text-2xl font-bold">All Explainer Guides</h2>
+        
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {explainerGuides.map((guide) => (
+            <a
+              href={guide.href}
+              class="border-border bg-card/50 group flex flex-col justify-between rounded-xl border p-6 transition hover:border-accent hover:shadow-md"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="bg-muted text-muted-foreground rounded-full px-2.5 py-0.5 text-xs font-medium">
+                    {guide.badge}
+                  </span>
+                  <span class="text-xs text-emerald-600 dark:text-emerald-400 font-medium">
+                    {guide.status}
+                  </span>
+                </div>
+                <h3 class="mt-3 text-lg font-bold group-hover:text-accent transition">
+                  {guide.title}
+                </h3>
+                <p class="text-muted-foreground mt-2 text-xs leading-relaxed">
+                  {guide.description}
+                </p>
+              </div>
+              <div class="border-border/60 mt-6 border-t pt-4">
+                <span class="text-accent text-xs font-semibold group-hover:underline">
+                  Read Full Guide &rarr;
+                </span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
