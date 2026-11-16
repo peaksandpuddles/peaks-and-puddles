@@ -1,0 +1,165 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+
+// Swap "#" for your affiliate link (e.g., Awin or direct brand affiliate program)
+const brandAffiliateUrl = "#";
+
+const topLines = [
+  {
+    category: "ReimaTec Waterproof Shells & Snowsuits",
+    name: "Fully Seam-Sealed Jackets & All-in-Ones",
+    notes: "Built with a minimum 10,000mm water column, fully taped seams, and heavy-duty abrasion resistance. Ideal for forest schools, snow play, and all-day downpours."
+  },
+  {
+    category: "Footwear",
+    name: "ReimaTec Waterproof Sneakers & Barefoot Shoes",
+    notes: "Flexible, lightweight soles combined with genuine waterproof membranes so kids can stomp through puddles without ending up with soggy socks."
+  },
+  {
+    category: "Mid-Layers & Thermals",
+    name: "Merino Wool & Fleece Separation Layers",
+    notes: "Super-soft, non-itchy wool-blend base layers and snap-in cardigans designed to layer seamlessly under Reima outer shells without restricting movement."
+  },
+  {
+    category: "Classic Rubber Rain Gear",
+    name: "Welded-Seam PU Splash Suits & Rain Pants",
+    notes: "Traditional waterproof play gear for younger toddlers who spend hours sitting directly in mud and wet sand."
+  }
+];
+
+const parentTakeaways = [
+  {
+    title: "The ReimaTec Waterproof Scale",
+    notes: "Reima categorizes weather protection using a clear raindrop scale. For serious puddle-jumping, forest schools, and wet winter days, look for their 2-to-4 raindrop ReimaTec items (10,000mm+ water column)."
+  },
+  {
+    title: "Built-In Hand-Me-Down Durability",
+    notes: "Because Reima tests its fabrics for high Martindale abrasion cycles (often 30,000 to 40,000+ rubs), coats and dungarees easily survive rough playground use and multiple siblings."
+  },
+  {
+    title: "Generous Growing Room",
+    notes: "Reima outerwear is purposefully cut with extra length and room for layers. Buying your child's actual height size often means the garment will comfortably stretch across two full seasons."
+  }
+];
+---
+
+<Layout title="Reima Brand Review for Outdoor Parents: Worth the Investment? | Peaks and Puddles">
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-4xl px-4 py-12">
+    <!-- 3-Tier Breadcrumbs & Evergreen Freshness Badge -->
+    <div class="mb-6 flex flex-wrap items-center justify-between gap-2 text-sm">
+      <nav aria-label="Breadcrumb" class="text-muted-foreground flex items-center gap-2">
+        <a href="/brands-and-shops" class="hover:text-accent hover:underline">Brands &amp; Shops</a>
+        <span>/</span>
+        <a href="/brands-and-shops/brands" class="hover:text-accent hover:underline">Brands</a>
+        <span>/</span>
+        <span class="text-foreground font-medium">Reima</span>
+      </nav>
+      <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+        Last checked: November 2026
+      </span>
+    </div>
+
+    <!-- Article Header -->
+    <header class="mb-10">
+      <div class="mb-3 flex flex-wrap items-center gap-2">
+        <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
+          Nordic Outdoor Staple
+        </span>
+        <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+          Kids' Technical Gear
+        </span>
+      </div>
+      <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+        Reima Brand Review: Is Their Technical Kids' Outerwear Worth It?
+      </h1>
+      <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+        Hailing from Finland, Reima is a household name for European outdoor families and forest schools. Known for uncompromising weather protection and clever durability, we look at whether their premium price tag translates into real-world performance on wet trails.
+      </p>
+    </header>
+
+    <!-- Affiliate / Brand Intro Callout -->
+    <div class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8">
+      <h2 class="text-lg font-bold">The Verdict: Engineered for Real Childhood Play</h2>
+      <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+        If your kids treat puddles like swimming pools and snowbanks like climbing walls, Reima's <strong>ReimaTec</strong> line is engineered specifically to handle it. While upfront costs are higher than standard high-street fashion brands, their exceptional lifespan and hand-me-down durability usually balance out the cost-per-wear.
+      </p>
+      <div class="mt-5">
+        <a
+          href={brandAffiliateUrl}
+          rel="nofollow sponsored noopener"
+          target="_blank"
+          class="bg-accent text-accent-foreground inline-block rounded-lg px-6 py-3 text-sm font-semibold transition-opacity hover:opacity-90"
+        >
+          Explore Reima Kids' Collection &rarr;
+        </a>
+      </div>
+      <p class="text-muted-foreground mt-3 text-xs">
+        <em>Transparency: We may earn a small commission if you purchase through our links at no extra cost to you.</em>
+      </p>
+    </div>
+
+    <!-- Key Line Categories -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold">Core Reima Lines for Outdoor Families</h2>
+      <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+        Reima structures its lineup across different weather intensities, but these are the key gear categories parents rely on most:
+      </p>
+
+      <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {topLines.map((item) => (
+          <div class="border-border bg-card/50 rounded-xl border p-5">
+            <span class="text-accent text-xs font-semibold uppercase tracking-wider">
+              {item.category}
+            </span>
+            <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+            <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+              {item.notes}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Why Parents Love Reima -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold">3 Things Parents Appreciate Most</h2>
+      <div class="mt-6 space-y-4">
+        {parentTakeaways.map((takeaway, index) => (
+          <div class="border-border rounded-xl border p-5">
+            <div class="flex items-center gap-3">
+              <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                {index + 1}
+              </span>
+              <h3 class="font-semibold">{takeaway.title}</h3>
+            </div>
+            <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+              {takeaway.notes}
+            </p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Internal Cross-Links -->
+    <aside class="bg-muted/50 border-border rounded-xl border p-6">
+      <h2 class="text-lg font-bold">Related Brand &amp; Gear Guides</h2>
+      <ul class="mt-3 space-y-2 text-sm">
+        <li>
+          &rarr; Looking to score Reima gear on markdown? Check our <a href="/brands-and-shops/shops/sport-pursuit" class="text-accent font-medium hover:underline">SportPursuit Retailer Guide</a>.
+        </li>
+        <li>
+          &rarr; Keep your Reima gear waterproof for multiple children: <a href="gear-explained/gear-care/reproofing-waterproofs" class="text-accent font-medium hover:underline">How to Wash &amp; Reproof Kids' Rain Gear</a>.
+        </li>
+        <li>
+          &rarr; Ready to head outdoors? Match your layers with our <a href="/kit-lists/cold-weather-hiking" class="text-accent font-medium hover:underline">Cold-Weather Hiking Kit List</a>.
+        </li>
+      </ul>
+    </aside>
+  </main>
+
+  <Footer />
+</Layout>
