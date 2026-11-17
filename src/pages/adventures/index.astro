@@ -8,7 +8,7 @@ const adventures = [
   {
     title: "Dalkeith Country Park: Fort Douglas & River Esk",
     region: "Scotland",
-    activity: "Woodland & Playgrounds",
+    activities: ["Woodland", "Playground"],
     terrain: "Gravel Paths & Riverside Mud",
     description:
       "Fort Douglas adventure playground, buggy-friendly riverside walks, and easy trail exploring in Midlothian.",
@@ -18,7 +18,7 @@ const adventures = [
     title:
       "Vogrie Country Park: Treetop Trails, Miniature Railway & Woodland Play",
     region: "Scotland",
-    activity: "Woodland & Playgrounds",
+    activities: ["Woodland", "Playground"],
     terrain: "Woodland Trails, Boardwalks & Open Lawns",
     description:
       "11 miles of woodland walks, the giant adventure play park, a miniature railway, and muddy burn-side trails near Gorebridge.",
@@ -27,16 +27,25 @@ const adventures = [
   {
     title: "Pentland Hills Regional Park: Reservoirs & Ridge Paths",
     region: "Scotland",
-    activity: "Hill Walking",
+    activities: ["Hill Walking"],
     terrain: "Crushed Gravel & Open Moorland",
     description:
       "Flat, buggy-friendly reservoir circuits and sweeping foothill tracks on Edinburgh's doorstep.",
     href: "/adventures/scotland/pentland-hills"
   },
   {
+    title: "Robin Hood's Bay: Family Fossil Hunting & Rockpooling Near Whitby",
+    region: "England",
+    activities: ["Fossil Hunting", "Seaside"],
+    terrain: "Rocky Wave-Cut Platforms, Shingle & Steep Village Cobbles",
+    description:
+      "Scouring Jurassic shale scars for ammonites, devil's toenails, and belemnites on Yorkshire's Dinosaur Coast, plus tide safety tips for families.",
+    href: "/adventures/england/robin-hoods-bay-fossil-hunting"
+  },
+  {
     title: "Megève Family Skiing: Slopes & Village Trails",
     region: "France",
-    activity: "Skiing & Snow",
+    activities: ["Skiing", "Snowboarding", "Snow"],
     terrain: "Piste Snow & Alpine Slopes",
     description:
       "Gentle nursery slopes, tree-lined beginner runs, and medieval village charm in the French Alps.",
@@ -44,12 +53,17 @@ const adventures = [
   }
 ];
 
-const regions = ["All", "Scotland", "France"];
-const activities = [
+const regions = ["All", "Scotland", "England", "France"];
+const activityOptions = [
   "All",
-  "Woodland & Playgrounds",
+  "Woodland",
+  "Playground",
   "Hill Walking",
-  "Skiing & Snow"
+  "Fossil Hunting",
+  "Skiing",
+  "Snowboarding",
+  "Snow"
+  "Seaside"
 ];
 ---
 
@@ -77,7 +91,7 @@ const activities = [
         </h1>
         <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
           No-nonsense guides to family-friendly walks, woodland playgrounds, and
-          hill trails. Filter by country or activity type to find your next
+          hill trails. Filter by country or activity tag to find your next
           outing.
         </p>
       </header>
@@ -121,7 +135,7 @@ const activities = [
           </span>
           <div class="flex flex-wrap gap-2" id="activity-filters">
             {
-              activities.map((act) => (
+              activityOptions.map((act) => (
                 <button
                   type="button"
                   data-filter-activity={act}
@@ -146,14 +160,19 @@ const activities = [
             <a
               href={spot.href}
               data-region={spot.region}
-              data-activity={spot.activity}
+              data-activities={spot.activities.join("|")}
               class="adventure-card border-border bg-card hover:border-accent/50 flex flex-col justify-between rounded-xl border p-6 transition-all hover:shadow-md"
             >
               <div>
-                <div class="flex flex-wrap items-center justify-between gap-2">
-                  <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
-                    {spot.region} &bull; {spot.activity}
+                <div class="flex flex-wrap items-center gap-1.5">
+                  <span class="bg-muted text-foreground rounded-full px-2.5 py-1 text-xs font-semibold">
+                    {spot.region}
                   </span>
+                  {spot.activities.map((tag) => (
+                    <span class="bg-accent/15 text-accent rounded-full px-2.5 py-1 text-xs font-semibold">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
                 <p class="text-muted-foreground mt-3 text-xs font-medium">
                   {spot.terrain}
@@ -213,12 +232,13 @@ const activities = [
 
     cards.forEach((card) => {
       const cardRegion = card.getAttribute("data-region");
-      const cardActivity = card.getAttribute("data-activity");
+      const rawActivities = card.getAttribute("data-activities") || "";
+      const cardActivities = rawActivities.split("|");
 
       const matchesRegion =
         activeRegion === "All" || cardRegion === activeRegion;
       const matchesActivity =
-        activeActivity === "All" || cardActivity === activeActivity;
+        activeActivity === "All" || cardActivities.includes(activeActivity);
 
       if (matchesRegion && matchesActivity) {
         card.classList.remove("hidden");
