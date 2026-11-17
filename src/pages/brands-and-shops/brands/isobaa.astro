@@ -1,0 +1,198 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const standouts = [
+  {
+    category: "Base Layer Tops & Leggings",
+    name: "180gsm & 200gsm Merino Zip-Necks, Crews & Leggings",
+    notes:
+      "Knitted from superfine 18.5-micron merino wool with flatlock seams and raglan sleeves to prevent backpack chafing. Lightweight 180gsm works year-round, while 200gsm handles freezing winter hills and ski trips."
+  },
+  {
+    category: "Head & Neck Protection",
+    name: "Merino 200 Neck Tubes & Beanies",
+    notes:
+      "Breathable, stretchy tubular neck buffs and close-fitting beanies that sit smoothly under ski or cycling helmets without trapping sweat."
+  },
+  {
+    category: "Mid-Layers & Hoodies",
+    name: "260gsm Merino Zip Hoodies & Half-Zips",
+    notes:
+      "Heavier-weight merino fleece alternatives that regulate body heat on steep climbs and resist campfire or multi-day trip odors."
+  },
+  {
+    category: "Sizing & Junior Note",
+    name: "Kids' Range vs. Small Adult Sizing",
+    notes:
+      "Isobaa focuses primarily on adult sizing (starting at XS / UK 6-8), though older tweens and teens easily fit XS tops, and their one-size neck tubes and beanies fit younger kids comfortably."
+  }
+];
+
+const buyingTips = [
+  {
+    title: "Understand GSM Weights Before Buying",
+    notes:
+      "Isobaa labels its garments by fabric weight in grams per square meter (gsm). Choose 150-180gsm for high-output hiking and spring/autumn layering, and 200-260gsm for static cold or alpine ski days."
+  },
+  {
+    title: "Wash Cool & Skip the Tumble Dryer",
+    notes:
+      "Superfine merino naturally resists bacteria and odors, meaning it rarely needs washing after a single walk. When you do wash it, use a 30°C wool cycle with non-bio detergent and air-dry flat to prevent shrinkage."
+  },
+  {
+    title: "Watch for Seasonal Sales at UK Outdoor Retailers",
+    notes:
+      "Isobaa is frequently stocked at major UK outdoor clearance and multi-brand retailers (such as SportPursuit), often discounted 30-50% off RRP outside peak winter months."
+  }
+];
+---
+
+<Layout
+  title="Isobaa Brand Guide: Merino Wool Base Layers & Accessories | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Brand Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Brand Directory
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Merino Base Layers &amp; Accessories
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Isobaa: UK-Designed Superfine Merino Base Layers &amp; Trail Accessories
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Founded in Oxfordshire, Isobaa specializes in stripped-back, ethical
+          merino wool clothing designed for active outdoor days. Here is why their
+          18.5-micron fabrics punch well above their price tag—and what to know
+          about sizing for older kids and parents.
+        </p>
+      </header>
+
+      <!-- Quick Brand Specs Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">Brand Snapshot</h2>
+        <div class="mt-4 grid grid-cols-1 gap-4 text-sm sm:grid-cols-2">
+          <div>
+            <strong class="text-foreground">Origin:</strong> Oxfordshire, United Kingdom
+          </div>
+          <div>
+            <strong class="text-foreground">Core Material:</strong> 100% Superfine 18.5-micron Mulesing-Free Merino Wool
+          </div>
+          <div>
+            <strong class="text-foreground">Best Known For:</strong> Itch-free thermal base layers, zip-neck tops, and merino buffs
+          </div>
+          <div>
+            <strong class="text-foreground">Price Tier:</strong> Mid-range (strong value compared to legacy alpine brands)
+          </div>
+        </div>
+      </div>
+
+      <!-- Standout Gear Grid -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Standout Kit Worth Knowing</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            standouts.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Practical Buying & Care Tips -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Parent &amp; Buyer Notes</h2>
+        <div class="mt-6 space-y-4">
+          {
+            buyingTips.map((tip, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{tip.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {tip.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Gear Guides &amp; Adventures</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Understand how merino base layers work inside a 3-layer system:{" "}
+            <a
+              href="/gear-explained/layering-systems"
+              class="text-accent font-medium hover:underline"
+            >
+              Outdoor Layering Systems for Kids
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Why tubular merino neck buffs beat scarves on trails and slopes:{" "}
+            <a
+              href="/gear-explained/vital-accessories-extremities"
+              class="text-accent font-medium hover:underline"
+            >
+              Vital Accessories Explained
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Packing merino for high-altitude cold:{" "}
+            <a
+              href="/adventures/france/megeve-skiing"
+              class="text-accent font-medium hover:underline"
+            >
+              Family Skiing in Megève Guide
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
