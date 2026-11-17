@@ -1,0 +1,248 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const carrierTypes = [
+  {
+    category: "Newborns to ~6 Months (Before Independent Sitting)",
+    name: "Stretchy Wraps & Woven Slings",
+    notes:
+      "Soft wraps (like Boba or Close Caboo) keep tiny babies snug against your chest, regulate body heat under a roomy parent waterproof coat, and work effortlessly on gentle woodland paths. Avoid framed rucksack carriers until your baby can sit unsupported with strong head and neck control."
+  },
+  {
+    category: "6 Months to ~2 Years (Front & Back Carries)",
+    name: "Soft-Structured Buckle Carriers (SSCs)",
+    notes:
+      "Ergonomic buckle carriers (such as Ergobaby Omni, Tula, or LennyLamb) pack down small into a daypack when toddlers want to walk, let you switch between front and back carries, and keep the child's weight close to your center of gravity on uneven woodland trails."
+  },
+  {
+    category: "6 Months to ~4 Years (Up to 18–22kg Total Load)",
+    name: "Framed Hiking Backpack Carriers",
+    notes:
+      "Built around an internal aluminum frame with a proper mountaineering hip belt, kickstand, sunshade, and 15L–25L of under-seat storage. Essential for longer hill walks, steep coastal paths (like Robin Hood's Bay), and hot days where back ventilation matters."
+  }
+];
+
+const brandComparison = [
+  {
+    brand: "Osprey Poco Series (Poco LT, Poco & Poco Plus)",
+    origin: "USA / Global",
+    standout:
+      "Features Osprey's Anti-Gravity tensioned mesh back panel—hands down the best ventilation for sweaty summer climbs—plus a built-in UPF 50+ sunshade that deploys from a zippered pocket in seconds and easy torso-length adjustment for swapping between parents.",
+    bestFor:
+      "Parents sharing one carrier with different heights, hot-weather walking, and long full-day hill routes."
+  },
+  {
+    brand: "Deuter Kid Comfort Series (Active, Kid Comfort & Pro)",
+    origin: "Germany",
+    standout:
+      "Renowned for bombproof German build quality, an ultra-stable fold-out kickstand, a removable chin-rest pillow for trail naps, and Deuter's Aircomfort Sensic Vario mesh back system. The Pro model adds an integrated detachable 10L daypack.",
+    bestFor:
+      "Heavy toddlers, nap-prone walkers, and families buying secondhand (Deuter frames hold up for decades)."
+  },
+  {
+    brand: "LittleLife Carriers (Ranger, Adventurer, Voyager & Cross Country)",
+    origin: "United Kingdom",
+    standout:
+      "Designed in the UK with budget-friendly, lightweight options starting under 2kg (the Ranger S2 is a favorite for quick woodland walks and travel) up to the feature-packed Voyager with a zip-off daypack and viewing mirror.",
+    bestFor:
+      "Shorter UK country park walks, holiday flights, and families wanting a lighter, lower-cost framed pack."
+  }
+];
+
+const safetyAndComfortTips = [
+  {
+    title: "Put 80% of the Weight on Your Hips, Not Your Shoulders",
+    notes:
+      "Carrying 15kg of toddler plus snacks and water will ruin your lower back if the shoulder straps bear the load. Tighten the padded hip belt firmly over the top of your hip bones first, then snug the shoulder straps and load-lifters."
+  },
+  {
+    title: "Dress the Passenger Warmer Than the Walker",
+    notes:
+      "While you are sweating uphill, a child sitting still in a framed carrier experiences wind chill—especially on exposed legs and feet. Use fleece booties or long merino socks over trousers so ankles don't bare when knees bend in the stirrups."
+  },
+  {
+    title: "Check Stirrups & Sun/Rain Covers Before Setting Off",
+    notes:
+      "Dangling legs lose circulation quickly and go numb—adjust foot stirrups so knees sit at a comfortable 90-degree angle. Always pack the dedicated rain cover in the lower pocket, as standard waterproof jackets won't cover a framed carrier."
+  }
+];
+---
+
+<Layout
+  title="Kid Carriers, Slings & Hiking Backpacks: Osprey vs Deuter vs LittleLife | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Gear Explained
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Carriers &amp; Slings
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Kid Carriers, Slings &amp; Hiking Backpacks: Osprey vs. Deuter vs. LittleLife
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          When buggy wheels bog down in woodland mud, steep coastal steps, or
+          rocky hill tracks, a good carrier opens up almost any trail. Here is
+          when to use a soft sling versus a framed hiking backpack—and how
+          Osprey, Deuter, and LittleLife compare.
+        </p>
+      </header>
+
+      <!-- Golden Rule Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">The Sitting-Unaided Rule for Framed Backpacks</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Never put a baby into a framed hiking backpack carrier until they can{" "}
+          <strong>sit completely unsupported</strong> (typically around 6–8 months). Before that stage, stick to a stretchy wrap or ergonomic soft-structured sling where their spine and neck are fully supported against your chest.
+        </p>
+      </div>
+
+      <!-- Choosing the Right Carrier by Stage -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Slings vs. Soft Carriers vs. Framed Backpacks</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {
+            carrierTypes.map((type) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {type.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{type.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {type.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Osprey vs Deuter vs LittleLife Head-to-Head -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Osprey vs. Deuter vs. LittleLife Compared</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          All three brands build safe, comfortable framed carriers, but each
+          shines in slightly different scenarios:
+        </p>
+        <div class="mt-6 space-y-4">
+          {
+            brandComparison.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-6">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <h3 class="text-xl font-bold">{item.brand}</h3>
+                  <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+                    Origin: {item.origin}
+                  </span>
+                </div>
+                <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
+                  {item.standout}
+                </p>
+                <p class="text-foreground mt-3 text-xs font-semibold">
+                  Best For: <span class="text-muted-foreground font-normal">{item.bestFor}</span>
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Comfort & Trail Safety Checklist -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Fit, Warmth &amp; Trail Comfort Rules</h2>
+        <div class="mt-6 space-y-4">
+          {
+            safetyAndComfortTips.map((tip, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{tip.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {tip.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Gear Guides &amp; Where to Buy Used</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Framed carriers cost £200–£350 new but are heavily discounted pre-loved:{" "}
+            <a
+              href="/brands-and-shops/shops/secondhand-gear"
+              class="text-accent font-medium hover:underline"
+            >
+              Secondhand Marketplaces Guide
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Keeping stationary carrier passengers warm from head to toe:{" "}
+            <a
+              href="/gear-explained/vital-accessories-extremities"
+              class="text-accent font-medium hover:underline"
+            >
+              Vital Accessories Explained
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Ready for kids to carry their own pack? Read{" "}
+            <a
+              href="/gear-explained/kids-backpacks"
+              class="text-accent font-medium hover:underline"
+            >
+              Kids' Hiking Backpacks Explained
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; A classic steep-stepped trail where a carrier beats a buggy every time:{" "}
+            <a
+              href="/adventures/england/robin-hoods-bay-fossil-hunting"
+              class="text-accent font-medium hover:underline"
+            >
+              Robin Hood's Bay Fossil Hunting Guide
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

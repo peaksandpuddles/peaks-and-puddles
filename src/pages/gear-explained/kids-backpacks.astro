@@ -1,0 +1,241 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const sizingByAge = [
+  {
+    ageGroup: "Toddlers & Preschool (Ages 2–4)",
+    capacity: "3L – 6L",
+    maxWeight: "Under 0.5kg – 1kg total",
+    notes:
+      "A chest sternum strap is mandatory here—without one, narrow shoulder straps slip straight off toddler shoulders. Keep it ultra-light: a cuddly toy, a small snack box, and a lightweight hat."
+  },
+  {
+    ageGroup: "Early Primary (Ages 5–7)",
+    capacity: "6L – 10L",
+    maxWeight: "Up to 10% of body weight (approx. 1.5kg – 2kg)",
+    notes:
+      "Big enough for a 350ml–500ml water bottle, a packable waterproof jacket, trail snacks, and a magnifying glass or fossil pouch. Look for padded back panels and side mesh bottle pockets."
+  },
+  {
+    ageGroup: "Junior Explorers (Ages 8–10)",
+    capacity: "10L – 15L",
+    maxWeight: "Up to 10% – 15% of body weight (approx. 2.5kg – 3.5kg)",
+    notes:
+      "At this stage, kids can carry their own full lunch, water, spare fleece, and waterproofs on hill walks. A simple webbing hip belt helps stabilize the pack when scrambling or jumping stiles."
+  },
+  {
+    ageGroup: "Tweens & Teens (Ages 11+)",
+    capacity: "15L – 22L",
+    maxWeight: "Up to 15% of body weight",
+    notes:
+      "Transitioning into technical youth or small-back adult daypacks (such as Osprey Jet 18 or Deuter Junior/Climber) with proper contoured hip belts, load lifters, and hydration bladder sleeves."
+  }
+];
+
+const fitChecklist = [
+  {
+    title: "Measure Torso Length, Not Just Age",
+    notes:
+      "A tall 6-year-old and a petite 8-year-old often take the exact same back length. When fitted properly, the top of the shoulder straps should sit level with the tops of the shoulders—never hovering above them—and the bottom of the pack should rest on the curve of the lower back, not bouncing against their bum."
+  },
+  {
+    title: "Never Buy a Backpack 'To Grow Into'",
+    notes:
+      "Buying a 20L pack for a 5-year-old forces the bag to hang low against their thighs, pulling their posture backward and causing shoulder aches within 15 minutes. Stick to age-appropriate torso lengths and pass smaller packs down to younger siblings."
+  },
+  {
+    title: "Insist on a Sliding Sternum Strap (With Whistle)",
+    notes:
+      "Kids have narrow, sloped shoulders. A buckled chest strap keeps shoulder straps centered so arms can swing freely—and most outdoor brands (like Osprey, Deuter, and Vaude) build an emergency whistle right into the buckle."
+  }
+];
+
+const whatKidsShouldCarry = [
+  {
+    category: "Independence & Morale Boosters",
+    items:
+      "Their own trail snacks (giving them control over when they nibble keeps energy steady), a small nature-spotter notebook, binoculars, or a fossil-collecting tin."
+  },
+  {
+    category: "Light Personal Layers",
+    items:
+      "A lightweight packable waterproof jacket, sun hat, or merino neck buff—bulky items that take up space in your adult rucksack without adding heavy weight to theirs."
+  },
+  {
+    category: "What Parents Should Still Carry",
+    items:
+      "Heavy 1L+ reserve water bottles, glass/metal flasks, first-aid kits, and soaked muddy boots. Water weighs 1kg per litre and quickly overloads small shoulders."
+  }
+];
+---
+
+<Layout
+  title="Kids' Hiking Backpacks Explained: How to Size, Fit & What to Carry | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Gear Explained
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Packs &amp; Sizing
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Kids' Hiking Backpacks Explained: How to Size, Fit &amp; What They Should Carry
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Giving kids their own rucksack turns a "boring walk" into a proper
+          expedition—but an oversized school bag with slipping straps will end
+          up slung over your shoulder inside half a mile. Here is how to pick the
+          right litre capacity, dial in the fit, and pack it without overloading
+          small backs.
+        </p>
+      </header>
+
+      <!-- Golden Rule Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">The 10% Body Weight Rule</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          A loaded child's backpack should never exceed <strong>10% to 15% of their body weight</strong> (around 1.5kg–2kg max for an average 6-year-old, including the bag itself). If you lift their packed rucksack and it feels heavy to you, take out the water bottle and put it in your own pack.
+        </p>
+      </div>
+
+      <!-- Sizing by Age & Capacity Grid -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Backpack Sizing Guide by Age &amp; Capacity</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            sizingByAge.map((tier) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                    {tier.ageGroup}
+                  </span>
+                  <span class="bg-muted text-foreground rounded-full px-2.5 py-0.5 text-xs font-bold">
+                    {tier.capacity}
+                  </span>
+                </div>
+                <p class="text-foreground mt-2 text-xs font-semibold">
+                  Target Loaded Weight: {tier.maxWeight}
+                </p>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {tier.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- 3-Step Fit Checklist -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">How to Check the Fit Before Hitting the Trail</h2>
+        <div class="mt-6 space-y-4">
+          {
+            fitChecklist.map((step, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{step.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {step.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- What Goes in Their Pack vs Yours -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">What Goes in Their Pack vs. Yours</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {
+            whatKidsShouldCarry.map((group) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <h3 class="text-base font-bold">{group.category}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {group.items}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Packing &amp; Trail Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; What goes inside the parent's main rucksack:{" "}
+            <a
+              href="/kit-lists/family-day-hike"
+              class="text-accent font-medium hover:underline"
+            >
+              Family Day Hike Pack Checklist
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Best snacks and leak-proof bottles for kids' side pockets:{" "}
+            <a
+              href="/gear-explained/snacks-and-hydration"
+              class="text-accent font-medium hover:underline"
+            >
+              Snacks &amp; Hydration Explained
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Where to pick up quality youth packs (Osprey, Deuter, Vaude) at outlet or resale prices:{" "}
+            <a
+              href="/brands-and-shops/shops/sport-pursuit"
+              class="text-accent font-medium hover:underline"
+            >
+              SportPursuit Flash Sales Guide
+            </a>{" "}
+            and{" "}
+            <a
+              href="/brands-and-shops/shops/secondhand-gear"
+              class="text-accent font-medium hover:underline"
+            >
+              Secondhand Marketplaces Guide
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
