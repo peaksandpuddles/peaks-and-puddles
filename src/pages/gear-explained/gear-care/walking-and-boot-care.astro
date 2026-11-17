@@ -1,0 +1,225 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const bootMaterials = [
+  {
+    category: "Full-Grain & Smooth Leather Boots",
+    name: "Wax & Cream Conditioning (e.g., Nikwax Waterproofing Wax or Grangers G-Wax)",
+    notes:
+      "Smooth leather needs periodic conditioning to prevent drying, stiffening, and cracking along flex creases. Apply wax sparingly to clean, slightly damp leather—paying extra attention to stitched seams and the tongue gusset."
+  },
+  {
+    category: "Suede & Nubuck Leather Boots",
+    name: "Spray-On or Sponge-On Nubuck Proofers (e.g., Nikwax Nubuck & Suede Proof)",
+    notes:
+      "Never rub heavy paste wax onto nubuck or suede unless you want to permanently darken and flatten the fuzzy nap. Use a water-based spray or sponge applicator to restore water beading while preserving breathability."
+  },
+  {
+    category: "Fabric, Mesh & Synthetic Kids' Boots",
+    name: "Fabric & Leather Proofing Sprays (e.g., Nikwax Fabric & Leather Proof)",
+    notes:
+      "Most children's walking boots use lightweight nylon mesh panels paired with a Gore-Tex or waterproof membrane. If the outer fabric stops beading water, it 'wets out', trapping foot sweat inside and making feet feel cold and damp."
+  },
+  {
+    category: "Laces, Eyelets & Footbeds",
+    name: "Hardware & Insole Maintenance",
+    notes:
+      "Remove muddy laces and insoles before washing so grit doesn't grind into the waterproof membrane from the inside. Brush mud out of metal lace hooks to prevent corrosion."
+  }
+];
+
+const cleaningSteps = [
+  {
+    title: "Knock Off Dried Mud & Pull Out Insoles",
+    notes:
+      "Let caked-on trail mud dry enough to brush off with a stiff boot brush, then remove laces and footbeds. Shake out gravel and sand trapped inside the toe box—grit acts like sandpaper against internal Gore-Tex bootie liners."
+  },
+  {
+    title: "Wash With Lukewarm Water & Boot Cleaning Gel",
+    notes:
+      "Rinse under a cold or lukewarm tap and scrub with a dedicated footwear cleaner (such as Nikwax Footwear Cleaning Gel or Grangers Footwear + Gear Cleaner). Never use household washing-up liquid—it strips protective oils and leaves hydrophilic residues that attract water."
+  },
+  {
+    title: "Apply Waterproofing While Damp",
+    notes:
+      "Water-based sprays and waxes absorb best into open leather pores and fabric fibers while the boots are still clean and damp. Wipe away any excess wax from metal eyelets and rubber rands."
+  },
+  {
+    title: "Stuff With Newspaper & Air-Dry Away From Radiators",
+    notes:
+      "Never put wet leather or glued-sole boots on a hot radiator, in an airing cupboard, or near a woodburner. High heat shrinks leather, causes cracking, and melts the glues holding midsoles together. Stuff with crumpled newspaper and dry at room temperature."
+  }
+];
+
+const parentTips = [
+  {
+    title: "Keep a Cheap Nail Brush & Old Towel in the Boot Room or Car",
+    notes:
+      "Brushing wet mud off kids' boots at the trailhead before it bakes into the fabric seams takes 30 seconds and doubles the lifespan of membrane liners."
+  },
+  {
+    title: "Check Tread & Toe Caps Before Handing Down",
+    notes:
+      "Kids usually outgrow walking boots before wearing out Vibram soles, making them great hand-me-downs—provided the internal waterproof membrane hasn't been punctured by grit or dried out on a radiator."
+  }
+];
+---
+
+<Layout
+  title="Walking Boot Cleaning & Waxing: Leather & Fabric Care Guide | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Gear Care
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Footwear Maintenance
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Walking Boot Cleaning &amp; Waxing: Protecting Leather and Fabric Boots
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Caked-on peat, dried mud, and radiator drying destroy expensive
+          walking boots faster than miles on the hill. Here is the simple
+          four-step routine to clean, condition, and reproof both leather and
+          synthetic kids' and adults' boots so feet stay dry all winter.
+        </p>
+      </header>
+
+      <!-- Golden Rule Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">The #1 Boot-Killing Mistake: Direct Heat</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Putting soaked boots directly on a radiator or next to a stove dries
+          out natural leather oils—causing permanent cracking along the toe
+          crease—and weakens sole adhesives. Always air-dry at room temperature
+          stuffed with newspaper (replace damp paper after a few hours).
+        </p>
+      </div>
+
+      <!-- Match the Treatment to the Boot Material -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Match the Product to Your Boot Material</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            bootMaterials.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Step-by-Step Cleaning & Proofing Routine -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Step-by-Step Cleaning &amp; Reproofing Routine</h2>
+        <div class="mt-6 space-y-4">
+          {
+            cleaningSteps.map((step, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{step.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {step.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Parent Quick Tips -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Parent Maintenance Habits</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            parentTips.map((tip) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <h3 class="text-lg font-bold">{tip.title}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {tip.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Gear Care &amp; Repair Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Need Vibram resoling or sole re-gluing? See our{" "}
+            <a
+              href="/gear-care/gear-repair-guide"
+              class="text-accent font-medium hover:underline"
+            >
+              Field Patches &amp; UK Repair Hubs Guide
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; How waterproof membranes work in boots and jackets:{" "}
+            <a
+              href="/gear-explained/waterproof-ratings-explained"
+              class="text-accent font-medium hover:underline"
+            >
+              Waterproof Ratings Explained
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Buying or passing on outgrown kids' footwear:{" "}
+            <a
+              href="/brands-and-shops/shops/secondhand-gear"
+              class="text-accent font-medium hover:underline"
+            >
+              Secondhand Marketplaces Guide
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

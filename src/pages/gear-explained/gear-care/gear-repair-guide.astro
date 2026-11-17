@@ -1,0 +1,249 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const diyFixes = [
+  {
+    category: "Down Jackets & Sleeping Bags",
+    name: "Gear Aid Tenacious Tape (Clear or Matte Nylon)",
+    notes:
+      "The gold standard for stopping down leaks instantly. Push stray feathers back inside, wipe the area with an alcohol prep pad, round the corners of your patch with scissors, and press firmly for 30 seconds—no sewing or heat required."
+  },
+  {
+    category: "Gore-Tex & Breathable Shells",
+    name: "Gore-Tex Fabric Repair Patches & Seam Grip WP",
+    notes:
+      "Pressure-sensitive waterproof patches bond directly to hard-shell jackets and trousers after barbed-wire or bramble snags. Seal the edges with a thin bead of Seam Grip WP for permanent wash-proof durability."
+  },
+  {
+    category: "PU Puddle Suits & Wellies",
+    name: "Stormsure Flexible Repair Adhesive",
+    notes:
+      "Rubberized PU dungarees and natural rubber wellies flex constantly at the knees and ankles. Flexible urethane adhesives cure into a stretchy, waterproof seal that won't crack in freezing temperatures."
+  },
+  {
+    category: "Popped Zips & Missing Sliders",
+    name: "ZlideOn Clip-On Zipper Sliders",
+    notes:
+      "Before binning a jacket with a zip that won't close, check if the teeth are intact. A replacement clip-on slider snaps onto the existing track in seconds without unpicking stitching."
+  }
+];
+
+const ukRepairHubs = [
+  {
+    name: "Scottish Mountain Gear (Dalkeith / Midlothian)",
+    specialty: "Gore-Tex, Down Jackets, Tents & Zip Replacements",
+    notes:
+      "Located right on our doorstep in Midlothian and offering nationwide UK mail-in service. Factory-authorized repairers for major alpine brands, capable of full zip replacements, baffle rebuilds, and re-taping worn waterproof seams."
+  },
+  {
+    name: "Lancashire Sports Repairs (Burnley)",
+    specialty: "Gore-Tex Shells, Rucksacks & Walking Boot Resoling",
+    notes:
+      "One of the UK's longest-running technical outdoor workshops, handling everything from torn waterproof trouser knees to Vibram boot resoles via post."
+  },
+  {
+    name: "Alpkit Repair Stations (UK Stores & Mail-In)",
+    specialty: "All-Brand Zip Repairs, Down Patches & Buckles",
+    notes:
+      "Alpkit's in-store and postal repair hubs fix any outdoor brand—not just their own—with transparent fixed-price menus for common kids' jacket snags and broken zips."
+  },
+  {
+    name: "Brand-Specific Workshops (Keela & Patagonia UK)",
+    specialty: "In-House Brand Repairs & Reproofing",
+    notes:
+      "Keela's workshop in Glenrothes (Fife) and Patagonia's UK repair partners handle full garment rebuilds, torn cuffs, and seam re-taping so hand-me-down shells survive multiple kids."
+  }
+];
+
+const patchSteps = [
+  {
+    title: "Clean the Fabric First",
+    notes:
+      "Never stick Tenacious Tape onto muddy or greasy nylon. Wipe around the tear with rubbing alcohol or warm soapy water and let it dry completely so the adhesive bonds to the weave."
+  },
+  {
+    title: "Always Round the Corners",
+    notes:
+      "Square patch corners catch on backpack straps, tree branches, and washing machine drums. Cut your patch into a circle or oval with rounded edges so it stays put through dozens of washes."
+  },
+  {
+    title: "Wait 24 Hours Before Washing",
+    notes:
+      "Tenacious Tape holds immediately on the trail, but giving the adhesive 24 hours to cure at room temperature locks it in permanently before its next trip through the washing machine."
+  }
+];
+---
+
+<Layout
+  title="Field Patches & UK Repair Hubs: Fixing Kids' Outdoor Gear | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Repair First
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Gear Care &amp; Longevity
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Field Patches &amp; UK Repair Hubs: How to Fix Torn Kids' Jackets &amp; Waterproofs
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Kids climb barbed-wire stiles, slide down granite boulders on their
+          knees, and catch down jackets on brambles. Most tears take five minutes
+          to patch at home—and for broken zips or major rips, specialist UK
+          mail-in workshops will rebuild technical kit for a fraction of
+          replacement cost.
+        </p>
+      </header>
+
+      <!-- Quick Rule Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">The Repair-First Rule for Kids' Kit</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Never use duct tape on technical outdoor clothing—it leaves a sticky
+          residue that ruins breathable membranes and is nearly impossible for
+          professional repairers to clean off later. Keep a £5 roll of clear
+          Tenacious Tape in your daypack instead.
+        </p>
+      </div>
+
+      <!-- DIY Field Fixes Grid -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">5-Minute DIY Field Patches</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            diyFixes.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- How to Apply Tenacious Tape Properly -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">How to Make a Patch Survive the Washing Machine</h2>
+        <div class="mt-6 space-y-4">
+          {
+            patchSteps.map((step, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{step.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {step.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- UK Mail-In Repair Hubs -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Trusted UK Mail-In &amp; Local Repair Hubs</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          When a main zip fails, seam tape peels, or a down baffle gets shredded,
+          send it to a specialist workshop rather than replacing the garment:
+        </p>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            ukRepairHubs.map((hub) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {hub.specialty}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{hub.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {hub.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Gear Care &amp; Resale Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Keep repaired shells beading water properly:{" "}
+            <a
+              href="/gear-explained/waterproof-ratings-explained"
+              class="text-accent font-medium hover:underline"
+            >
+              Waterproof Ratings &amp; DWR Care Explained
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Passing on well-cared-for outdoor gear:{" "}
+            <a
+              href="/brands-and-shops/shops/secondhand-gear"
+              class="text-accent font-medium hover:underline"
+            >
+              Secondhand Marketplaces Guide
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Brands with dedicated UK repair workshops:{" "}
+            <a
+              href="/brands-and-shops/brands/keela"
+              class="text-accent font-medium hover:underline"
+            >
+              Keela Brand Guide
+            </a>{" "}
+            and{" "}
+            <a
+              href="/brands-and-shops/brands/patagonia"
+              class="text-accent font-medium hover:underline"
+            >
+              Patagonia Kids Brand Guide
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
