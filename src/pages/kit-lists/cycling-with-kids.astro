@@ -1,0 +1,283 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const rideSetups = [
+  {
+    setup: "Front-Mounted Trail Seats (Kids Ride Shotgun / Mac Ride)",
+    ageRange: "Ages 2 – 5 (up to ~22kg)",
+    notes:
+      "Mounts directly to your mountain bike frame so toddlers sit between your arms with their own mini handlebars. Because they aren't pedaling, dress them one layer warmer than yourself, use secure foot straps, and fit a full-finger glove to protect tiny knuckles from trailside brambles."
+  },
+  {
+    setup: "Multi-Sport Bike Trailers (Thule Chariot / Burley)",
+    ageRange: "Ages 6 months (with infant sling) – 5 years",
+    notes:
+      "The ultimate bad-weather cocoon for forest fire roads and cycle paths. Always run a tall high-vis safety flag, keep the mesh bug screen zipped down even in dry weather to block flying gravel from your rear tyre, and pack an extra fleece blanket as stationary passengers cool down quickly."
+  },
+  {
+    setup: "Tag-Alongs, Tow Ropes (TowWhee) & Tandems",
+    ageRange: "Ages 4 – 9",
+    notes:
+      "Tag-along half-bikes, tandem setups, and bungee tow ropes (like TowWhee or Shotgun Tow Rope) bridge the stamina gap on steep forest climbs. Keep tow ropes hooked out of rear-wheel spokes when slack, and fit rear mudguards on the lead bike so the stoker isn't sprayed with trail grit."
+  },
+  {
+    setup: "Independent Balance & Pedal Bikes (Frog / Islabikes / Early Rider)",
+    ageRange: "Ages 2+",
+    notes:
+      "Lightweight alloy bikes with child-sized brake levers make a massive difference on gravel and singletrack. Check tyre pressures before every ride (slightly lower PSI gives better grip on wet roots) and avoid loose trouser cuffs that can snag in the chainring."
+  }
+];
+
+const kitCategories = [
+  {
+    category: "Helmets, Eyes & High-Visibility",
+    items: [
+      {
+        name: "Properly Fitted Cycle Helmet (MIPS Preferred)",
+        notes:
+          "Must sit level two fingers above the eyebrows with a snug Y-strap under the ears—never tilted back on the crown. Add a thin merino skull cap underneath on freezing mornings instead of loosening the dial."
+      },
+      {
+        name: "High-Viz Vest, Jacket & Rear Flashing LEDs",
+        notes:
+          "Dappled forest shade and overcast UK paths make kids in dark waterproofs nearly invisible to faster riders and road traffic. Layer a bright fluo gilet or high-vis shell over outer coats and clip red LEDs to helmets and trailers."
+      },
+      {
+        name: "Clear Wrap-Around Glasses or Goggles",
+        notes:
+          "Low-hanging woodland branches, mud flicked up by front tyres, and midges go straight into kids' eyes—especially for front-seat Shotgun passengers. Clear polycarbonate kids' sports glasses prevent tearful trailside stops."
+      }
+    ]
+  },
+  {
+    category: "Clothing & Extremities",
+    items: [
+      {
+        name: "Full-Finger Padded Cycling Gloves",
+        notes:
+          "Even on summer gravel rides, full-finger gloves protect palms during inevitable slow-speed tumbles and stop handlebars getting slippery with sweat or rain."
+      },
+      {
+        name: "Windproof Shell & Fitted Waterproof Trousers",
+        notes:
+          "Cycling creates constant wind chill. Pair a breathable windproof or taped-seam waterproof jacket with slim-cut rain trousers (tucked into socks or secured with Velcro ankle bands) so fabric never catches in the chain."
+      },
+      {
+        name: "Grippy Flat-Soled Shoes & Merino Socks",
+        notes:
+          "Skip smooth wellies on pedal bikes—feet slip straight off wet pedals. Grippy trainers or kids' flat-pedal MTB shoes paired with warm merino socks keep feet planted and warm."
+      }
+    ]
+  },
+  {
+    category: "Trailside Spares & Parent Pack",
+    items: [
+      {
+        name: "Multi-Tool, Mini Pump & Spare Inner Tubes",
+        notes:
+          "Carry a spare tube for every wheel size in the family (14\", 16\", 20\", 24\", and 29\"), tyre levers, a compact pump, and quick-links—kids' tyres love finding hawthorn thorns."
+      },
+      {
+        name: "Compact First-Aid Kit (Heavy on Knee/Elbow Dressings)",
+        notes:
+          "Pack saline wipes, large non-stick sterile pads, self-adhesive cohesive bandage wrap (sticks to itself without pulling hair), and antiseptic cream for gravel grazes."
+      },
+      {
+        name: "Easy-Access Water & 'Turbo Boost' Snacks",
+        notes:
+          "Squeezy sports bottles fit bike cages better than twist-cap flasks. Pack flapjacks, soreen, or jelly sweets for instant energy before long fire-road climbs."
+      }
+    ]
+  }
+];
+
+const trailTips = [
+  {
+    title: "Do the 'ABC Quick Check' in the Car Park",
+    notes:
+      "Before rolling out, check Air (tyres firm), Brakes (both levers stop the wheels cleanly without touching the grips), and Chain/Quick-Releases (axles and seatposts clamped tight)."
+  },
+  {
+    title: "Fit Mudguards Front and Rear on Every Bike",
+    notes:
+      "A £10 zip-tie front mudguard stops muddy water spraying directly into your child's face—especially critical if you are towing a Chariot trailer or riding with a front-mounted Shotgun seat."
+  },
+  {
+    title: "Keep Loops Short With Built-In Play Stops",
+    notes:
+      "Kids measure rides in excitement rather than miles. Forest trails with wooden bridges, pump tracks, or café stops (like Dalkeith or Glentress) keep legs spinning happily."
+  }
+];
+---
+
+<Layout
+  title="Mountain Biking & Cycling With Kids Kit List: Trailers, Shotgun Seats & Hi-Viz | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Kit List
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Family Cycling &amp; MTB
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Mountain Biking &amp; Cycling With Kids: Complete Kit &amp; Setup Checklist
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Whether your child is riding their own pedal bike, perched up front on
+          a Kids Ride Shotgun seat, tucked inside a Chariot trailer, or stoking a
+          tandem, family cycling demands different layers and safety kit than
+          walking. Here is everything to pack before hitting forest trails and
+          cycle paths.
+        </p>
+      </header>
+
+      <!-- Golden Rule Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">The Passenger vs. Pedaler Layering Rule</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Children riding their own bikes generate serious body heat on climbs—dress
+          them lightly so they don't overheat. Children sitting stationary in a{" "}
+          <strong>Chariot trailer, Shotgun seat, or rear carrier</strong> face
+          constant wind chill without pedaling—dress them in an extra warm
+          mid-layer, windproof outer shell, and warm gloves.
+        </p>
+      </div>
+
+      <!-- Setup-Specific Gear Breakdown -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Kit Notes by Family Ride Setup</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            rideSetups.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.ageRange}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.setup}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Categorized Checklist Sections -->
+      <div class="mb-12 space-y-10">
+        {
+          kitCategories.map((group) => (
+            <section>
+              <h2 class="text-2xl font-bold">{group.category}</h2>
+              <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                {group.items.map((item) => (
+                  <div class="border-border bg-card/50 rounded-xl border p-5">
+                    <div class="flex items-start gap-2.5">
+                      <span class="border-accent text-accent mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded border text-xs font-bold">
+                        &#10003;
+                      </span>
+                      <h3 class="text-base font-bold leading-snug">
+                        {item.name}
+                      </h3>
+                    </div>
+                    <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                      {item.notes}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          ))
+        }
+      </div>
+
+      <!-- Trailhead Habits -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Pre-Ride Safety &amp; Trailhead Habits</h2>
+        <div class="mt-6 space-y-4">
+          {
+            trailTips.map((tip, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{tip.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {tip.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Gear Guides &amp; Where to Buy Used</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Under-helmet merino skull caps, neck buffs, and full-finger gloves:{" "}
+            <a
+              href="/gear-explained/vital-accessories-extremities"
+              class="text-accent font-medium hover:underline"
+            >
+              Vital Accessories Explained
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Scoring secondhand Frog bikes, Chariot trailers, and Shotgun seats:{" "}
+            <a
+              href="/brands-and-shops/shops/secondhand-gear"
+              class="text-accent font-medium hover:underline"
+            >
+              Secondhand Marketplaces Guide
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Budget-friendly kids' cycle helmets, hi-viz vests, and gloves:{" "}
+            <a
+              href="/brands-and-shops/shops/decathlon"
+              class="text-accent font-medium hover:underline"
+            >
+              Decathlon for Families Guide
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
