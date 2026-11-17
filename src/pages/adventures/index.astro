@@ -8,101 +8,168 @@ const adventures = [
   {
     title: "Dalkeith Country Park: Fort Douglas & River Esk",
     region: "Scotland",
+    activity: "Woodland & Playgrounds",
     badge: "Playground & Woodland",
     terrain: "Gravel Paths & Riverside Mud",
-    description: "Fort Douglas adventure playground, buggy-friendly riverside walks, and easy trail exploring in Midlothian.",
+    description:
+      "Fort Douglas adventure playground, buggy-friendly riverside walks, and easy trail exploring in Midlothian.",
     href: "/adventures/scotland/dalkeith-country-park"
   },
   {
     title: "Pentland Hills Regional Park: Reservoirs & Ridge Paths",
     region: "Scotland",
+    activity: "Hill Walking",
     badge: "Hill Walking & Reservoirs",
     terrain: "Crushed Gravel & Open Moorland",
-    description: "Flat, buggy-friendly reservoir circuits and sweeping foothill tracks on Edinburgh's doorstep.",
+    description:
+      "Flat, buggy-friendly reservoir circuits and sweeping foothill tracks on Edinburgh's doorstep.",
     href: "/adventures/scotland/pentland-hills"
   },
   {
     title: "Megève Family Skiing: Slopes & Village Trails",
     region: "France",
+    activity: "Skiing & Snow",
     badge: "Alpine Skiing & Village",
     terrain: "Piste Snow & Alpine Slopes",
-    description: "Gentle nursery slopes, tree-lined beginner runs, and medieval village charm in the French Alps.",
+    description:
+      "Gentle nursery slopes, tree-lined beginner runs, and medieval village charm in the French Alps.",
     href: "/adventures/france/megeve-skiing"
   }
 ];
+
+const regions = ["All", ...new Set(adventures.map((a) => a.region))];
+const activities = ["All", ...new Set(adventures.map((a) => a.activity))];
 ---
 
-<Layout title="Family Adventure Guides: Trails & Parks for Outdoor Kids | Peaks and Puddles">
+<Layout
+  title="Family Adventure Guides: Trails & Parks for Outdoor Kids | Peaks and Puddles"
+>
   <Header />
 
   <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
     <div class="mx-auto max-w-4xl">
       <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
         <Breadcrumb />
-        <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
           Updated: November 2026
         </span>
       </div>
 
-      <header class="mb-12">
+      <header class="mb-10">
         <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
           Family Adventure Guides: Tested Trails &amp; Parks
         </h1>
         <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
-          No-nonsense guides to family-friendly walks, woodland playgrounds, and hill trails. Filtered by region and terrain so you know exactly what gear to pack before you step out the door.
+          No-nonsense guides to family-friendly walks, woodland playgrounds, and
+          hill trails. Filter by region or activity so you know exactly what
+          gear to pack before you step out the door.
         </p>
       </header>
 
-      <!-- Region Section: Scotland -->
-      <section class="mb-12">
-        <h2 class="text-2xl font-bold tracking-tight mb-6">Scotland</h2>
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {adventures.filter(a => a.region === "Scotland").map((spot) => (
-            <a
-              href={spot.href}
-              class="border-border bg-card hover:border-accent/50 flex flex-col justify-between rounded-xl border p-6 transition-all hover:shadow-md"
+      <!-- Interactive Filter Controls -->
+      <div
+        class="bg-card border-border mb-10 rounded-xl border p-5 shadow-sm"
+        aria-label="Filter adventures"
+      >
+        <div class="space-y-4">
+          <!-- Region Filter -->
+          <div>
+            <span
+              class="text-muted-foreground mb-2 block text-xs font-semibold tracking-wider uppercase"
             >
-              <div>
-                <div class="flex items-center justify-between gap-2">
-                  <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
-                    {spot.badge}
-                  </span>
-                  <span class="text-muted-foreground text-xs font-medium">
-                    {spot.terrain}
-                  </span>
-                </div>
-                <h3 class="mt-4 text-xl font-bold leading-snug">{spot.title}</h3>
-                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-                  {spot.description}
-                </p>
-              </div>
-              <div class="text-accent mt-6 text-sm font-semibold">
-                Explore Guide &rarr;
-              </div>
-            </a>
-          ))}
-        </div>
-      </section>
+              Filter by Country / Region
+            </span>
+            <div class="flex flex-wrap gap-2" id="region-filters">
+              {
+                regions.map((region, idx) => (
+                  <button
+                    type="button"
+                    data-filter-type="region"
+                    data-filter-value={region}
+                    class:list={[
+                      "filter-btn rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors cursor-pointer",
+                      idx === 0
+                        ? "bg-accent text-accent-foreground"
+                        : "bg-muted text-muted-foreground hover:text-foreground"
+                    ]}
+                  >
+                    {region}
+                  </button>
+                ))
+              }
+            </div>
+          </div>
 
-      <!-- Region Section: France -->
-      <section class="mb-12">
-        <h2 class="text-2xl font-bold tracking-tight mb-6">France (Alpine)</h2>
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {adventures.filter(a => a.region === "France").map((spot) => (
+          <!-- Activity Filter -->
+          <div>
+            <span
+              class="text-muted-foreground mb-2 block text-xs font-semibold tracking-wider uppercase"
+            >
+              Filter by Activity
+            </span>
+            <div class="flex flex-wrap gap-2" id="activity-filters">
+              {
+                activities.map((activity, idx) => (
+                  <button
+                    type="button"
+                    data-filter-type="activity"
+                    data-filter-value={activity}
+                    class:list={[
+                      "filter-btn rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors cursor-pointer",
+                      idx === 0
+                        ? "bg-accent text-accent-foreground"
+                        : "bg-muted text-muted-foreground hover:text-foreground"
+                    ]}
+                  >
+                    {activity}
+                  </button>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty State Message (Hidden by default) -->
+      <div
+        id="empty-state"
+        class="border-border bg-muted/40 hidden rounded-xl border p-8 text-center"
+      >
+        <p class="font-semibold">No adventures match that exact combination.</p>
+        <p class="text-muted-foreground mt-1 text-sm">
+          Try resetting one of your filters to see all available family guides.
+        </p>
+        <button
+          type="button"
+          id="reset-filters-btn"
+          class="bg-accent text-accent-foreground mt-4 rounded-lg px-4 py-2 text-xs font-semibold cursor-pointer"
+        >
+          Reset Filters
+        </button>
+      </div>
+
+      <!-- Filtered Adventures Grid -->
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2" id="adventures-grid">
+        {
+          adventures.map((spot) => (
             <a
               href={spot.href}
-              class="border-border bg-card hover:border-accent/50 flex flex-col justify-between rounded-xl border p-6 transition-all hover:shadow-md"
+              data-region={spot.region}
+              data-activity={spot.activity}
+              class="adventure-card border-border bg-card hover:border-accent/50 flex flex-col justify-between rounded-xl border p-6 transition-all hover:shadow-md"
             >
               <div>
-                <div class="flex items-center justify-between gap-2">
+                <div class="flex flex-wrap items-center justify-between gap-2">
                   <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
-                    {spot.badge}
+                    {spot.region} &bull; {spot.badge}
                   </span>
                   <span class="text-muted-foreground text-xs font-medium">
                     {spot.terrain}
                   </span>
                 </div>
-                <h3 class="mt-4 text-xl font-bold leading-snug">{spot.title}</h3>
+                <h2 class="mt-4 text-xl font-bold leading-snug">{spot.title}</h2>
                 <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
                   {spot.description}
                 </p>
@@ -111,11 +178,88 @@ const adventures = [
                 Explore Guide &rarr;
               </div>
             </a>
-          ))}
-        </div>
-      </section>
+          ))
+        }
+      </div>
     </div>
   </main>
 
   <Footer />
 </Layout>
+
+<script>
+  function initAdventureFilters() {
+    let activeRegion = "All";
+    let activeActivity = "All";
+
+    const buttons = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+    const cards = document.querySelectorAll<HTMLAnchorElement>(".adventure-card");
+    const emptyState = document.getElementById("empty-state");
+    const resetBtn = document.getElementById("reset-filters-btn");
+
+    function updateUI() {
+      // 1. Update button active styles
+      buttons.forEach((btn) => {
+        const type = btn.dataset.filterType;
+        const val = btn.dataset.filterValue;
+        const isSelected =
+          (type === "region" && val === activeRegion) ||
+          (type === "activity" && val === activeActivity);
+
+        if (isSelected) {
+          btn.classList.add("bg-accent", "text-accent-foreground");
+          btn.classList.remove("bg-muted", "text-muted-foreground");
+        } else {
+          btn.classList.remove("bg-accent", "text-accent-foreground");
+          btn.classList.add("bg-muted", "text-muted-foreground");
+        }
+      });
+
+      // 2. Show/hide cards based on both filters
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const matchesRegion =
+          activeRegion === "All" || card.dataset.region === activeRegion;
+        const matchesActivity =
+          activeActivity === "All" || card.dataset.activity === activeActivity;
+
+        if (matchesRegion && matchesActivity) {
+          card.classList.remove("hidden");
+          visibleCount++;
+        } else {
+          card.classList.add("hidden");
+        }
+      });
+
+      // 3. Toggle empty state if 0 matches
+      if (emptyState) {
+        if (visibleCount === 0) {
+          emptyState.classList.remove("hidden");
+        } else {
+          emptyState.classList.add("hidden");
+        }
+      }
+    }
+
+    buttons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const type = btn.dataset.filterType;
+        const val = btn.dataset.filterValue || "All";
+
+        if (type === "region") activeRegion = val;
+        if (type === "activity") activeActivity = val;
+        updateUI();
+      });
+    });
+
+    resetBtn?.addEventListener("click", () => {
+      activeRegion = "All";
+      activeActivity = "All";
+      updateUI();
+    });
+  }
+
+  // Run on initial load and after Astro View Transitions (if enabled)
+  initAdventureFilters();
+  document.addEventListener("astro:after-swap", initAdventureFilters);
+</script>
