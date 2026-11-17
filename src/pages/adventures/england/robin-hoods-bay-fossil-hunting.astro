@@ -1,0 +1,200 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const trailHighlights = [
+  {
+    title: "The Jurassic Shale Scars (Boggle Hole to Bay Town)",
+    notes:
+      "At low tide, wide flat rock platforms expose 180-million-year-old Lower Jurassic mudstones packed with ammonites, belemnites, and Gryphaea ('devil's toenails')."
+  },
+  {
+    title: "Boggle Hole & the Old Smuggler's Cove",
+    notes:
+      "A half-mile walk south along the beach brings you to Boggle Hole—a tucked-away cove with rockpools, a quirky YHA café, and great shingle banks for pebble scanning."
+  },
+  {
+    title: "The Steep Cobbles of Old Robin Hood's Bay",
+    notes:
+      "Winding alleys, smugglers' cottages, and fish-and-chip shops cascading down a steep cliffside to the slipway. Kids love exploring the narrow passageways."
+  },
+  {
+    title: "Whitby Abbey & Saltwick Bay (15 Mins North)",
+    notes:
+      "Pair your visit with a short drive up the coast to Whitby for Whitby Jet hunting, the 199 steps, and dramatic cliff-top views."
+  }
+];
+
+const parentTips = [
+  {
+    title: "Check Tide Times Before Stepping on the Scars",
+    notes:
+      "The tide comes in fast at Robin Hood's Bay and cuts off sections of the cliffs between Bay Town and Boggle Hole. Always start hunting on a falling tide and head back well before low tide turns."
+  },
+  {
+    title: "Ditch the Buggy & Watch Out for Wet Algae",
+    notes:
+      "The hill down through the village is notoriously steep, and the beach rocks are coated in slick green seaweed. Leave pushchairs in the car (use a child carrier for toddlers) and wear grippy wellies or walking boots."
+  },
+  {
+    title: "Follow the Fossil Code (Loose Shingle Only)",
+    notes:
+      "Never hammer directly into the unstable Jurassic cliffs—rockfalls are a real hazard. The best finds are already washed out in the loose shingle piles and tide lines."
+  }
+];
+---
+
+<Layout
+  title="Fossil Hunting in Robin Hood's Bay, Whitby: Family Guide & Gear | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Coastal &amp; Fossil Hunting
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Robin Hood's Bay, North Yorkshire
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Fossil Hunting in Robin Hood's Bay, Whitby: Ammonites, Tides &amp; Family Gear Guide
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Just six miles south of Whitby on Yorkshire's Dinosaur Coast, Robin Hood's Bay
+          is one of the UK's premier spots for family fossil hunting. Here is how to
+          find Jurassic ammonites safely with kids, navigate the steep village hill,
+          and dress for biting North Sea winds.
+        </p>
+      </header>
+
+      <!-- Quick Logistics Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">Bay Logistics at a Glance</h2>
+        <div class="mt-4 grid grid-cols-1 gap-4 text-sm sm:grid-cols-2">
+          <div>
+            <strong class="text-foreground">Location:</strong> North York Moors Coast, 6 miles south of Whitby
+          </div>
+          <div>
+            <strong class="text-foreground">Terrain:</strong> Steep village road, sand, loose shingle, and slippery rock scars
+          </div>
+          <div>
+            <strong class="text-foreground">Best For:</strong> Ammonite hunting, rockpooling, crabbing, and coastal explorers
+          </div>
+          <div>
+            <strong class="text-foreground">Facilities:</strong> Cliff-top car park (Station Road), toilets at the slipway, pubs, and cafés
+          </div>
+        </div>
+      </div>
+
+      <!-- What to Explore -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">What to Explore</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            trailHighlights.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <h3 class="text-lg font-bold">{item.title}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Parent Survival Tips -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Parent Survival Tips for Robin Hood's Bay</h2>
+        <div class="mt-6 space-y-4">
+          {
+            parentTips.map((tip, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{tip.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {tip.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Recommended Kit for This Adventure -->
+      <div class="bg-muted/50 border-border mb-12 rounded-xl border p-6 sm:p-8">
+        <h2 class="text-lg font-bold">Recommended Kit for Yorkshire Fossil Hunts</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Kids spend hours kneeling on wet shale and bending over icy rockpools—and the climb back up the bank at the end is steep:
+        </p>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li>
+            &rarr; <a href="/gear-explained/puddle-suits-vs-dungarees" class="text-accent font-medium hover:underline">Waterproof Dungarees</a> (essential for kneeling on wet rocks without soaking trousers—plus easy slipway toilet breaks).
+          </li>
+          <li>
+            &rarr; <a href="/gear-explained/vital-accessories-extremities" class="text-accent font-medium hover:underline">Vital Accessories Explained</a> (neck buffs and warm hats to block sharp North Sea gusts).
+          </li>
+          <li>
+            &rarr; <a href="/gear-explained/snacks-and-hydration" class="text-accent font-medium hover:underline">Snacks &amp; Hydration Explained</a> (pocket snacks to bribe tired legs back up the steep village hill).
+          </li>
+        </ul>
+      </div>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">More Family Adventures &amp; Resources</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Browse all UK &amp; European destinations in the{" "}
+            <a
+              href="/adventures"
+              class="text-accent font-medium hover:underline"
+            >
+              Family Adventures Hub
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Check our wet-weather packing essentials:{" "}
+            <a
+              href="/kit-lists/rainy-day-woodland"
+              class="text-accent font-medium hover:underline"
+            >
+              Rainy Day &amp; Outdoor Play Kit List
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
