@@ -4,22 +4,24 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 
----
 const adventures = [
   {
     title: "Dalkeith Country Park: Fort Douglas & River Esk",
     region: "Scotland",
     activity: "Woodland & Playgrounds",
     terrain: "Gravel Paths & Riverside Mud",
-    description: "Fort Douglas adventure playground, buggy-friendly riverside walks, and easy trail exploring in Midlothian.",
+    description:
+      "Fort Douglas adventure playground, buggy-friendly riverside walks, and easy trail exploring in Midlothian.",
     href: "/adventures/scotland/dalkeith-country-park"
   },
   {
-    title: "Vogrie Country Park: Treetop Trails, Miniature Railway & Woodland Play",
+    title:
+      "Vogrie Country Park: Treetop Trails, Miniature Railway & Woodland Play",
     region: "Scotland",
     activity: "Woodland & Playgrounds",
     terrain: "Woodland Trails, Boardwalks & Open Lawns",
-    description: "11 miles of woodland walks, the giant adventure play park, a miniature railway, and muddy burn-side trails near Gorebridge.",
+    description:
+      "11 miles of woodland walks, the giant adventure play park, a miniature railway, and muddy burn-side trails near Gorebridge.",
     href: "/adventures/scotland/vogrie-country-park"
   },
   {
@@ -27,7 +29,8 @@ const adventures = [
     region: "Scotland",
     activity: "Hill Walking",
     terrain: "Crushed Gravel & Open Moorland",
-    description: "Flat, buggy-friendly reservoir circuits and sweeping foothill tracks on Edinburgh's doorstep.",
+    description:
+      "Flat, buggy-friendly reservoir circuits and sweeping foothill tracks on Edinburgh's doorstep.",
     href: "/adventures/scotland/pentland-hills"
   },
   {
@@ -35,13 +38,19 @@ const adventures = [
     region: "France",
     activity: "Skiing & Snow",
     terrain: "Piste Snow & Alpine Slopes",
-    description: "Gentle nursery slopes, tree-lined beginner runs, and medieval village charm in the French Alps.",
+    description:
+      "Gentle nursery slopes, tree-lined beginner runs, and medieval village charm in the French Alps.",
     href: "/adventures/france/megeve-skiing"
   }
 ];
 
 const regions = ["All", "Scotland", "France"];
-const activities = ["All", "Woodland & Playgrounds", "Hill Walking", "Skiing & Snow"];
+const activities = [
+  "All",
+  "Woodland & Playgrounds",
+  "Hill Walking",
+  "Skiing & Snow"
+];
 ---
 
 <Layout
@@ -51,6 +60,7 @@ const activities = ["All", "Woodland & Playgrounds", "Hill Walking", "Skiing & S
 
   <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
     <div class="mx-auto max-w-4xl">
+      <!-- Breadcrumb & Freshness Badge -->
       <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
         <Breadcrumb />
         <span
@@ -60,101 +70,77 @@ const activities = ["All", "Woodland & Playgrounds", "Hill Walking", "Skiing & S
         </span>
       </div>
 
+      <!-- Page Header -->
       <header class="mb-10">
         <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
           Family Adventure Guides: Tested Trails &amp; Parks
         </h1>
         <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
           No-nonsense guides to family-friendly walks, woodland playgrounds, and
-          hill trails. Filter by region or activity so you know exactly what
-          gear to pack before you step out the door.
+          hill trails. Filter by country or activity type to find your next
+          outing.
         </p>
       </header>
 
-      <!-- Interactive Filter Controls -->
+      <!-- Interactive Filter Bar -->
       <div
-        class="bg-card border-border mb-10 rounded-xl border p-5 shadow-sm"
-        aria-label="Filter adventures"
+        class="bg-card border-border mb-10 space-y-4 rounded-xl border p-5 shadow-sm"
       >
-        <div class="space-y-4">
-          <!-- Region Filter -->
-          <div>
-            <span
-              class="text-muted-foreground mb-2 block text-xs font-semibold tracking-wider uppercase"
-            >
-              Filter by Country / Region
-            </span>
-            <div class="flex flex-wrap gap-2" id="region-filters">
-              {
-                regions.map((region, idx) => (
-                  <button
-                    type="button"
-                    data-filter-type="region"
-                    data-filter-value={region}
-                    class:list={[
-                      "filter-btn rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors cursor-pointer",
-                      idx === 0
-                        ? "bg-accent text-accent-foreground"
-                        : "bg-muted text-muted-foreground hover:text-foreground"
-                    ]}
-                  >
-                    {region}
-                  </button>
-                ))
-              }
-            </div>
+        <!-- Region Filter -->
+        <div>
+          <span
+            class="text-muted-foreground mb-2 block text-xs font-semibold tracking-wider uppercase"
+          >
+            Filter by Country / Region
+          </span>
+          <div class="flex flex-wrap gap-2" id="region-filters">
+            {
+              regions.map((reg) => (
+                <button
+                  type="button"
+                  data-filter-region={reg}
+                  class={`filter-btn-region rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors ${
+                    reg === "All"
+                      ? "bg-accent text-accent-foreground"
+                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  }`}
+                >
+                  {reg}
+                </button>
+              ))
+            }
           </div>
+        </div>
 
-          <!-- Activity Filter -->
-          <div>
-            <span
-              class="text-muted-foreground mb-2 block text-xs font-semibold tracking-wider uppercase"
-            >
-              Filter by Activity
-            </span>
-            <div class="flex flex-wrap gap-2" id="activity-filters">
-              {
-                activities.map((activity, idx) => (
-                  <button
-                    type="button"
-                    data-filter-type="activity"
-                    data-filter-value={activity}
-                    class:list={[
-                      "filter-btn rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors cursor-pointer",
-                      idx === 0
-                        ? "bg-accent text-accent-foreground"
-                        : "bg-muted text-muted-foreground hover:text-foreground"
-                    ]}
-                  >
-                    {activity}
-                  </button>
-                ))
-              }
-            </div>
+        <!-- Activity Filter -->
+        <div class="border-border border-t pt-4">
+          <span
+            class="text-muted-foreground mb-2 block text-xs font-semibold tracking-wider uppercase"
+          >
+            Filter by Activity Type
+          </span>
+          <div class="flex flex-wrap gap-2" id="activity-filters">
+            {
+              activities.map((act) => (
+                <button
+                  type="button"
+                  data-filter-activity={act}
+                  class={`filter-btn-activity rounded-full px-3.5 py-1.5 text-xs font-semibold transition-colors ${
+                    act === "All"
+                      ? "bg-accent text-accent-foreground"
+                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                  }`}
+                >
+                  {act}
+                </button>
+              ))
+            }
           </div>
         </div>
       </div>
 
-      <!-- Empty State Message (Hidden by default) -->
-      <div
-        id="empty-state"
-        class="border-border bg-muted/40 hidden rounded-xl border p-8 text-center"
-      >
-        <p class="font-semibold">No adventures match that exact combination.</p>
-        <p class="text-muted-foreground mt-1 text-sm">
-          Try resetting one of your filters to see all available family guides.
-        </p>
-        <button
-          type="button"
-          id="reset-filters-btn"
-          class="bg-accent text-accent-foreground mt-4 rounded-lg px-4 py-2 text-xs font-semibold cursor-pointer"
-        >
-          Reset Filters
-        </button>
-      </div>
-
       <!-- Filtered Adventures Grid -->
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2" id="adventures-grid">
+      <div id="adventures-grid" class="grid grid-cols-1 gap-6 sm:grid-cols-2">
         {
           adventures.map((spot) => (
             <a
@@ -168,12 +154,14 @@ const activities = ["All", "Woodland & Playgrounds", "Hill Walking", "Skiing & S
                   <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
                     {spot.region} &bull; {spot.activity}
                   </span>
-                  <span class="text-muted-foreground text-xs font-medium">
-                    {spot.terrain}
-                  </span>
                 </div>
-                <h2 class="mt-4 text-xl font-bold leading-snug">{spot.title}</h2>
-                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                <p class="text-muted-foreground mt-3 text-xs font-medium">
+                  {spot.terrain}
+                </p>
+                <h2 class="mt-2 text-xl font-bold leading-snug">
+                  {spot.title}
+                </h2>
+                <p class="text-muted-foreground mt-3 text-sm leading-relaxed">
                   {spot.description}
                 </p>
               </div>
@@ -184,6 +172,26 @@ const activities = ["All", "Woodland & Playgrounds", "Hill Walking", "Skiing & S
           ))
         }
       </div>
+
+      <!-- Empty State Message (Hidden by default) -->
+      <div
+        id="no-results"
+        class="border-border bg-muted/30 hidden rounded-xl border p-8 text-center"
+      >
+        <p class="text-base font-semibold">
+          No adventures match that exact combination yet.
+        </p>
+        <p class="text-muted-foreground mt-1 text-sm">
+          Try resetting one of the filters above to see more family trails.
+        </p>
+        <button
+          type="button"
+          id="reset-filters"
+          class="bg-accent text-accent-foreground mt-4 rounded-lg px-4 py-2 text-xs font-semibold hover:opacity-90"
+        >
+          Reset All Filters
+        </button>
+      </div>
     </div>
   </main>
 
@@ -191,78 +199,86 @@ const activities = ["All", "Woodland & Playgrounds", "Hill Walking", "Skiing & S
 </Layout>
 
 <script>
-  function initAdventureFilters() {
-    let activeRegion = "All";
-    let activeActivity = "All";
+  let activeRegion = "All";
+  let activeActivity = "All";
 
-    const buttons = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
-    const cards = document.querySelectorAll<HTMLAnchorElement>(".adventure-card");
-    const emptyState = document.getElementById("empty-state");
-    const resetBtn = document.getElementById("reset-filters-btn");
+  const regionBtns = document.querySelectorAll(".filter-btn-region");
+  const activityBtns = document.querySelectorAll(".filter-btn-activity");
+  const cards = document.querySelectorAll(".adventure-card");
+  const noResults = document.getElementById("no-results");
+  const resetBtn = document.getElementById("reset-filters");
 
-    function updateUI() {
-      // 1. Update button active styles
-      buttons.forEach((btn) => {
-        const type = btn.dataset.filterType;
-        const val = btn.dataset.filterValue;
-        const isSelected =
-          (type === "region" && val === activeRegion) ||
-          (type === "activity" && val === activeActivity);
+  function updateCards() {
+    let visibleCount = 0;
 
-        if (isSelected) {
-          btn.classList.add("bg-accent", "text-accent-foreground");
-          btn.classList.remove("bg-muted", "text-muted-foreground");
-        } else {
-          btn.classList.remove("bg-accent", "text-accent-foreground");
-          btn.classList.add("bg-muted", "text-muted-foreground");
-        }
-      });
+    cards.forEach((card) => {
+      const cardRegion = card.getAttribute("data-region");
+      const cardActivity = card.getAttribute("data-activity");
 
-      // 2. Show/hide cards based on both filters
-      let visibleCount = 0;
-      cards.forEach((card) => {
-        const matchesRegion =
-          activeRegion === "All" || card.dataset.region === activeRegion;
-        const matchesActivity =
-          activeActivity === "All" || card.dataset.activity === activeActivity;
+      const matchesRegion =
+        activeRegion === "All" || cardRegion === activeRegion;
+      const matchesActivity =
+        activeActivity === "All" || cardActivity === activeActivity;
 
-        if (matchesRegion && matchesActivity) {
-          card.classList.remove("hidden");
-          visibleCount++;
-        } else {
-          card.classList.add("hidden");
-        }
-      });
-
-      // 3. Toggle empty state if 0 matches
-      if (emptyState) {
-        if (visibleCount === 0) {
-          emptyState.classList.remove("hidden");
-        } else {
-          emptyState.classList.add("hidden");
-        }
+      if (matchesRegion && matchesActivity) {
+        card.classList.remove("hidden");
+        visibleCount++;
+      } else {
+        card.classList.add("hidden");
       }
-    }
-
-    buttons.forEach((btn) => {
-      btn.addEventListener("click", () => {
-        const type = btn.dataset.filterType;
-        const val = btn.dataset.filterValue || "All";
-
-        if (type === "region") activeRegion = val;
-        if (type === "activity") activeActivity = val;
-        updateUI();
-      });
     });
 
-    resetBtn?.addEventListener("click", () => {
-      activeRegion = "All";
-      activeActivity = "All";
-      updateUI();
+    if (noResults) {
+      noResults.classList.toggle("hidden", visibleCount > 0);
+    }
+  }
+
+  function updateButtonStyles(
+    buttons: NodeListOf<Element>,
+    activeValue: string,
+    attrName: string
+  ) {
+    buttons.forEach((btn) => {
+      const val = btn.getAttribute(attrName);
+      if (val === activeValue) {
+        btn.classList.remove(
+          "bg-muted",
+          "text-muted-foreground",
+          "hover:bg-muted/80"
+        );
+        btn.classList.add("bg-accent", "text-accent-foreground");
+      } else {
+        btn.classList.remove("bg-accent", "text-accent-foreground");
+        btn.classList.add(
+          "bg-muted",
+          "text-muted-foreground",
+          "hover:bg-muted/80"
+        );
+      }
     });
   }
 
-  // Run on initial load and after Astro View Transitions (if enabled)
-  initAdventureFilters();
-  document.addEventListener("astro:after-swap", initAdventureFilters);
+  regionBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      activeRegion = btn.getAttribute("data-filter-region") || "All";
+      updateButtonStyles(regionBtns, activeRegion, "data-filter-region");
+      updateCards();
+    });
+  });
+
+  activityBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      activeActivity = btn.getAttribute("data-filter-activity") || "All";
+      updateButtonStyles(activityBtns, activeActivity, "data-filter-activity");
+      updateCards();
+    });
+  });
+
+  resetBtn?.addEventListener("click", () => {
+    activeRegion = "All";
+    activeActivity = "All";
+    updateButtonStyles(regionBtns, "All", "data-filter-region");
+    updateButtonStyles(activityBtns, "All", "data-filter-activity");
+    updateCards();
+  });
 </script>
