@@ -1,0 +1,190 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const trailHighlights = [
+  {
+    title: "Thriepmuir & Glencorse Reservoir Loops",
+    notes: "Wide, well-graded stone tracks that are exceptionally buggy-friendly, offering sweeping open water views without steep, knee-shredding climbs."
+  },
+  {
+    title: "Flotterstone to Loganlea Valley",
+    notes: "A classic sheltered valley walk past historic reservoirs where kids can skip stones, watch local birdlife, and stop for snacks protected from high ridge winds."
+  },
+  {
+    title: "The Capital Views Ridge (For Older Kids)",
+    notes: "For families with older, sturdier walkers, ascending Scald Law or Carnethy Hill rewards you with panoramic views across Edinburgh and the Firth of Forth."
+  },
+  {
+    title: "The Foot of the Hills Explorer Path",
+    notes: "Gentle lower-slope grazing paths that provide a true outdoor hill experience without committing to full mountain exposure."
+  }
+];
+
+const parentTips = [
+  {
+    title: "Respect the Ridge Winds",
+    notes: "The Pentlands look tame from the city, but wind speeds on the open ridges can double compared to the lowlands. Always pack a windproof shell and neck buffs for everyone."
+  },
+  {
+    title: "All-Terrain Buggies Only",
+    notes: "While the main reservoir circuits are smooth gravel, lightweight umbrella strollers will get bogged down immediately. Bring a sturdy 3-wheel all-terrain pushchair or a child carrier backpack."
+  },
+  {
+    title: "Café & Parking Logistics",
+    notes: "Key entry points like Flotterstone and Harlaw offer car parks and visitor facilities, but they fill up fast by 10 AM on crisp weekend mornings."
+  }
+];
+---
+
+<Layout
+  title="Pentland Hills Family Walk: Reservoir Trails & Gear Guide | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Family Adventure Hub
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Pentland Hills, Scotland
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Pentland Hills Family Walk: Buggy-Friendly Reservoirs &amp; Open Hill Trails
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Rising just southwest of Edinburgh, the Pentland Hills offer rugged Scottish
+          hill walking right on the city's doorstep. From flat, buggy-friendly
+          reservoir circuits to breezy ridge walks, here is how to navigate the
+          hills safely with children.
+        </p>
+      </header>
+
+      <!-- Quick Logistics Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">Park Logistics at a Glance</h2>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 text-sm">
+          <div>
+            <strong class="text-foreground">Location:</strong> Southwest of Edinburgh, Midlothian / West Lothian
+          </div>
+          <div>
+            <strong class="text-foreground">Terrain:</strong> Crushed gravel estate tracks, open moorland, and dirt hill paths
+          </div>
+          <div>
+            <strong class="text-foreground">Best For:</strong> Reservoir buggy walks, weekend hill hikes, and wind-blown family outings
+          </div>
+          <div>
+            <strong class="text-foreground">Facilities:</strong> Car parking at Flotterstone &amp; Harlaw, public toilets, and seasonal tearooms
+          </div>
+        </div>
+      </div>
+
+      <!-- Trail Highlights -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">What to Explore</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            trailHighlights.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <h3 class="text-lg font-bold">{item.title}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Parent Survival Tips -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Parent Survival Tips for the Pentlands</h2>
+        <div class="mt-6 space-y-4">
+          {
+            parentTips.map((tip, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{tip.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {tip.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Recommended Kit for This Adventure -->
+      <div class="bg-muted/50 border-border mb-12 rounded-xl border p-6 sm:p-8">
+        <h2 class="text-lg font-bold">Recommended Kit for Pentland Walks</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Because open reservoirs and ridge paths expose you to biting winds and fast-changing Scottish weather, make sure your pack includes:
+        </p>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li>
+            &rarr; <a href="/kit-lists/cold-weather-hiking" class="text-accent font-medium hover:underline">Cold-Weather Hiking Kit List</a> (windproof layers, thermal base layers, and flasks).
+          </li>
+          <li>
+            &rarr; <a href="/gear-explained/vital-accessories-extremities" class="text-accent font-medium hover:underline">Vital Accessories Explained</a> (balaclavas and neck buffs to block ridge wind).
+          </li>
+        </ul>
+      </div>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">More Family Adventures &amp; Resources</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Explore another local favorite:{" "}
+            <a
+              href="/adventures/scotland/dalkeith-country-park"
+              class="text-accent font-medium hover:underline"
+            >
+              Dalkeith Country Park Guide
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Understand shell specifications for high winds:{" "}
+            <a
+              href="/gear-explained/waterproof-ratings-explained"
+              class="text-accent font-medium hover:underline"
+            >
+              Waterproof Ratings Explained
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,190 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const trailHighlights = [
+  {
+    title: "Fort Douglas Adventure Playground",
+    notes: "A massive, turreted playground featuring sky-high treehouses, zip wires, rope bridges, and slides that will keep kids aged 2 to 12 entertained for hours."
+  },
+  {
+    title: "The Riverside & Orangerie Trail",
+    notes: "Flat, buggy-friendly paths winding alongside the River Esk, offering plenty of stick-skimming spots and muddy puddles for adventurous toddlers."
+  },
+  {
+    title: "Restoration Yard & Facilities",
+    notes: "Conveniently located near the main courtyard for easy access to family-friendly dining, clean restrooms, and emergency hot chocolate refills."
+  },
+  {
+    title: "The Wild Woodland Extensions",
+    notes: "Venture further into the broader estate paths for quieter tree-lined walks where kids can spot local wildlife and practice off-path woodland exploring."
+  }
+];
+
+const parentTips = [
+  {
+    title: "Pack the Mud Gear Even on Sunny Days",
+    notes: "While the main courtyard paths are well-gravelled, exploring near the riverbanks and Fort Douglas play areas guarantees muddy knees and wet shoes."
+  },
+  {
+    title: "Book Fort Douglas in Advance",
+    notes: "Weekend slots for the adventure playground get booked up quickly during peak seasons and school holidays—check online before heading out."
+  },
+  {
+    title: "Buggy Accessibility",
+    notes: "The main estate paths and walks to the Orangerie are fully accessible for all-terrain pushchairs, though umbrella strollers can struggle on gravel or wet woodland tracks."
+  }
+];
+---
+
+<Layout
+  title="Dalkeith Country Park Family Guide: Fort Douglas & River Trails | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Family Adventure Hub
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Dalkeith, Midlothian
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Dalkeith Country Park: Fort Douglas, River Walks &amp; Family Gear Guide
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Right on our doorstep in Midlothian, Dalkeith Country Park is a premier
+          destination for outdoor families. Combining the epic Fort Douglas
+          adventure playground with peaceful riverside trails along the River Esk,
+          here is how to plan the perfect family day out.
+        </p>
+      </header>
+
+      <!-- Quick Logistics Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">Park Logistics at a Glance</h2>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 text-sm">
+          <div>
+            <strong class="text-foreground">Location:</strong> Dalkeith, Midlothian (approx. 25 mins south of Edinburgh centre)
+          </div>
+          <div>
+            <strong class="text-foreground">Terrain:</strong> Paved estate tracks, gravel paths, and muddy riverbank trails
+          </div>
+          <div>
+            <strong class="text-foreground">Best For:</strong> Buggy walks, toddlers, forest school play, and playground adventures
+          </div>
+          <div>
+            <strong class="text-foreground">Facilities:</strong> Toilets, baby changing, parking, and Restoration Yard food hall
+          </div>
+        </div>
+      </div>
+
+      <!-- Trail & Playground Highlights -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">What to Explore</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            trailHighlights.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <h3 class="text-lg font-bold">{item.title}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Parent Survival Tips -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Parent Survival Tips for Dalkeith</h2>
+        <div class="mt-6 space-y-4">
+          {
+            parentTips.map((tip, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{tip.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {tip.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Recommended Kit for This Adventure -->
+      <div class="bg-muted/50 border-border mb-12 rounded-xl border p-6 sm:p-8">
+        <h2 class="text-lg font-bold">Recommended Kit for Dalkeith Park Days</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Because kids will inevitably bounce between playground climbing frames and riverbank muddy puddles, make sure you pack:
+        </p>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li>
+            &rarr; <a href="/kit-lists/rainy-day-woodland" class="text-accent font-medium hover:underline">Rainy Day &amp; Woodland Play Kit List</a> (PU dungarees and wellies for river exploring).
+          </li>
+          <li>
+            &rarr; <a href="/gear-explained/puddle-suits-vs-dungarees" class="text-accent font-medium hover:underline">Waterproof Dungarees</a> (essential for easy toilet breaks between playground sessions).
+          </li>
+        </ul>
+      </div>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">More Family Adventures &amp; Resources</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Check our complete packing requirements in{" "}
+            <a
+              href="/kit-lists/cold-weather-hiking"
+              class="text-accent font-medium hover:underline"
+            >
+              Cold-Weather Hiking Kit List
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Browse retail stockists to gear up before your visit:{" "}
+            <a
+              href="/brands-and-shops/shops/mountain-warehouse"
+              class="text-accent font-medium hover:underline"
+            >
+              Mountain Warehouse Retailer Guide
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

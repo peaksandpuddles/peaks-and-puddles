@@ -1,0 +1,121 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const adventures = [
+  {
+    title: "Dalkeith Country Park: Fort Douglas & River Esk",
+    region: "Scotland",
+    badge: "Playground & Woodland",
+    terrain: "Gravel Paths & Riverside Mud",
+    description: "Fort Douglas adventure playground, buggy-friendly riverside walks, and easy trail exploring in Midlothian.",
+    href: "/adventures/scotland/dalkeith-country-park"
+  },
+  {
+    title: "Pentland Hills Regional Park: Reservoirs & Ridge Paths",
+    region: "Scotland",
+    badge: "Hill Walking & Reservoirs",
+    terrain: "Crushed Gravel & Open Moorland",
+    description: "Flat, buggy-friendly reservoir circuits and sweeping foothill tracks on Edinburgh's doorstep.",
+    href: "/adventures/scotland/pentland-hills"
+  },
+  {
+    title: "Megève Family Skiing: Slopes & Village Trails",
+    region: "France",
+    badge: "Alpine Skiing & Village",
+    terrain: "Piste Snow & Alpine Slopes",
+    description: "Gentle nursery slopes, tree-lined beginner runs, and medieval village charm in the French Alps.",
+    href: "/adventures/france/megeve-skiing"
+  }
+];
+---
+
+<Layout title="Family Adventure Guides: Trails & Parks for Outdoor Kids | Peaks and Puddles">
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium">
+          Updated: November 2026
+        </span>
+      </div>
+
+      <header class="mb-12">
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Family Adventure Guides: Tested Trails &amp; Parks
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          No-nonsense guides to family-friendly walks, woodland playgrounds, and hill trails. Filtered by region and terrain so you know exactly what gear to pack before you step out the door.
+        </p>
+      </header>
+
+      <!-- Region Section: Scotland -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold tracking-tight mb-6">Scotland</h2>
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {adventures.filter(a => a.region === "Scotland").map((spot) => (
+            <a
+              href={spot.href}
+              class="border-border bg-card hover:border-accent/50 flex flex-col justify-between rounded-xl border p-6 transition-all hover:shadow-md"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
+                    {spot.badge}
+                  </span>
+                  <span class="text-muted-foreground text-xs font-medium">
+                    {spot.terrain}
+                  </span>
+                </div>
+                <h3 class="mt-4 text-xl font-bold leading-snug">{spot.title}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {spot.description}
+                </p>
+              </div>
+              <div class="text-accent mt-6 text-sm font-semibold">
+                Explore Guide &rarr;
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <!-- Region Section: France -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold tracking-tight mb-6">France (Alpine)</h2>
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+          {adventures.filter(a => a.region === "France").map((spot) => (
+            <a
+              href={spot.href}
+              class="border-border bg-card hover:border-accent/50 flex flex-col justify-between rounded-xl border p-6 transition-all hover:shadow-md"
+            >
+              <div>
+                <div class="flex items-center justify-between gap-2">
+                  <span class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold">
+                    {spot.badge}
+                  </span>
+                  <span class="text-muted-foreground text-xs font-medium">
+                    {spot.terrain}
+                  </span>
+                </div>
+                <h3 class="mt-4 text-xl font-bold leading-snug">{spot.title}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {spot.description}
+                </p>
+              </div>
+              <div class="text-accent mt-6 text-sm font-semibold">
+                Explore Guide &rarr;
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

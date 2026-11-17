@@ -1,0 +1,190 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const trailHighlights = [
+  {
+    title: "Le Mont d'Arbois & Rochebrune Nursery Slopes",
+    notes: "Gentle, wide, sun-drenched beginner zones with dedicated slow-speed magic carpets and drag lifts designed specifically for children learning to ski."
+  },
+  {
+    title: "The Village Pedestrian Core",
+    notes: "Cobbled, horse-drawn carriage-filled medieval center that offers a magical alpine atmosphere for evening hot chocolate walks after ski school."
+  },
+  {
+    title: "The Princesse Forest Runs",
+    notes: "Sheltered tree-lined blue and green runs that provide excellent visibility and wind protection when alpine weather closes in on the upper exposed bowls."
+  },
+  {
+    title: "Piste de Luguge (Alpine Sledging)",
+    notes: "Dedicated family toboggan runs for non-skiing afternoons or when little legs need a break from ski boots."
+  }
+];
+
+const parentTips = [
+  {
+    title: "High-Altitude UV Protection is Non-Negotiable",
+    notes: "Snow reflects up to 80% of UV rays, and altitude increases intensity rapidly. High-SPF mineral sunscreen and Category 3 or 4 ski goggles are mandatory for kids every single day."
+  },
+  {
+    title: "Ski Boot Management & Cold Toes",
+    notes: "Never double-sock kids in ski boots—it cuts off circulation and makes feet freeze instantly. Use a single pair of dedicated, thin merino wool ski socks that wick sweat cleanly."
+  },
+  {
+    title: "The Thermal Layers Rule",
+    notes: "Alpine weather shifts from sweating under spring sun in the valley to freezing winds on the chairlifts. Stick strictly to merino base layers, a fleece mid-layer, and a technical ski jacket."
+  }
+];
+---
+
+<Layout
+  title="Family Skiing in Megève, France: Slopes, Safety & Gear Guide | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Alpine Adventure Hub
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Megève, French Alps
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Family Skiing in Megève, France: Gentle Slopes, Village Charm &amp; Alpine Gear Guide
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Megève is one of the most charming family ski resorts in the French Alps,
+          combining pristine tree-lined beginner slopes with a historic pedestrian village.
+          Here is how to plan your family ski trip, handle mountain weather, and gear up
+          for alpine temperatures.
+        </p>
+      </header>
+
+      <!-- Quick Logistics Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">Resort Logistics at a Glance</h2>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 text-sm">
+          <div>
+            <strong class="text-foreground">Location:</strong> Haute-Savoie, French Alps (approx. 1 hour from Geneva Airport)
+          </div>
+          <div>
+            <strong class="text-foreground">Terrain:</strong> Wide tree-lined runs, gentle nursery zones, and extensive intermediate pistes
+          </div>
+          <div>
+            <strong class="text-foreground">Best For:</strong> Family ski school, beginner progression, and alpine village charm
+          </div>
+          <div>
+            <strong class="text-foreground">Facilities:</strong> Ski schools, childcare, alpine dining, and horse-drawn sleigh transport
+          </div>
+        </div>
+      </div>
+
+      <!-- Trail & Slopes Highlights -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">What to Explore</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            trailHighlights.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <h3 class="text-lg font-bold">{item.title}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Parent Alpine Survival Tips -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Parent Survival Tips for Alpine Skiing</h2>
+        <div class="mt-6 space-y-4">
+          {
+            parentTips.map((tip, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{tip.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {tip.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Recommended Kit for This Adventure -->
+      <div class="bg-muted/50 border-border mb-12 rounded-xl border p-6 sm:p-8">
+        <h2 class="text-lg font-bold">Recommended Kit for Megève Skiing</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Alpine skiing demands specialized cold-weather protection compared to low-altitude walks. Make sure your packing list features:
+        </p>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li>
+            &rarr; <a href="/gear-explained/vital-accessories-extremities" class="text-accent font-medium hover:underline">Vital Accessories Explained</a> (helmet-compatible balaclavas and UV goggles).
+          </li>
+          <li>
+            &rarr; <a href="/gear-explained/snacks-and-hydration" class="text-accent font-medium hover:underline">Snacks &amp; Hydration Explained</a> (carrying high-energy pocket snacks for ski school breaks).
+          </li>
+        </ul>
+      </div>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">More Family Adventures &amp; Resources</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Explore local Scottish walks:{" "}
+            <a
+              href="/adventures/scotland/pentland-hills"
+              class="text-accent font-medium hover:underline"
+            >
+              Pentland Hills Family Guide
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Review our technical outerwear standards:{" "}
+            <a
+              href="/gear-explained/waterproof-ratings-explained"
+              class="text-accent font-medium hover:underline"
+            >
+              Waterproof Ratings Explained
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
