@@ -1,0 +1,189 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const trailHighlights = [
+  {
+    title: "The Giant Adventure Play Park",
+    notes: "Tucked into the trees near the main lawn, featuring wooden climbing towers, zip wires, giant slides, and toddler-friendly zones."
+  },
+  {
+    title: "The Treetop Walkway & Woodland Trails",
+    notes: "Over 11 miles of waymarked paths through ancient mixed woodland, including elevated wooden boardwalks and bridge crossings over the Tyne Water."
+  },
+  {
+    title: "Vogrie Miniature Railway",
+    notes: "Operated by the Esk Valley Model Engineering Society on select weekends—a massive hit with toddlers and train-mad kids."
+  },
+  {
+    title: "The Walled Garden & Fairy Trail",
+    notes: "Sheltered paths winding past the Victorian house and formal gardens, ideal for younger walkers hunting for hidden fairy doors."
+  }
+];
+
+const parentTips = [
+  {
+    title: "Waterproofs & Wellies Are Mandatory After Rain",
+    notes: "While the main estate tracks around Vogrie House are firm gravel, the lower woodland paths alongside the Tyne Water hold deep mud year-round."
+  },
+  {
+    title: "Bring a Towel for the Playground Slides",
+    notes: "Because the adventure playground sits under dense tree canopy, the metal and plastic slides stay damp long after morning drizzle clears."
+  },
+  {
+    title: "Parking & Café Logistics",
+    notes: "Pay-and-display parking operates on site (keep change or the RingGo app handy). The Cedar Tree Café near the house handles hot drinks, snacks, and toilet stops."
+  }
+];
+---
+
+<Layout
+  title="Vogrie Country Park Family Guide: Woodland Walks, Play Park & Gear | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Family Adventure Hub
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Gorebridge, Midlothian
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Vogrie Country Park: Woodland Trails, Adventure Play &amp; Family Gear Guide
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Just minutes from Dalkeith and Gorebridge, Vogrie Country Park is a
+          classic Midlothian woodland day out—combining 11 miles of muddy riverside
+          paths, an expansive forest play park, and a miniature railway.
+        </p>
+      </header>
+
+      <!-- Quick Logistics Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">Park Logistics at a Glance</h2>
+        <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 text-sm">
+          <div>
+            <strong class="text-foreground">Location:</strong> Near Gorebridge, Midlothian (approx. 10 mins from Dalkeith)
+          </div>
+          <div>
+            <strong class="text-foreground">Terrain:</strong> Gravel estate tracks, wooden boardwalks, and muddy woodland trails
+          </div>
+          <div>
+            <strong class="text-foreground">Best For:</strong> Forest play, puddle jumping, buggy walks, and miniature train rides
+          </div>
+          <div>
+            <strong class="text-foreground">Facilities:</strong> Paid parking, toilets, baby changing, and the Cedar Tree Café
+          </div>
+        </div>
+      </div>
+
+      <!-- Trail & Playground Highlights -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">What to Explore</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            trailHighlights.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <h3 class="text-lg font-bold">{item.title}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Parent Survival Tips -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Parent Survival Tips for Vogrie</h2>
+        <div class="mt-6 space-y-4">
+          {
+            parentTips.map((tip, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{tip.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {tip.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Recommended Kit for This Adventure -->
+      <div class="bg-muted/50 border-border mb-12 rounded-xl border p-6 sm:p-8">
+        <h2 class="text-lg font-bold">Recommended Kit for Vogrie Days</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Between damp playground slides and muddy paths along the Tyne Water, make sure you pack:
+        </p>
+        <ul class="mt-4 space-y-2 text-sm">
+          <li>
+            &rarr; <a href="/kit-lists/rainy-day-woodland" class="text-accent font-medium hover:underline">Rainy Day &amp; Woodland Play Kit List</a> (PU suits, wellies, and dry bags for muddy clothes).
+          </li>
+          <li>
+            &rarr; <a href="/gear-explained/puddle-suits-vs-dungarees" class="text-accent font-medium hover:underline">Waterproof Dungarees</a> (essential for fast toilet trips back to the house café).
+          </li>
+        </ul>
+      </div>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">More Midlothian &amp; Scottish Adventures</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Compare another nearby woodland &amp; playground hub:{" "}
+            <a
+              href="/adventures/scotland/dalkeith-country-park"
+              class="text-accent font-medium hover:underline"
+            >
+              Dalkeith Country Park Guide
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Ready for open hills? Check out the{" "}
+            <a
+              href="/adventures/scotland/pentland-hills"
+              class="text-accent font-medium hover:underline"
+            >
+              Pentland Hills Family Walk Guide
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

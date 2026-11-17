@@ -1,0 +1,191 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const techBreakdown = [
+  {
+    category: "Rotational Impact Protection",
+    name: "MIPS (Multi-Directional Impact Protection System)",
+    notes:
+      "Recognized by the iconic yellow low-friction inner slip-plane liner. During an angled crash (the most common type on bikes and ski slopes), MIPS allows the helmet to slide slightly relative to the head, absorbing rotational violent twisting forces that would otherwise transmit directly to the brain."
+  },
+  {
+    category: "High-Speed & Motorized Impact",
+    name: "E-Bike Rated Helmets (NTA 8776 Standard)",
+    notes:
+      "Standard cycle helmets (EN 1078) are tested for impacts up to 12.1 mph. Because e-bikes maintain higher speeds on climbs and descents, NTA 8776 certified helmets cover a larger area of the head (especially the temples and rear base of the skull) and are tested for higher-speed impact forces."
+  },
+  {
+    category: "Dual-Season & Multi-Impact Construction",
+    name: "Hard-Shell vs. In-Mold Construction",
+    notes:
+      "In-mold helmets fuse an outer polycarbonate shell with EPS foam for ultra-lightweight performance (ideal for cycling and touring), while hard-shell ski and snowboard helmets use a tough ABS exterior that withstands knocks in boot bags, ski racks, and repetitive minor impacts."
+  },
+  {
+    category: "Retention & Dial-Fit Systems",
+    name: "Micro-Adjust Dials & Harness Placement",
+    notes:
+      "A secure retention dial at the nape of the neck prevents the helmet from sliding backward during a forward fall. For kids, ensure the chin strap allows no more than two fingers of slack beneath the jaw."
+  }
+];
+
+const safetyChecklist = [
+  {
+    title: "Never Buy a Secondhand Helmet of Unknown History",
+    notes:
+      "Even if a used ski or cycle helmet looks pristine on the outside, microscopic EPS foam fractures from an unrecorded drop or crash compromise its ability to absorb a second impact. Always buy new or from a trusted family member."
+  },
+  {
+    title: "Replace Immediately After Any Significant Impact",
+    notes:
+      "If a child takes a hard fall on their bike or ski slope and hits their helmet against rock, ice, or tarmac, the internal foam crushes to protect the skull. Retire and replace the helmet immediately, even if the exterior shell appears undamaged."
+    },
+  {
+    title: "Match the Standard to the Activity",
+    notes:
+      "Ski helmets are certified to EN 1077 / ASTM F2040 (engineered for cold temperatures and vertical impacts against snow/ice), whereas cycle helmets are certified to EN 1078 or NTA 8776. Do not let kids wear bicycle helmets for downhill skiing or snowboarding."
+  }
+];
+---
+
+<Layout
+  title="Helmet Technology Explained: MIPS, E-Bike Ratings & Ski Safety | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Gear Explained
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Helmet Technology &amp; Safety
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Helmet Technology Explained: MIPS, E-Bike Ratings &amp; Ski Safety Standards
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Not all helmets are built the same. From yellow MIPS slip-planes that
+          combat rotational brain trauma to NTA 8776 e-bike standards and cold-weather
+          ski certifications, here is what safety acronyms actually mean for your
+          family's gear choices.
+        </p>
+      </header>
+
+      <!-- Golden Rule Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">Why Rotational Protection (MIPS) Matters</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Traditional helmets excel at straight-on linear impacts. However,
+          most real-world bicycle falls and ski crashes involve angular impacts
+          that twist the head. Low-friction liners like <strong>MIPS</strong>{" "}
+          absorb and redirect those rotational forces away from the brain,
+          significantly reducing concussion risks.
+        </p>
+      </div>
+
+      <!-- Tech Breakdown Grid -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Key Helmet Technologies &amp; Standards</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            techBreakdown.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Safety Rules & Replacement Checklist -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Parent Safety &amp; Replacement Rules</h2>
+        <div class="mt-6 space-y-4">
+          {
+            safetyChecklist.map((rule, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{rule.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {rule.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Kit Lists &amp; Gear Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Review essential ski helmet and goggle requirements:{" "}
+            <a
+              href="/kit-lists/skiing-and-snowboarding"
+              class="text-accent font-medium hover:underline"
+            >
+              Family Skiing &amp; Snowboarding Kit List
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Check bicycle helmet fits and high-vis accessories:{" "}
+            <a
+              href="/kit-lists/cycling-with-kids"
+              class="text-accent font-medium hover:underline"
+            >
+              Cycling &amp; Mountain Biking With Kids Kit List
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Protect smaller extremities with under-helmet merino layers:{" "}
+            <a
+              href="/gear-explained/vital-accessories-extremities"
+              class="text-accent font-medium hover:underline"
+            >
+              Vital Accessories Explained
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
