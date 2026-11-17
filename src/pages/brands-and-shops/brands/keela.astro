@@ -1,0 +1,198 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const standouts = [
+  {
+    category: "Waterproof Shells",
+    name: "Kids' Saxon & Munro Waterproof Jackets",
+    notes:
+      "Built using Keela's proprietary System Dual Protection (SDP) or high-spec breathable membranes, engineered in Fife to handle driving Scottish rain and coastal gales without wetting out."
+  },
+  {
+    category: "Waterproof Over-Trousers",
+    name: "Kids' Rainlife & Talus Overtrousers",
+    notes:
+      "Tough, tear-resistant outer trousers with articulated knees and ankle zips that pull easily over muddy walking boots or wellies."
+  },
+  {
+    category: "Fleece & Thermal Mid-Layers",
+    name: "Kids' Scuffers & Microfleece Pullovers",
+    notes:
+      "Hard-wearing, quick-drying fleece layers designed to zip or layer cleanly beneath Keela outer shells for wet winter hill walks."
+  },
+  {
+    category: "Adult Matching Mountain Kit",
+    name: "Munro, Kintyre & Belay Jackets",
+    notes:
+      "Trusted by Scottish Mountain Rescue teams—ideal for parents who want bombproof, repairable wet-weather gear alongside their kids."
+  }
+];
+
+const buyingTips = [
+  {
+    title: "Engineered in Glenrothes for Real Scottish Weather",
+    notes:
+      "Unlike fashion-led high-street jackets tested in mild drizzle, Keela designs and tests its fabrics in Fife specifically for horizontal rain, high humidity, and steep hill winds."
+  },
+  {
+    title: "In-House UK Repairs & Reproofing Service",
+    notes:
+      "Keela operates a full repair workshop at its Scottish headquarters. Torn cuffs, broken zips, or worn seam tape can be professionally fixed for a fraction of the cost of a new jacket."
+  },
+  {
+    title: "Check the Glenrothes Factory Outlet",
+    notes:
+      "If you are in Central Scotland, Keela's factory shop in Glenrothes (Fife) regularly stocks end-of-line kids' and adults' waterproofs, samples, and seconds at steep discounts."
+  }
+];
+---
+
+<Layout
+  title="Keela Brand Guide: Scottish Performance Waterproofs for Kids & Families | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Brand Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Brand Directory
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Scottish Mountain Waterproofs
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Keela: Homegrown Scottish Waterproofs Built for Horizontal Rain
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Designed in Glenrothes, Fife, and worn by mountain rescue teams across
+          the UK, Keela builds serious wet-weather gear without the alpine
+          luxury price tag. Here is why their kids' shells and overtrousers are
+          a staple for Scottish hill walks and wet school runs.
+        </p>
+      </header>
+
+      <!-- Quick Brand Specs Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">Brand Snapshot</h2>
+        <div class="mt-4 grid grid-cols-1 gap-4 text-sm sm:grid-cols-2">
+          <div>
+            <strong class="text-foreground">Origin:</strong> Glenrothes, Fife, Scotland
+          </div>
+          <div>
+            <strong class="text-foreground">Core Strength:</strong> Breathable waterproof shells, overtrousers, and durable fleeces
+          </div>
+          <div>
+            <strong class="text-foreground">Best Known For:</strong> System Dual Protection (SDP) anti-condensation technology and Mountain Rescue heritage
+          </div>
+          <div>
+            <strong class="text-foreground">Price Tier:</strong> Mid-range (exceptional durability-to-price ratio)
+          </div>
+        </div>
+      </div>
+
+      <!-- Standout Gear Grid -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Standout Kit Worth Knowing</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            standouts.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Practical Buying & Care Tips -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Parent &amp; Buyer Notes</h2>
+        <div class="mt-6 space-y-4">
+          {
+            buyingTips.map((tip, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{tip.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {tip.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Gear Guides &amp; Adventures</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Understand hydrostatic head and breathability ratings:{" "}
+            <a
+              href="/gear-explained/waterproof-ratings-explained"
+              class="text-accent font-medium hover:underline"
+            >
+              Waterproof Ratings Explained
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Put your waterproofs to the test on exposed Scottish ridges:{" "}
+            <a
+              href="/adventures/scotland/pentland-hills"
+              class="text-accent font-medium hover:underline"
+            >
+              Pentland Hills Family Walk Guide
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Where to buy pre-loved Scottish and Nordic shells:{" "}
+            <a
+              href="/brands-and-shops/shops/secondhand-gear"
+              class="text-accent font-medium hover:underline"
+            >
+              Secondhand Marketplaces Guide
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

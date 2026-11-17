@@ -1,0 +1,189 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const platforms = [
+  {
+    category: "Best for Everyday Bundles & Quick Deals",
+    name: "Vinted UK",
+    notes:
+      "The fastest way to find pre-loved Reima, Didriksons, Spotty Otter, and Frugi puddle suits. Saved searches let you jump on newly listed winter bundles before they sell."
+  },
+  {
+    category: "Best for Specialist & Rare Alpine Kit",
+    name: "eBay UK",
+    notes:
+      "Ideal for tracking down specific kids' ski jackets, Patagonia fleeces, Keela shells, and walking boots using exact model names and size filters."
+  },
+  {
+    category: "Best for Certified Brand Resale",
+    name: "Official Brand Trade-In Schemes (PO.P Second Hand & Patagonia Worn Wear)",
+    notes:
+      "Polarn O. Pyret UK and Patagonia both run official pre-loved platforms where garments are checked, graded, and backed by brand quality standards."
+  },
+  {
+    category: "Best for Zero-Postage Local Pickups",
+    name: "Local Outdoor Kids' Facebook Groups & Marketplace",
+    notes:
+      "Regional outdoor family buy/sell groups (such as Scottish outdoor kids' gear swaps) let you inspect waterproof seams in person and save on shipping."
+  }
+];
+
+const inspectionChecklist = [
+  {
+    title: "Ask for Close-Ups of Knees, Cuffs & Taped Seams",
+    notes:
+      "On waterproof dungarees and puddle suits, check for worn-through knee patches, peeling internal seam tape, or snapped underfoot elastic stirrups before buying."
+  },
+  {
+    title: "Never Use Fabric Softener on Secondhand Waterproofs",
+    notes:
+      "When freshening up pre-loved shells, wash with a technical cleaner (like Nikwax Tech Wash) and reapply DWR spray if water no longer beads on the outer fabric."
+  },
+  {
+    title: "Buy Premium Brands Used Instead of Cheap Brands New",
+    notes:
+      "A £20 secondhand Didriksons or Polarn O. Pyret shell with 10,000mm waterproofing will keep a child drier—and hold its resale value when outgrown—far better than a brand-new £25 supermarket raincoat."
+  }
+];
+---
+
+<Layout
+  title="Secondhand Outdoor Gear for Kids: Vinted, eBay & Brand Resale Guide | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Shop Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Shops &amp; Retailers
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Pre-Loved &amp; Circular Kit
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Secondhand Marketplaces: How to Buy &amp; Resell Pre-Loved Kids' Outdoor Gear
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Children outgrow boots and waterproofs every six to twelve months—long
+          before quality technical fabrics wear out. Buying secondhand lets you
+          kit kids out in top-tier Nordic and alpine brands for high-street prices.
+        </p>
+      </header>
+
+      <!-- Quick Strategy Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">The Circular Kit Strategy</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Technical kids' brands like Reima, Polarn O. Pyret, Patagonia, and
+          Spotty Otter hold 40–60% of their value on resale platforms. If you buy
+          a £30 secondhand shell, use it for a winter, and resell it for £22,
+          your real cost for top-level weather protection is less than £10.
+        </p>
+      </div>
+
+      <!-- Platforms Grid -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Where to Hunt for Pre-Loved Gear</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            platforms.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Inspection & Reproofing Tips -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Secondhand Buying &amp; Reproofing Checklist</h2>
+        <div class="mt-6 space-y-4">
+          {
+            inspectionChecklist.map((tip, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{tip.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {tip.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Best Brands to Search For Secondhand</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Heavy-duty Scottish mountain shells:{" "}
+            <a
+              href="/brands-and-shops/brands/keela"
+              class="text-accent font-medium hover:underline"
+            >
+              Keela Brand Guide
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Swedish 3-child durability waterproofs:{" "}
+            <a
+              href="/brands-and-shops/brands/polarn-o-pyret"
+              class="text-accent font-medium hover:underline"
+            >
+              Polarn O. Pyret Brand Guide
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Heirloom-grade recycled fleece and down:{" "}
+            <a
+              href="/brands-and-shops/brands/patagonia"
+              class="text-accent font-medium hover:underline"
+            >
+              Patagonia Kids Brand Guide
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

@@ -7,47 +7,113 @@ import Footer from "@/components/Footer.astro";
 const featuredTiles = [
   {
     title: "Decathlon for Families",
-    description: "Budget-friendly technical base layers, fleece, and waterproofs that hold up to daily nursery wear.",
+    description:
+      "Budget-friendly technical base layers, fleece, and waterproofs that hold up to daily nursery wear.",
     href: "/brands-and-shops/shops/decathlon",
     badge: "Top Shop Pick"
   },
   {
     title: "SportPursuit Flash Sales",
-    description: "How to score 30% to 60% off high-end kids' and adult outdoor gear through private member sales.",
+    description:
+      "How to score 30% to 60% off high-end kids' and adult outdoor gear through private member sales.",
     href: "/brands-and-shops/shops/sport-pursuit",
     badge: "Best Discounts"
   },
   {
     title: "Reima vs. Didriksons",
-    description: "A head-to-head comparison of top Nordic outdoor brands for waterproof durability and hand-me-down quality.",
-    href: "/brands-and-shops/brands/reima-vs-didriksons", // Example upcoming brand guide
-    badge: "Brand Guide"
-  },
-  {
-    name: "Isobaa",
-    origin: "United Kingdom (Oxfordshire)",
-    category: "Merino Base Layers & Accessories",
-    badge: "Merino Specialists",
     description:
-      "UK-designed, superfine 18.5-micron merino wool base layers, neck tubes, and beanies built for moisture regulation, natural odor resistance, and zero-itch comfort.",
-    href: "/brands-and-shops/brands/isobaa"
-  },
+      "A head-to-head comparison of top Nordic outdoor brands for waterproof durability and hand-me-down quality.",
+    href: "/brands-and-shops/brands/reima-vs-didriksons",
+    badge: "Brand Guide"
+  }
 ];
 
 // Brands Section Links
 const brandLinks = [
-  { name: "Reima", description: "Technical Nordic outerwear built for active play.", href: "/brands-and-shops/brands/reima" },
-  { name: "Didriksons", description: "Renowned for waterproof dungarees and grow-with-me cuffs.", href: "/brands-and-shops/brands/didriksons" },
-  { name: "Spotty Otter", description: "Heavy-duty forest school gear designed for real British and wet-climate weather.", href: "/brands-and-shops/brands/spotty-otter" },
-  { name: "Keela", description: "Homegrown performance waterproofs that handle horizontal rain effortlessly.", href: "/brands-and-shops/brands/keela" }
+  {
+    name: "Reima",
+    description: "Technical Nordic outerwear built for active play.",
+    href: "/brands-and-shops/brands/reima"
+  },
+  {
+    name: "Didriksons",
+    description:
+      "Renowned for waterproof dungarees and grow-with-me cuffs.",
+    href: "/brands-and-shops/brands/didriksons"
+  },
+  {
+    name: "Polarn O. Pyret",
+    description:
+      "Swedish heritage brand famous for 10,000mm+ waterproof shells, fleece-lined layers, and hand-me-down longevity.",
+    href: "/brands-and-shops/brands/polarn-o-pyret"
+  },
+  {
+    name: "Patagonia",
+    description:
+      "Heirloom-grade recycled fleece, down jackets, and alpine shells backed by the Ironclad Guarantee.",
+    href: "/brands-and-shops/brands/patagonia"
+  },
+  {
+    name: "Berghaus",
+    description:
+      "British mountain heritage waterproofs and Hydroshell jackets built for wet UK hills.",
+    href: "/brands-and-shops/brands/berghaus"
+  },
+  {
+    name: "Frugi",
+    description:
+      "Bright, playful organic cotton layers and recycled-bottle puddle suits built for younger kids.",
+    href: "/brands-and-shops/brands/frugi"
+  },
+  {
+    name: "Spotty Otter",
+    description:
+      "Heavy-duty forest school gear designed for real British and wet-climate weather.",
+    href: "/brands-and-shops/brands/spotty-otter"
+  },
+  {
+    name: "Keela",
+    description:
+      "Homegrown performance waterproofs that handle horizontal rain effortlessly.",
+    href: "/brands-and-shops/brands/keela"
+  },
+  {
+    name: "Isobaa",
+    description:
+      "UK-designed superfine 18.5-micron merino wool base layers, neck buffs, and beanies.",
+    href: "/brands-and-shops/brands/isobaa"
+  }
 ];
 
 // Shops Section Links
 const shopLinks = [
-  { name: "Decathlon", description: "Unbeatable value for children's outdoor layers and boots.", href: "/brands-and-shops/shops/decathlon" },
-  { name: "SportPursuit", description: "Members-only flash sales on top outdoor brands.", href: "/brands-and-shops/shops/sport-pursuit" },
-  { name: "Little Adventure Shop", description: "One-stop UK specialist for forest school and Nordic kit.", href: "/brands-and-shops/shops/little-adventure-shop" },
-  { name: "Secondhand Marketplaces", description: "Vinted, eBay, and official brand resale platforms for pre-loved gear.", href: "/brands-and-shops/shops/secondhand-gear" }
+  {
+    name: "Decathlon",
+    description: "Unbeatable value for children's outdoor layers and boots.",
+    href: "/brands-and-shops/shops/decathlon"
+  },
+  {
+    name: "SportPursuit",
+    description: "Members-only flash sales on top outdoor brands.",
+    href: "/brands-and-shops/shops/sport-pursuit"
+  },
+  {
+    name: "Little Adventure Shop",
+    description: "One-stop UK specialist for forest school and Nordic kit.",
+    href: "/brands-and-shops/shops/little-adventure-shop"
+  },
+  {
+    name: "Mountain Warehouse",
+    description:
+      "Accessible high-street and retail-park staple for kids' puddle suits, snow boots, and seasonal bundle deals.",
+    href: "/brands-and-shops/shops/mountain-warehouse"
+  },
+  {
+    name: "Secondhand Marketplaces",
+    description:
+      "Vinted, eBay, and official brand resale platforms for pre-loved gear.",
+    href: "/brands-and-shops/shops/secondhand-gear"
+  }
 ];
 ---
 
@@ -61,7 +127,11 @@ const shopLinks = [
         Brands &amp; Shops Directory
       </h1>
       <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
-        Finding genuine technical kids' outdoor gear isn't always easy—high street "waterproofs" often soak through after twenty minutes in wet grass, while specialist Scandinavian brands can be tricky to track down. Here, we test and review the brands worth investing in, and point you to the trusted retailers and outlets we actually use.
+        Finding genuine technical kids' outdoor gear isn't always easy—high
+        street "waterproofs" often soak through after twenty minutes in wet
+        grass, while specialist Scandinavian brands can be tricky to track down.
+        Here, we test and review the brands worth investing in, and point you
+        to the trusted retailers and outlets we actually use.
       </p>
     </div>
 
@@ -69,26 +139,28 @@ const shopLinks = [
     <section class="mb-16">
       <h2 class="mb-6 text-2xl font-bold">Featured Guides &amp; Retailers</h2>
       <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
-        {featuredTiles.map((tile) => (
-          <a
-            href={tile.href}
-            class="group bg-card text-card-foreground border-border relative flex flex-col justify-between overflow-hidden rounded-xl border p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
-          >
-            <div>
-              {tile.badge && (
-                <span class="bg-accent text-accent-foreground mb-4 inline-block rounded-full px-3 py-1 text-xs font-semibold shadow-sm">
-                  {tile.badge}
-                </span>
-              )}
-              <h3 class="text-xl font-semibold transition-colors group-hover:text-accent">
-                {tile.title} &rarr;
-              </h3>
-              <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
-                {tile.description}
-              </p>
-            </div>
-          </a>
-        ))}
+        {
+          featuredTiles.map((tile) => (
+            <a
+              href={tile.href}
+              class="group bg-card text-card-foreground border-border relative flex flex-col justify-between overflow-hidden rounded-xl border p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+            >
+              <div>
+                {tile.badge && (
+                  <span class="bg-accent text-accent-foreground mb-4 inline-block rounded-full px-3 py-1 text-xs font-semibold shadow-sm">
+                    {tile.badge}
+                  </span>
+                )}
+                <h3 class="group-hover:text-accent text-xl font-semibold transition-colors">
+                  {tile.title} &rarr;
+                </h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {tile.description}
+                </p>
+              </div>
+            </a>
+          ))
+        }
       </div>
     </section>
 
@@ -96,19 +168,27 @@ const shopLinks = [
     <section class="mb-16">
       <div class="mb-6 flex items-baseline justify-between">
         <h2 class="text-2xl font-bold">Brands We Trust</h2>
-        <span class="text-muted-foreground text-sm">Tested for durability &amp; wet weather</span>
+        <span class="text-muted-foreground text-sm">
+          Tested for durability &amp; wet weather
+        </span>
       </div>
 
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {brandLinks.map((brand) => (
-          <a
-            href={brand.href}
-            class="border-border bg-card/50 hover:border-accent group rounded-xl border p-5 transition-all"
-          >
-            <h3 class="font-bold group-hover:text-accent">{brand.name} &rarr;</h3>
-            <p class="text-muted-foreground mt-2 text-xs leading-relaxed">{brand.description}</p>
-          </a>
-        ))}
+        {
+          brandLinks.map((brand) => (
+            <a
+              href={brand.href}
+              class="border-border bg-card/50 hover:border-accent group rounded-xl border p-5 transition-all"
+            >
+              <h3 class="group-hover:text-accent font-bold">
+                {brand.name} &rarr;
+              </h3>
+              <p class="text-muted-foreground mt-2 text-xs leading-relaxed">
+                {brand.description}
+              </p>
+            </a>
+          ))
+        }
       </div>
     </section>
 
@@ -116,26 +196,40 @@ const shopLinks = [
     <section class="mb-12">
       <div class="mb-6 flex items-baseline justify-between">
         <h2 class="text-2xl font-bold">Shops &amp; Retailers</h2>
-        <span class="text-muted-foreground text-sm">Where to buy new and pre-loved</span>
+        <span class="text-muted-foreground text-sm">
+          Where to buy new and pre-loved
+        </span>
       </div>
 
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {shopLinks.map((shop) => (
-          <a
-            href={shop.href}
-            class="border-border bg-card/50 hover:border-accent group rounded-xl border p-5 transition-all"
-          >
-            <h3 class="font-bold group-hover:text-accent">{shop.name} &rarr;</h3>
-            <p class="text-muted-foreground mt-2 text-xs leading-relaxed">{shop.description}</p>
-          </a>
-        ))}
+        {
+          shopLinks.map((shop) => (
+            <a
+              href={shop.href}
+              class="border-border bg-card/50 hover:border-accent group rounded-xl border p-5 transition-all"
+            >
+              <h3 class="group-hover:text-accent font-bold">
+                {shop.name} &rarr;
+              </h3>
+              <p class="text-muted-foreground mt-2 text-xs leading-relaxed">
+                {shop.description}
+              </p>
+            </a>
+          ))
+        }
       </div>
     </section>
 
     <!-- Transparency Note Footer -->
-    <div class="bg-muted/40 border-border rounded-xl border p-6 text-center text-xs text-muted-foreground">
+    <div
+      class="bg-muted/40 border-border text-muted-foreground rounded-xl border p-6 text-center text-xs"
+    >
       <p>
-        <em>Transparency note: Some retailer links on this site are affiliate links. If you click through and buy something, we may earn a small commission at no extra cost to you.</em>
+        <em>
+          Transparency note: Some retailer links on this site are affiliate
+          links. If you click through and buy something, we may earn a small
+          commission at no extra cost to you.
+        </em>
       </p>
     </div>
   </main>
