@@ -4,41 +4,44 @@ import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
 import Breadcrumb from "@/components/Breadcrumb.astro";
 
+---
 const adventures = [
   {
     title: "Dalkeith Country Park: Fort Douglas & River Esk",
     region: "Scotland",
     activity: "Woodland & Playgrounds",
-    badge: "Playground & Woodland",
     terrain: "Gravel Paths & Riverside Mud",
-    description:
-      "Fort Douglas adventure playground, buggy-friendly riverside walks, and easy trail exploring in Midlothian.",
+    description: "Fort Douglas adventure playground, buggy-friendly riverside walks, and easy trail exploring in Midlothian.",
     href: "/adventures/scotland/dalkeith-country-park"
+  },
+  {
+    title: "Vogrie Country Park: Treetop Trails, Miniature Railway & Woodland Play",
+    region: "Scotland",
+    activity: "Woodland & Playgrounds",
+    terrain: "Woodland Trails, Boardwalks & Open Lawns",
+    description: "11 miles of woodland walks, the giant adventure play park, a miniature railway, and muddy burn-side trails near Gorebridge.",
+    href: "/adventures/scotland/vogrie-country-park"
   },
   {
     title: "Pentland Hills Regional Park: Reservoirs & Ridge Paths",
     region: "Scotland",
     activity: "Hill Walking",
-    badge: "Hill Walking & Reservoirs",
     terrain: "Crushed Gravel & Open Moorland",
-    description:
-      "Flat, buggy-friendly reservoir circuits and sweeping foothill tracks on Edinburgh's doorstep.",
+    description: "Flat, buggy-friendly reservoir circuits and sweeping foothill tracks on Edinburgh's doorstep.",
     href: "/adventures/scotland/pentland-hills"
   },
   {
     title: "Megève Family Skiing: Slopes & Village Trails",
     region: "France",
     activity: "Skiing & Snow",
-    badge: "Alpine Skiing & Village",
     terrain: "Piste Snow & Alpine Slopes",
-    description:
-      "Gentle nursery slopes, tree-lined beginner runs, and medieval village charm in the French Alps.",
+    description: "Gentle nursery slopes, tree-lined beginner runs, and medieval village charm in the French Alps.",
     href: "/adventures/france/megeve-skiing"
   }
 ];
 
-const regions = ["All", ...new Set(adventures.map((a) => a.region))];
-const activities = ["All", ...new Set(adventures.map((a) => a.activity))];
+const regions = ["All", "Scotland", "France"];
+const activities = ["All", "Woodland & Playgrounds", "Hill Walking", "Skiing & Snow"];
 ---
 
 <Layout
