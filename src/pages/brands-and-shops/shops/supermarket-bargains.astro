@@ -1,0 +1,185 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const middleAisleTips = [
+  {
+    title: "Timing the Specialbuys & Middle Aisle Drops",
+    notes:
+      "Aldi Specialbuys and Lidl Middle Isle (Often More) events typically drop twice a week (usually Thursdays and Sundays). Outdoor, camping, and children's ski/hiking wear weeks sell out within hours on opening morning—check online previews a week in advance."
+  },
+  {
+    title: "Quality vs. Price Trade-Offs on Technical Gear",
+    notes:
+      "Supermarket base layers, merino socks, kids' puddle suits, and ski thermals offer exceptional value for money. For high-wear technical gear like waterproof membranes or safety-critical items like helmets, check ratings closely against dedicated outdoor brands."
+  },
+  {
+    title: "Parent Community Tracking & Local Stock",
+    notes:
+      "Because stock varies wildly between branches (and regional hubs like Edinburgh/Midlothian stores differ from rural locations), local parent Facebook groups and online deal trackers are the best way to track when kids' waterproof weeks land."
+  }
+];
+
+const gearHighlights = [
+  {
+    category: "Kids' Waterproofs & Puddle Suits",
+    item: "Cracking value for nursery and muddy park days",
+    notes:
+      "Aldi and Lidl seasonal outerwear (like taped-seam puddle suits and fleece-lined waterproof trousers) provide brilliant backup gear for messy forest school sessions without worrying about expensive kit getting torn on brambles."
+  },
+  {
+    category: "Base Layers & Merino Socks",
+    item: "Budget-friendly winter warmth",
+    notes:
+      "Whenever winter thermal weeks appear, stock up on their merino-blend socks and synthetic base layers. They rival outdoor brand entry tiers at a fraction of the cost."
+  },
+  {
+    category: "Camping & Hiking Accessories",
+    item: "Torches, dry bags, mats & camp kitchen spares",
+    notes:
+      "During spring and summer camping events, you can pick up surprisingly durable headtorches, dry sacks, kids' sleeping bags, and picnic mats at unbeatable prices."
+  }
+];
+---
+
+<Layout
+  title="Supermarket Middle Aisle Bargains: Aldi Specialbuys & Lidl Gear Guide | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Shops &amp; Retail Directory
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Supermarket Outdoor Gear
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Supermarket Middle Aisle Bargains: Navigating Aldi Specialbuys &amp; Lidl Outdoor Events
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          You don't need to spend a fortune at specialist alpine stores to kit
+          out kids for muddy walks and winter weather. Here is how to navigate
+          Aldi Specialbuys and Lidl Middle Aisle drops for unbeatable outdoor
+          bargains.
+        </p>
+      </header>
+
+      <!-- Golden Rule Callout Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">The Thursday Morning Rule</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Specialbuys and Middle Aisle outdoor weeks (especially ski wear,
+          camping gear, and walking boots) drop on Thursday mornings. If you
+          want specific sizes in kids' waterproofs or thermal layers, be at
+          the store early—once they are gone, they rarely restock until next
+          year.
+        </p>
+      </div>
+
+      <!-- Gear Highlights Grid -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">What to Look Out For in the Middle Aisle</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {
+            gearHighlights.map((group) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {group.category}
+                </span>
+                <h3 class="mt-1 text-base font-bold">{group.item}</h3>
+                <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+                  {group.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Strategic Tips -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Smart Shopping Strategies for Parents</h2>
+        <div class="mt-6 space-y-4">
+          {
+            middleAisleTips.map((tip, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{tip.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {tip.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Shops &amp; Budget Gear Guides</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Looking for big-brand outdoor gear discounts? Check our{" "}
+            <a
+              href="/brands-and-shops/shops/sport-pursuit"
+              class="text-accent font-medium hover:underline"
+            >
+              SportPursuit Flash Sales Guide
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Compare supermarket puddle suits with technical gear:{" "}
+            <a
+              href="/gear-explained/puddle-suits-vs-dungarees"
+              class="text-accent font-medium hover:underline"
+            >
+              Full Puddle Suits vs. Waterproof Dungarees
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; High-street outdoor equipment and family camping supplies:{" "}
+            <a
+              href="/brands-and-shops/shops/mountain-warehouse"
+              class="text-accent font-medium hover:underline"
+            >
+              Mountain Warehouse Guide
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
