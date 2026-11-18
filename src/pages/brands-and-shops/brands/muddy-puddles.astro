@@ -1,0 +1,200 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import Header from "@/components/Header.astro";
+import Footer from "@/components/Footer.astro";
+import Breadcrumb from "@/components/Breadcrumb.astro";
+
+const flagshipGear = [
+  {
+    category: "All-in-One Waterproofs",
+    name: "Rainy Day & Originals Puddle Suits",
+    specs: "Up to 10,000mm waterproof / 3,000–5,000g breathability",
+    notes:
+      "The staples of UK forest schools and muddy park days. Featuring fully taped seams, elasticated stirrups to anchor over wellies, and generous cuts designed to fit comfortably over fleece layers."
+  },
+  {
+    category: "Insulated Winter Outerwear",
+    name: "Blizzard & Scamp Ski / Snow Suits",
+    specs: "10,000mm waterproof / Fleece-lined / Recycled insulation",
+    notes:
+      "Built for sub-zero Scottish winters and alpine family ski trips. These feature snug storm cuffs, fleece-lined hoods, and high-visibility reflective strips for low-light winter afternoons."
+  },
+  {
+    category: "Waterproof Dungarees",
+    name: "Puddleflex & Originals Waterproof Bibs",
+    specs: "5,000mm–10,000mm waterproof / Adjustable shoulder straps",
+    notes:
+      "A favourite for toddlers and preschoolers who need quick bathroom pitstops without stripping off their upper jacket, while still shielding chests and knees from wet grass and mud slides."
+  },
+  {
+    category: "Footwear & Accessories",
+    name: "Puddlestomper Wellies & Waterproof Mittens",
+    specs: "Natural rubber / Fleece-lined / Long gauntlet cuffs",
+    notes:
+      "High-visibility rubber wellies with grippy cleated soles, paired with extra-long waterproof mittens designed to pull right up over coat sleeves so snow and puddle water can't sneak in."
+  }
+];
+
+const parentTakeaways = [
+  {
+    title: "Built-In Growing Room",
+    notes:
+      "Muddy Puddles cuts their outerwear generously so you can layer thick woollens or fleeces underneath without restricting movement. Check their size guide before sizing up—their standard ages already account for layering."
+  },
+  {
+    title: "Hand-Me-Down Durability & Resale Value",
+    notes:
+      "Because the outer fabrics (especially the Puddleflex and Blizzard ranges) resist bramble snags and knee abrasion well, Muddy Puddles gear holds strong resale value on Vinted and passes easily down through siblings."
+  },
+  {
+    title: "Eco-Credentials & B-Corp Certification",
+    notes:
+      "As a certified UK B-Corp, the brand uses recycled post-consumer plastic bottles for its outer shells and linings, alongside PFC-free water-repellent (Bionic-Finish Eco) coatings."
+  }
+];
+---
+
+<Layout
+  title="Muddy Puddles Brand Guide: Kids' Puddle Suits, Dungarees & Winter Gear | Peaks and Puddles"
+>
+  <Header />
+
+  <main id="main-content" class="mx-auto max-w-6xl px-4 py-12">
+    <div class="mx-auto max-w-4xl">
+      <!-- Automated Breadcrumb & Freshness Badge -->
+      <div class="mb-6 flex flex-wrap items-center justify-between gap-2">
+        <Breadcrumb />
+        <span
+          class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+        >
+          Last checked: November 2026
+        </span>
+      </div>
+
+      <!-- Article Header -->
+      <header class="mb-10">
+        <div class="mb-3 flex flex-wrap items-center gap-2">
+          <span
+            class="bg-accent/15 text-accent rounded-full px-3 py-1 text-xs font-semibold"
+          >
+            Brand Directory
+          </span>
+          <span
+            class="bg-muted text-muted-foreground rounded-full px-3 py-1 text-xs font-medium"
+          >
+            Kids' Waterproofs &amp; Outerwear
+          </span>
+        </div>
+        <h1 class="text-3xl font-bold tracking-tight sm:text-4xl">
+          Muddy Puddles: Technical Kids' Waterproofs Built for UK Forest Nurseries
+        </h1>
+        <p class="text-muted-foreground mt-4 text-lg leading-relaxed">
+          Founded on a Devon farm and now a staple across British forest
+          schools, Muddy Puddles specializes in tough, recycled-fabric
+          waterproofs, puddle suits, and ski wear engineered to keep children
+          warm and dry in relentless rain.
+        </p>
+      </header>
+
+      <!-- Answer-First Summary Box -->
+      <div
+        class="bg-card border-accent mb-12 rounded-xl border-l-4 p-6 shadow-sm sm:p-8"
+      >
+        <h2 class="text-lg font-bold">The Verdict: Why Parents Rate Muddy Puddles</h2>
+        <p class="text-muted-foreground mt-2 text-sm leading-relaxed">
+          Muddy Puddles bridges the gap between basic supermarket rainwear and
+          expensive Scandinavian mountain brands. With <strong>10,000mm
+          hydrostatic head</strong> ratings on their Puddleflex and Blizzard
+          ranges, taped seams, and reinforced knees, their suits withstand daily
+          kneeling in wet mud without soaking through—and reliably survive two
+          or three kids.
+        </p>
+      </div>
+
+      <!-- Flagship Gear Grid -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">Key Ranges &amp; Technical Specs</h2>
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+          {
+            flagshipGear.map((item) => (
+              <div class="border-border bg-card/50 rounded-xl border p-5">
+                <span class="text-accent text-xs font-semibold tracking-wider uppercase">
+                  {item.category}
+                </span>
+                <h3 class="mt-1 text-lg font-bold">{item.name}</h3>
+                <p class="text-foreground/80 mt-1 text-xs font-medium">
+                  {item.specs}
+                </p>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {item.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Parent Buying & Care Notes -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold">What to Know Before Buying</h2>
+        <div class="mt-6 space-y-4">
+          {
+            parentTakeaways.map((tip, index) => (
+              <div class="border-border rounded-xl border p-5">
+                <div class="flex items-center gap-3">
+                  <span class="bg-accent text-accent-foreground flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-bold">
+                    {index + 1}
+                  </span>
+                  <h3 class="font-semibold">{tip.title}</h3>
+                </div>
+                <p class="text-muted-foreground mt-2.5 text-sm leading-relaxed">
+                  {tip.notes}
+                </p>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <!-- Internal Cross-Links -->
+      <aside class="bg-muted/50 border-border rounded-xl border p-6">
+        <h2 class="text-lg font-bold">Related Gear Guides &amp; Where to Buy</h2>
+        <ul class="mt-3 space-y-2 text-sm">
+          <li>
+            &rarr; Deciding between an all-in-one suit or bib trousers? Read{" "}
+            <a
+              href="/gear-explained/puddle-suits-vs-dungarees"
+              class="text-accent font-medium hover:underline"
+            >
+              Full Puddle Suits vs. Waterproof Dungarees
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; How to wash and reproof kids' waterproofs without ruining the
+            taped seams:{" "}
+            <a
+              href="/gear-care/waterproof-care"
+              class="text-accent font-medium hover:underline"
+            >
+              Waterproof Care &amp; Reproofing Guide
+            </a>
+            .
+          </li>
+          <li>
+            &rarr; Finding secondhand Muddy Puddles suits in great condition:{" "}
+            <a
+              href="/brands-and-shops/shops/secondhand-gear"
+              class="text-accent font-medium hover:underline"
+            >
+              Secondhand Outdoor Gear Marketplaces
+            </a>
+            .
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <Footer />
+</Layout>
